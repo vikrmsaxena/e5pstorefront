@@ -16,11 +16,13 @@ export default function NotifyUserPopup() {
   const isValidEmail = validate(email)
 
   const handleModal = () => {
+    console.log(productId)
+    console.log(email)
     const postEmail = async () =>
       await axios.post(
         `${NEXT_API_NOTIFY_ME_ENDPOINT}?email=${email}&productId=${productId}`
       )
-    closeNotifyUser()
+    // closeNotifyUser()
     if (email && isValidEmail) postEmail()
   }
 

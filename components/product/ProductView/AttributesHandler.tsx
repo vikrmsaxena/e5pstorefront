@@ -57,6 +57,7 @@ export default function AttributesHandler({
   const originalAttributes = getAttributesFromSlug()
 
   const getStockPerAttribute = (key: string, variant: string) => {
+    debugger
     let productData = {
       stock: 0,
       productId: '',
@@ -64,19 +65,19 @@ export default function AttributesHandler({
       sellWithoutInventory: false,
       stockCode: '',
     }
-    const slug = `products/${router.query.slug}`
-    variantProducts.find((product: any) => {
-      product.variantAttributes.forEach((attr: any) => {
+    // const slug = `products/${router.query.slug}` //TBD
+    variantProducts.forEach((variantProduct: any) => {
+      variantProduct.variantAttributes.forEach((attr: any) => {
         if (
           key.toLowerCase() === attr.fieldCode.toLowerCase() &&
-          attr.fieldValue === variant &&
-          product.slug === slug
+          attr.fieldValue === variant
+          // variantProduct.slug === slug
         ) {
-          productData.stock = product.currentStock
-          productData.isPreOrderEnabled = product.isPreOrderEnabled
-          productData.sellWithoutInventory = product.sellWithoutInventory
-          productData.productId = product.productId
-          productData.stockCode = product.stockCode
+          productData.stock = variantProduct.currentStock
+          productData.isPreOrderEnabled = variantProduct.isPreOrderEnabled
+          productData.sellWithoutInventory = variantProduct.sellWithoutInventory
+          productData.productId = variantProduct.productId
+          productData.stockCode = variantProduct.stockCode
         }
       })
     })
@@ -98,7 +99,7 @@ export default function AttributesHandler({
               onChange={handleChange}
               setSelectedAttrData={setSelectedAttrData}
               fieldCode={option.fieldCode}
-              productId={product.id}
+              productId={product.recordId}
               generateLink={generateLink}
             />
           </div>
