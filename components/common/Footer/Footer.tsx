@@ -68,10 +68,10 @@ const Footer: FC<Props> = ({ config }) => {
             </div>
             {/* Newsletter section */}
             <div className="mt-12 md:mt-0 md:row-start-2 md:col-start-3 md:col-span-8 lg:row-start-1 lg:col-start-9 lg:col-span-4">
-              <h3 className="text-sm font-medium text-gray-900">
+              <h3 className="text-lg font-semibold text-gray-900">
                 Sign up for our newsletter
               </h3>
-              <p className="mt-6 text-sm text-gray-500">
+              <p className="mt-1 text-sm text-gray-500">
                 The latest deals and savings, sent to your inbox weekly.
               </p>
               <form className="mt-2 flex sm:max-w-md">
@@ -85,10 +85,10 @@ const Footer: FC<Props> = ({ config }) => {
                   required
                   className="appearance-none min-w-0 w-full bg-white border border-gray-300 rounded-md shadow-sm py-2 px-4 text-gray-900 placeholder-gray-500 focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500"
                 />
-                <div className="ml-4 flex-shrink-0">
+                <div className="ml-1 flex-shrink-0">
                   <button
                     type="submit"
-                    className="w-full bg-indigo-600 border border-transparent rounded-md shadow-sm py-2 px-4 flex items-center justify-center text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                    className="w-full bg-indigo-600 border border-transparent rounded-md shadow-sm py-2 px-4 flex items-center justify-center text-white font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
                   >
                     Sign up
                   </button>
@@ -100,7 +100,7 @@ const Footer: FC<Props> = ({ config }) => {
 
         <div className="border-t border-gray-100 py-10 text-center">
           <p className="text-sm text-gray-500">
-            &copy; 2021 Workflow, Inc. All rights reserved.
+            &copy; 2021 BetterCommerce.io | All rights reserved.
           </p>
         </div>
       </div>
