@@ -94,7 +94,7 @@ export default function PriceMatch({
                 {/* <div className="text-gray-900">hello</div>  */}
                 <section className="flex py-10">
                   <div className="w-1/2 bg-gray-50 p-2">
-                    <p className="py-5 text-black font-bold text-justify">
+                    <p className="py-5 text-black font-regular text-left text-sm leading-5">
                       Find it cheaper & we'll match the price plus 15% of the
                       difference! terms apply Like the reasurrance of buying
                       from one of the largest independent retailers in the

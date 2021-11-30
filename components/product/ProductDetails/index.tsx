@@ -64,17 +64,17 @@ export default function ProductDetails({ product }: any) {
     },
   ]
   return (
-    <div className="border-t divide-y divide-gray-200">
+    <div className="border-b divide-y divide-gray-200">
       {detailsConfig.map((detail: any, idx: number) => (
         <Disclosure as="div" key={`${idx}-detail-item`}>
           {({ open }) => (
             <>
               <h3>
-                <Disclosure.Button className="group relative w-full py-6 flex justify-between items-center text-left">
+                <Disclosure.Button className="group relative w-full py-4 flex justify-between items-center text-left hover:bg-gray-50 hover:text-indigo-500">
                   <span
                     className={classNames(
                       open ? 'text-indigo-600' : 'text-gray-900',
-                      'text-sm font-medium'
+                      'text-md font-medium'
                     )}
                   >
                     {detail.title}

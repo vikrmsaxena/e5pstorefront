@@ -337,11 +337,11 @@ export default function ProductView({
 
             {/* Product info */}
             <div className="mt-10 px-4 sm:px-0 sm:mt-16 lg:mt-0">
-              <h1 className="text-3xl font-extrabold tracking-tight text-gray-900">
+              <h1 className="text-3xl font-bold tracking-tight text-gray-900 mb-2">
                 {product.name}
               </h1>
 
-              <p className="text-gray-500 text-md">Ref: {product.stockCode}</p>
+              <p className="text-gray-500 text-sm">Ref: {product.stockCode}</p>
               <div className="mt-3">
                 <h2 className="sr-only">Product information</h2>
                 <p className="text-3xl text-gray-900">
@@ -364,7 +364,7 @@ export default function ProductView({
                         key={rating}
                         className={classNames(
                           product.rating > rating
-                            ? 'text-indigo-500'
+                            ? 'text-yellow-400'
                             : 'text-gray-300',
                           'h-5 w-5 flex-shrink-0'
                         )}
@@ -382,14 +382,14 @@ export default function ProductView({
                 />
               </div>
               <p
-                className="text-gray-900 text-md cursor-pointer hover:underline"
+                className="text-gray-500 text-md cursor-pointer mt-2 hover:underline"
                 onClick={() => showPriceMatchModal(true)}
               >
-                <span className="font-bold">Seen it cheaper?</span>
+                <span className="font-semibold text-gray-900">Seen it cheaper?</span>
                 <span>{''} We'll match the best price</span>
               </p>
 
-              <section aria-labelledby="details-heading" className="mt-12">
+              <section aria-labelledby="details-heading" className="mt-6">
                 <h2 id="details-heading" className="sr-only">
                   Additional details
                 </h2>
@@ -427,7 +427,7 @@ export default function ProductView({
                     <span className="font-bold">Engraving</span>
                   </button>
                 )}
-                <div className="border-t divide-y divide-gray-200 mt-10">
+                <div className="divide-y divide-gray-200 mt-4">
                   <p className="text-gray-900 text-lg">
                     {product.currentStock > 0
                       ? product.deliveryMessage

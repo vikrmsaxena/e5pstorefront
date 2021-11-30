@@ -143,7 +143,7 @@ export default function Filters({
       <div className="max-w-3xl mx-auto px-4 text-center sm:px-6 lg:max-w-7xl lg:px-8">
         <section
           aria-labelledby="filter-heading"
-          className="border-t border-gray-200 py-6"
+          className="border-t border-gray-200 py-0 bg-gray-50"
         >
           <h2 id="filter-heading" className="sr-only">
             Product filters

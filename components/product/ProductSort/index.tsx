@@ -23,7 +23,7 @@ export default function ProductSort({
   return (
     <Menu as="div" className="relative inline-block">
       <div className="flex">
-        <Menu.Button className="group inline-flex justify-center text-sm font-medium text-gray-700 hover:text-gray-900">
+        <Menu.Button className="group inline-flex justify-center text-sm font-medium text-gray-700 hover:text-gray-900 pr-2">
           Sort
           <ChevronDownIcon
             className="flex-shrink-0 -mr-1 ml-1 h-5 w-5 text-gray-400 group-hover:text-gray-500"
@@ -66,7 +66,7 @@ export default function ProductSort({
                             currentOption?.key === option.key
                               ? 'bg-gray-100'
                               : '',
-                            'block px-4 py-2 text-sm'
+                            'block px-4 py-1 text-sm text-left'
                           )}
                         >
                           {option.value}
