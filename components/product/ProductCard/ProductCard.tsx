@@ -205,7 +205,7 @@ const ProductCard: FC<Props> = ({ product }) => {
               </span>
             ) : (
               <Button
-                className="mt-5"
+                className="mt-2 btn btn-sm"
                 action={handleWishList}
                 buttonType="wishlist"
                 colorScheme={WISHLIST_BUTTON_COLOR_SCHEME}
