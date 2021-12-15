@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { CheckCircleIcon } from '@heroicons/react/solid'
 import Button from '@components/ui/IndigoButton'
+import { PAYMENT_TYPES } from '@components/utils/constants'
 
 export default function PaymentMethods({
   paymentData,
@@ -37,7 +38,7 @@ export default function PaymentMethods({
                   />
                 </div>
               ) : null}
-               {activePaymentMethod.id !== item.id ? (
+              {activePaymentMethod.id !== item.id ? (
                 <div>
                   <CheckCircleIcon
                     className="h-5 pr-4 text-left align-left text-gray-200"
@@ -50,7 +51,6 @@ export default function PaymentMethods({
               <h3 className="font-bold">{item.displayName}</h3>
               <p className="text-sm py-2">{item.description}</p>
             </div>
-            
           </li>
         )
       })}

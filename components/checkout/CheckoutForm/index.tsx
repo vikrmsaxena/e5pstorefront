@@ -130,8 +130,8 @@ export default function CheckoutForm({
     const newValues = {
       ...values,
       userId: user.userId,
-      country: state.deliveryMethod.value,
-      countryCode: state.deliveryMethod.code,
+      country: state.deliveryMethod.name,
+      countryCode: state.deliveryMethod.twoLetterIsoCode,
     }
     createAddress(newValues)
       .then((response: any) => {
@@ -155,7 +155,7 @@ export default function CheckoutForm({
   const paymentData = async () => {
     const response = await axios.post(NEXT_PAYMENT_METHODS, {
       currencyCode: cartItems.baseCurrency,
-      countryCode: state.deliveryMethod.code,
+      countryCode: state.deliveryMethod.twoLetterIsoCode,
     })
     return response
   }
@@ -211,13 +211,13 @@ export default function CheckoutForm({
       const data = {
         billingAddress: {
           ...billingInfoClone,
-          country: state.deliveryMethod.value,
-          countryCode: state.deliveryMethod.code,
+          country: state.deliveryMethod.name,
+          countryCode: state.deliveryMethod.twoLetterIsoCode,
         },
         shippingAddress: {
           ...shippingClone,
-          country: state.deliveryMethod.value,
-          countryCode: state.deliveryMethod.code,
+          country: state.deliveryMethod.name,
+          countryCode: state.deliveryMethod.twoLetterIsoCode,
         },
       }
 
@@ -263,13 +263,13 @@ export default function CheckoutForm({
       basket: cartItems,
       billingAddress: {
         ...billingInfoClone,
-        country: state.deliveryMethod.value,
-        countryCode: state.deliveryMethod.code,
+        country: state.deliveryMethod.name,
+        countryCode: state.deliveryMethod.twoLetterIsoCode,
       },
       shippingAddress: {
         ...shippingClone,
-        country: state.deliveryMethod.value,
-        countryCode: state.deliveryMethod.code,
+        country: state.deliveryMethod.name,
+        countryCode: state.deliveryMethod.twoLetterIsoCode,
       },
       selectedShipping: state.shippingMethod,
       selectedPayment: state.selectedPaymentMethod,

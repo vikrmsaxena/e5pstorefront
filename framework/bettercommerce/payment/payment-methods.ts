@@ -7,9 +7,10 @@ interface Props {
 
 export default function getPaymentMethods() {
   return async function handler({ countryCode, currencyCode }: Props) {
+    console.log(countryCode)
     try {
       const response: any = await fetcher({
-        url: `${PAYMENTS_ENDPOINT}/paymentmethods/${countryCode}/${currencyCode}`,
+        url: `${PAYMENTS_ENDPOINT}?country=${countryCode}&currency=${currencyCode}`,
         method: 'get',
         headers: {
           DomainId: process.env.NEXT_PUBLIC_DOMAIN_ID,

@@ -2,7 +2,6 @@ import { Formik, Form, Field } from 'formik'
 import ConfirmedGeneralComponent from './ConfirmedGeneralComponent'
 import { CheckCircleIcon } from '@heroicons/react/solid'
 import { useState } from 'react'
-
 export default function AddressForm({
   initialValues = {},
   onSubmit = () => {},
@@ -96,16 +95,16 @@ export default function AddressForm({
                       <div className="space-y-4 mt-6 sm:flex sm:space-x-4 sm:space-y-0 md:mt-0 justify-end"></div>
                     </div>
                     <div className="flex text-md font-regular flex-wrap =">
-                        <span className="font-semibold pr-1">
-                          {item.firstName + ' ' + item.lastName},
-                        </span>
+                      <span className="font-semibold pr-1">
+                        {item.firstName + ' ' + item.lastName},
+                      </span>
                       <span className="pr-1">{item.address1}, </span>
                       <span className="pr-1">{item.address2}, </span>
                       <span className="pr-1">{item.city}, </span>
                       <span className="pr-1">{item.postCode}, </span>
                       <span className="pr-1">{item.country}, </span>
                       <span className="pr-1">{item.phoneNo}</span>
-                    </div>                    
+                    </div>
                   </div>
                 )
               })}

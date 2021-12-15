@@ -93,7 +93,7 @@ const fetcher = async ({
   const config: any = {
     method: method,
     url: computedUrl.href,
-    headers: { ...headers, ...newConfig },
+    headers: { ...headers },
   }
 
   if (Object.keys(params).length) {
