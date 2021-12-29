@@ -28,7 +28,7 @@ const dataNormalizr = (data: any = []) => {
 }
 
 function BrandsPage({ brands }: any) {
-  console.log(brands)
+  console.log(brands) //display alphabet
   const data = dataNormalizr(brands.results)
   const [normalizedBrands, setNormalizedBrands] = useState(data)
 
