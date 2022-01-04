@@ -125,7 +125,11 @@ export default function ProductView({
     openNotifyUser(product.recordId)
   }
 
-  let content = [{ image: selectedAttrData.image }, ...product.images].filter(
+  let content = [
+    selectedAttrData.image
+      ? { image: selectedAttrData.image }
+      : [...product.images],
+  ].filter(
     (value: any, index: number, self: any) =>
       index === self.findIndex((t: any) => t.image === value.image)
   )
@@ -240,7 +244,6 @@ export default function ProductView({
       return acc
     }, [])
 
-    console.log(computedProducts)
     const asyncHandler = async () => {
       try {
         const newCart = await axios.post(NEXT_BULK_ADD_TO_CART, {
