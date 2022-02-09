@@ -14,6 +14,12 @@ const isBetterCommerce = provider === 'bettercommerce'
 
 module.exports = withCommerceConfig({
   commerce,
+  trailingSlash: true,
+  exportPathMap: function(){
+    return{
+      '/': { page:'/' }
+    }
+  },
   i18n: {
     locales: ['en-US', 'es'],
     defaultLocale: 'en-US',
