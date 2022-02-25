@@ -11,6 +11,7 @@ import ProductSort from '@components/product/ProductSort'
 import { EVENTS_MAP } from '@components/services/analytics/constants'
 import useAnalytics from '@components/services/analytics/useAnalytics'
 import { NextSeo } from 'next-seo'
+import getBrands from '@framework/api/endpoints/catalog/brands'
 import Link from 'next/link'
 
 export const ACTION_TYPES = {
@@ -316,6 +317,46 @@ function BrandDetailPage({
   )
 }
 
+export async function getStaticProps(context: any) {
+  const slugName = Object.keys(context.params)[0]
+  const slug = slugName + '/' + context.params[slugName].join('/')
+  const response = await getBrandBySlug(slug)
+  //const response = await getBrandBySlug(`brands/${context.query.brand.pop()}`)
+  return {
+    props: { query: {}, brandDetails: response.result }, // will be passed to the page component as props
+    revalidate: 60
+  }
+}
+
+
+export async function getStaticPaths() {
+  //console.log("1");
+  const response = await getBrands({})
+  //console.log("3");
+  //console.log(response);
+  return {
+    paths: generateBrands(response?.result?.results),
+    fallback: 'blocking',
+  }
+}
+
+const generateBrands = (brands: any) => {
+  const brandMap: any = []
+  const generateBrand = (brand: any) => {
+    if (brand.link) {
+      brand.link.includes('brands/')
+        ? brandMap.push(`/${brand.link}`)
+        : brandMap.push(`/brands/${brand.link}`)
+    }
+  }
+  //console.log("tstin1");
+  //console.log(brands);
+  brands.forEach((brand: any) => generateBrand(brand))
+  return brandMap
+}
+
+
+/*
 export const getServerSideProps: GetServerSideProps = async (context: any) => {
   const response = await getBrandBySlug(`brands/${context.query.brand.pop()}`)
   debugger
@@ -324,7 +365,7 @@ export const getServerSideProps: GetServerSideProps = async (context: any) => {
     props: { query: context.query, brandDetails: response.result }, // will be passed to the page component as props
   }
 }
-
+*/
 const PAGE_TYPE = PAGE_TYPES['Brand']
 
 export default withDataLayer(BrandDetailPage, PAGE_TYPE)
