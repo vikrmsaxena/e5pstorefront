@@ -82,13 +82,9 @@ function reducer(state: stateInterface, { type, payload }: actionInterface) {
   }
 }
 
-function BrandDetailPage({
-  query,
-  setEntities,
-  recordEvent,
-  brandDetails,
-}: any) {
-  const adaptedQuery = { ...query }
+function BrandDetailPage({ setEntities, recordEvent, brandDetails }: any) {
+  const { query } = useRouter()
+  const adaptedQuery: any = { ...query }
   const { BrandViewed, PageViewed } = EVENTS_MAP.EVENT_TYPES
 
   useAnalytics(BrandViewed, {
@@ -248,11 +244,12 @@ function BrandDetailPage({
   // IMPLEMENT HANDLING FOR NULL OBJECT
   if (brandDetails === null) {
     return (
-      <div className='container mx-auto py-10 text-center relative top-20'>
-        <h4 className='text-3xl font-medium text-gray-400 pb-6'>This is a bad url. please go back to
-        <Link href="/brands">
+      <div className="container mx-auto py-10 text-center relative top-20">
+        <h4 className="text-3xl font-medium text-gray-400 pb-6">
+          This is a bad url. please go back to
+          <Link href="/brands">
             <a className="text-indigo-500 px-3">all brands</a>
-        </Link>
+          </Link>
         </h4>
       </div>
     )
@@ -264,7 +261,7 @@ function BrandDetailPage({
       <main className="pb-24">
         <div className="text-center py-16 px-4 sm:px-6 lg:px-8">
           <h1 className="text-4xl font-extrabold tracking-tight text-gray-900">
-            {state.filters[0]?.Value}
+            {brandDetails.name}
           </h1>
           <h1 className="text-xl mt-2 font-bold tracking-tight text-gray-500">
             {data.products.total} results
@@ -318,16 +315,23 @@ function BrandDetailPage({
 }
 
 export async function getStaticProps(context: any) {
-  const slugName = Object.keys(context.params)[0]
-  const slug = slugName + '/' + context.params[slugName].join('/')
+  /*
+  {
+    params: {brand: ['brand-name']}
+  }
+  */
+
+  // brands/something
+
+  const slugName = 'brands'
+  const slug = slugName + '/' + context.params['brand'].join('/')
   const response = await getBrandBySlug(slug)
   //const response = await getBrandBySlug(`brands/${context.query.brand.pop()}`)
   return {
-    props: { query: {}, brandDetails: response.result }, // will be passed to the page component as props
-    revalidate: 60
+    props: { brandDetails: response.result }, // will be passed to the page component as props
+    revalidate: 60,
   }
 }
-
 
 export async function getStaticPaths() {
   //console.log("1");
@@ -354,7 +358,6 @@ const generateBrands = (brands: any) => {
   brands.forEach((brand: any) => generateBrand(brand))
   return brandMap
 }
-
 
 /*
 export const getServerSideProps: GetServerSideProps = async (context: any) => {

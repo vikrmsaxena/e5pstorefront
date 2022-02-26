@@ -61,6 +61,10 @@ const Navbar: FC<Props> = ({ config, currencies, languages }) => {
     setShowSearchBar,
   } = useUI()
 
+  const hyperlinkHandler = (hyperlink: string) => {
+    return hyperlink[0] === '/' ? hyperlink : `/${hyperlink}`
+  }
+
   const accountDropDownConfigAuthorized: any = [
     {
       href: '/my-account',
@@ -128,7 +132,10 @@ const Navbar: FC<Props> = ({ config, currencies, languages }) => {
                         {({ open }) => (
                           <>
                             {!item.navBlocks.length ? (
-                              <Link href={`/${item.hyperlink}`} passHref>
+                              <Link
+                                href={hyperlinkHandler(item.hyperlink)}
+                                passHref
+                              >
                                 <a
                                   className="relative flex"
                                   href={item.hyperlink}
