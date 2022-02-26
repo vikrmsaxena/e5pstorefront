@@ -91,7 +91,7 @@ const Navbar: FC<Props> = ({ config, currencies, languages }) => {
   if (user.userId) {
     accountDropdownConfig = accountDropDownConfigAuthorized
   }
-console.log(config);
+
   const configAction = (pair: any) => {
     const value: any = Object.values(pair)[0]
     const key = Object.keys(pair)[0]

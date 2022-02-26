@@ -36,8 +36,15 @@ export async function getStaticPaths({ locales }: GetStaticPathsContext) {
   }
 }
 
+  
 function Slug({ data, setEntities, recordEvent, slug }: any) {
   const router = useRouter()
+
+  if (data.product === null) {
+    router.push('/404')
+    return null
+  }
+  
   return router.isFallback ? (
     <h1>{LOADER_LOADING}</h1>
   ) : (
