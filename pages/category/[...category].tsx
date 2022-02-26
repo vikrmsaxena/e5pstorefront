@@ -4,6 +4,7 @@ import { getAllCategories, getCategoryBySlug } from '@framework/category'
 import { getCategoryProducts } from '@framework/api/operations'
 import ProductGrid from '@components/product/Grid/ProductGrid'
 import ProductSort from '@components/product/ProductSort'
+import ProductGridWithFacet from '@components/product/Grid'
 import Link from 'next/link'
 import ProductFilterRight from '@components/product/Filters/filtersRight'
 import { NextSeo } from 'next-seo'
@@ -220,26 +221,39 @@ function CategoryPage({ category, products }: any) {
           </div>
         </div>
 
+        <div className="grid grid-cols-12 mx-auto overflow-hidden sm:max-w-7xl mx-auto">
+        {!!products && (
+                <>
+                  <div className="col-span-3">
+                    <ProductFilterRight
+                      handleFilters={handleFilters}
+                      products={products}
+                      routerFilters={state.filters}
+                    />
+                  </div>
+                  <div className="col-span-9">
+                  <ProductGridWithFacet
+                    products={products}
+                    currentPage={products.currentPage}
+                    handlePageChange={()=>{}}
+                    handleInfiniteScroll={()=>{}}
+                  />
+                </div>
+                </>
+              )}
+            </div>
 
         
-        {!!products && (
+        {/*{!!products && (
           <>
-            {/* <div className="py-5 w-full justify-end flex max-w-3xl mx-auto px-4 text-center sm:px-6 lg:max-w-7xl lg:px-8">
-              <ProductSort
-                routerSortOption={state.sortBy}
-                products={products}
-                action={handleSortBy}
-              />
-            </div> */}
-          
-            <ProductGrid
+             <ProductGrid
               products={products}
               currentPage={products.currentPage}
               handlePageChange={() => {}}
               handleInfiniteScroll={() => {}}
-            />
+            /> 
           </>
-        )}
+        )}*/}
       </main>
       <NextSeo
         title={category.name}
