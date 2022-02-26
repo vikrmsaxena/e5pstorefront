@@ -318,10 +318,10 @@ function BrandDetailPage({
 }
 
 export async function getStaticProps(context: any) {
-  const slugName = Object.keys(context.params)[0]
-  const slug = slugName + '/' + context.params[slugName].join('/')
+  //console.log(context.params);
+  const slugName = 'brands' 
+  const slug = slugName + '/' + context.params.brand.join('/')
   const response = await getBrandBySlug(slug)
-  //const response = await getBrandBySlug(`brands/${context.query.brand.pop()}`)
   return {
     props: { query: {}, brandDetails: response.result }, // will be passed to the page component as props
     revalidate: 60

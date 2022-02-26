@@ -91,7 +91,7 @@ const Navbar: FC<Props> = ({ config, currencies, languages }) => {
   if (user.userId) {
     accountDropdownConfig = accountDropDownConfigAuthorized
   }
-
+console.log(config);
   const configAction = (pair: any) => {
     const value: any = Object.values(pair)[0]
     const key = Object.keys(pair)[0]
@@ -128,7 +128,7 @@ const Navbar: FC<Props> = ({ config, currencies, languages }) => {
                         {({ open }) => (
                           <>
                             {!item.navBlocks.length ? (
-                              <Link href={`/${item.hyperlink}`} passHref>
+                              <Link href={`${item.hyperlink}`} passHref>
                                 <a
                                   className="relative flex"
                                   href={item.hyperlink}
