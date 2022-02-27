@@ -11,7 +11,7 @@
     "prettier-fix": "prettier --write .",
     "find:unused": "npx next-unused",
     "generate": "graphql-codegen",
-     "generate:definitions": "node framework/bigcommerce/scripts/generate-definitions.js"
+    "generate:definitions": "node framework/bigcommerce/scripts/generate-definitions.js"
   },
   "sideEffects": false,
   "license": "MIT",
@@ -32,6 +32,7 @@
     "axios": "^0.22.0",
     "body-scroll-lock": "^3.1.5",
     "classnames": "^2.3.1",
+    "contentful": "^9.1.12",
     "cookie": "^0.4.1",
     "cross-env": "^7.0.3",
     "dotenv": "^14.2.0",
