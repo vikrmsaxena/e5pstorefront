@@ -1,5 +1,7 @@
 import { useEffect, useState } from 'react'
 import axios from 'axios'
+
+//TODO to be removed when not used
 export default function DummyPage() {
   const [data, setData] = useState(null)
   useEffect(() => {
