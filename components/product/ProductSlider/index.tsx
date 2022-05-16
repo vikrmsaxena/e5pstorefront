@@ -104,7 +104,7 @@ const ProductSlider: FC<Props> = ({ config }) => {
                         className="cursor-pointer w-64 inline-flex flex-col text-center lg:w-auto"
                       >
                         <div className="group relative">
-                          <div className="w-full bg-gray-200 rounded-sm overflow-hidden aspect-w-1 aspect-h-1">
+                          <div className="w-full bg-gray-200 rounded-md overflow-hidden aspect-w-1 aspect-h-1">
                             <Image priority
                               src={product?.image || IMG_PLACEHOLDER}
                               alt={product?.name}

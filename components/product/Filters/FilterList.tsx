@@ -114,7 +114,7 @@ const SearchInput = ({ placeholder, handleSearch }: any) => {
         onChange={(e) => handleSearch(e.target.value)}
         autoComplete={BTN_SEARCH}
         placeholder={BTN_SEARCH}
-        className="appearance-none min-w-0 w-full bg-white border border-gray-300 rounded-sm shadow-sm py-1 px-4 text-gray-900 placeholder-gray-500 focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-gray-500"
+        className="appearance-none min-w-0 w-full bg-white border border-gray-300 rounded-md shadow-sm py-1 px-4 text-gray-900 placeholder-gray-500 focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500"
       />
     </>
   )

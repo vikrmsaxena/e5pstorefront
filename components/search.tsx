@@ -70,7 +70,7 @@
 //           {/* Categories */}
 //           <div className="relative inline-block w-full">
 //             <div className="lg:hidden">
-//               <span className="rounded-sm shadow-sm">
+//               <span className="rounded-md shadow-sm">
 //                 <button
 //                   type="button"
 //                   onClick={(e) => handleClick(e, 'categories')}
@@ -98,7 +98,7 @@
 //               </span>
 //             </div>
 //             <div
-//               className={`origin-top-left absolute lg:relative left-0 mt-2 w-full rounded-sm shadow-lg lg:shadow-none z-10 mb-10 lg:block ${
+//               className={`origin-top-left absolute lg:relative left-0 mt-2 w-full rounded-md shadow-lg lg:shadow-none z-10 mb-10 lg:block ${
 //                 activeFilter !== 'categories' || toggleFilter !== true
 //                   ? 'hidden'
 //                   : ''
@@ -168,7 +168,7 @@
 //           {/* Designs */}
 //           <div className="relative inline-block w-full">
 //             <div className="lg:hidden mt-3">
-//               <span className="rounded-sm shadow-sm">
+//               <span className="rounded-md shadow-sm">
 //                 <button
 //                   type="button"
 //                   onClick={(e) => handleClick(e, 'brands')}
@@ -196,7 +196,7 @@
 //               </span>
 //             </div>
 //             <div
-//               className={`origin-top-left absolute lg:relative left-0 mt-2 w-full rounded-sm shadow-lg lg:shadow-none z-10 mb-10 lg:block ${
+//               className={`origin-top-left absolute lg:relative left-0 mt-2 w-full rounded-md shadow-lg lg:shadow-none z-10 mb-10 lg:block ${
 //                 activeFilter !== 'brands' || toggleFilter !== true
 //                   ? 'hidden'
 //                   : ''
@@ -342,7 +342,7 @@
 //         <div className="col-span-8 lg:col-span-2 order-2 lg:order-none">
 //           <div className="relative inline-block w-full">
 //             <div className="lg:hidden">
-//               <span className="rounded-sm shadow-sm">
+//               <span className="rounded-md shadow-sm">
 //                 <button
 //                   type="button"
 //                   onClick={(e) => handleClick(e, 'sort')}
@@ -368,7 +368,7 @@
 //               </span>
 //             </div>
 //             <div
-//               className={`origin-top-left absolute lg:relative left-0 mt-2 w-full rounded-sm shadow-lg lg:shadow-none z-10 mb-10 lg:block ${
+//               className={`origin-top-left absolute lg:relative left-0 mt-2 w-full rounded-md shadow-lg lg:shadow-none z-10 mb-10 lg:block ${
 //                 activeFilter !== 'sort' || toggleFilter !== true ? 'hidden' : ''
 //               }`}
 //             >

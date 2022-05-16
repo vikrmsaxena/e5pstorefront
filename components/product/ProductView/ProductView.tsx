@@ -399,12 +399,12 @@ export default function ProductView({
                   {content?.map((image: any, idx) => (
                     <Tab
                       key={`${idx}-tab`}
-                      className="relative h-24 sm:h-44 bg-white rounded-sm flex items-center justify-center text-sm font-medium uppercase text-gray-900 cursor-pointer hover:bg-gray-50 focus:outline-none focus:ring focus:ring-offset-4 focus:ring-opacity-50"
+                      className="relative h-24 sm:h-44 bg-white rounded-md flex items-center justify-center text-sm font-medium uppercase text-gray-900 cursor-pointer hover:bg-gray-50 focus:outline-none focus:ring focus:ring-offset-4 focus:ring-opacity-50"
                     >
                       {() => (
                         <>
                           <span className="sr-only">{image.name}</span>
-                          <span className="absolute inset-0 rounded-sm overflow-hidden">
+                          <span className="absolute inset-0 rounded-md overflow-hidden">
                             {image.image ? (
                               <div className='image-container'>
                                 <Image
@@ -548,7 +548,7 @@ export default function ProductView({
                             handleWishList()
                           }
                         }}
-                        className="ml-4 py-3 px-3 rounded-sm flex items-center justify-center text-gray-400 hover:bg-gray-100 hover:text-gray-500"
+                        className="ml-4 py-3 px-3 rounded-md flex items-center justify-center text-gray-400 hover:bg-gray-100 hover:text-gray-500"
                       >
                         {isInWishList ? (
                           <span>{ALERT_SUCCESS_WISHLIST_MESSAGE}</span>
@@ -560,7 +560,7 @@ export default function ProductView({
                     </div>
                     {isEngravingAvailable && (
                       <button
-                        className="max-w-xs flex-1 mt-5 bg-gray-400 border border-transparent rounded-sm py-3 px-8 flex items-center justify-center font-medium text-white hover:bg-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-50 focus:ring-gray-500 sm:w-full"
+                        className="max-w-xs flex-1 mt-5 bg-gray-400 border border-transparent rounded-md py-3 px-8 flex items-center justify-center font-medium text-white hover:bg-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-50 focus:ring-gray-500 sm:w-full"
                         onClick={() => showEngravingModal(true)}
                       >
                         <span className="font-bold">{GENERAL_ENGRAVING}</span>

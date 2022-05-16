@@ -42,13 +42,13 @@ const accountDropDownConfigUnauthorized: any = [
     href: '/my-account/login',
     title: GENERAL_LOGIN,
     className:
-      'mt-5 max-w-xs flex-1 bg-gray-300 border font-semibold border-transparent rounded-sm py-3 px-8 flex items-center justify-center font-medium text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-50 focus:ring-gray-500 sm:w-full',
+      'mt-5 max-w-xs flex-1 bg-gray-300 border font-semibold border-transparent rounded-md py-3 px-8 flex items-center justify-center font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-50 focus:ring-indigo-500 sm:w-full',
   },
   {
     href: '/my-account/register',
     title: GENERAL_REGISTER,
     className:
-      'mt-5 max-w-xs flex-1 bg-black border border-transparent rounded-sm op-75 py-3 px-8 flex items-center justify-center font-medium text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-50 focus:ring-gray-500 sm:w-full',
+      'mt-5 max-w-xs flex-1 bg-indigo-600 border border-transparent rounded-md op-75 py-3 px-8 flex items-center justify-center font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-50 focus:ring-indigo-500 sm:w-full',
   },
 ]
 
@@ -151,7 +151,7 @@ const Navbar: FC<Props> = ({ config, currencies, languages }) => {
               <div className="px-4 pt-5 pb-2 flex">
                 <button
                   type="button"
-                  className="-m-2 p-2 rounded-sm inline-flex items-center justify-center text-gray-400"
+                  className="-m-2 p-2 rounded-md inline-flex items-center justify-center text-gray-400"
                   onClick={() => setOpen(false)}
                 >
                   <span className="sr-only">Close menu</span>
@@ -316,7 +316,7 @@ const Navbar: FC<Props> = ({ config, currencies, languages }) => {
               {/* Mobile Menu Icon */}
               <button
                 type="button"
-                className="-ml-2 bg-white p-2 rounded-sm text-gray-400 sm:hidden"
+                className="-ml-2 bg-white p-2 rounded-md text-gray-400 sm:hidden"
                 onClick={() => setOpen(true)}
               >
               <span className="sr-only">Open menu</span>

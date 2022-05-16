@@ -54,7 +54,7 @@ function LookbookPage({ data }: any) {
                   className="w-64 inline-flex flex-col text-center lg:w-auto"
                 >
                   <div className="group relative flex flex-col sm:flex-row justify-between items-center">
-                    <div className="w-full bg-gray-200 rounded-sm overflow-hidden aspect-w-1 aspect-h-1">
+                    <div className="w-full bg-gray-200 rounded-md overflow-hidden aspect-w-1 aspect-h-1">
                       <div className='image-container'>
                         <Image
                           layout='fill'

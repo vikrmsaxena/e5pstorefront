@@ -4,7 +4,7 @@ export default function Image({ name, heading }: any) {
       <h1 className="text-gray-900 text-center font-bold text-4xl py-5 ">
         {heading}
       </h1>
-      <div className="w-full bg-gray-200 rounded-sm overflow-hidden aspect-w-1 aspect-h-1">
+      <div className="w-full bg-gray-200 rounded-md overflow-hidden aspect-w-1 aspect-h-1">
         <img
           src={name}
           alt={name}
