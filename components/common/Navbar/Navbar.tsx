@@ -395,8 +395,8 @@ const Navbar: FC<Props> = ({ config, currencies, languages }) => {
                                   <Popover.Button
                                     className={classNames(
                                       openState == idx
-                                        ? 'border-indigo-600 text-indigo-600'
-                                        : 'border-transparent text-gray-700 hover:text-gray-800',
+                                        ? 'border-gray-900 text-black'
+                                        : 'border-transparent text-gray-600 hover:text-gray-800',
                                       'relative z-10 flex items-center transition-colors py-3 ease-out duration-200 text-lg uppercase font-medium border-b-2 -mb-px pt-px'
                                     )}
                                   >
@@ -408,8 +408,8 @@ const Navbar: FC<Props> = ({ config, currencies, languages }) => {
                               <Popover.Button
                                 className={classNames(
                                   openState == idx
-                                    ? 'border-indigo-600 text-indigo-600'
-                                    : 'border-transparent text-gray-700 hover:text-gray-800',
+                                    ? 'border-gray-900 text-black'
+                                    : 'border-transparent text-gray-600 hover:text-gray-800',
                                   'relative z-10 flex items-center transition-colors py-3 ease-out duration-200 text-sm font-medium border-b-2 -mb-px pt-px'
                                 )}
                               >
