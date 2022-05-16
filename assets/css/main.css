@@ -273,3 +273,7 @@
 .sm\:h-44 {
   height: 11rem !important;
 }
+
+.marquee-container .overlay{
+  --gradient-color: transparent!important;
+}

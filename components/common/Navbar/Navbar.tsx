@@ -16,6 +16,7 @@ import LanguageSwitcher from './LanguageSwitcher'
 import Cookies from 'js-cookie'
 import { MenuIcon, SearchIcon, XIcon } from '@heroicons/react/outline'
 
+
 import {
   BTN_SIGN_OUT,
   GENERAL_LOGIN,
@@ -28,6 +29,7 @@ import {
   SELECT_LANGUAGE,
   GENERAL_ITEM_IN_CART,
 } from '@components/utils/textVariables'
+import Marquee from 'react-fast-marquee'
 
 interface Props {
   config: []
@@ -277,7 +279,7 @@ const Navbar: FC<Props> = ({ config, currencies, languages }) => {
 
       <header className="relative bg-white">
         <div className='bg-black h-10 flex flex-1'>
-          <div className="sm:flex hidden align-right content-right text-right">
+          <div className="flex-1 flex items-center justify-end pr-6">
             <CurrencySwitcher
               config={currencies}
               title={SELECT_CURRENCY}
@@ -290,7 +292,21 @@ const Navbar: FC<Props> = ({ config, currencies, languages }) => {
             />
           </div>          
         </div>
-        <nav aria-label="Top" className="mx-auto">
+        <div className='bg-gray-200 h-12 flex flex-1'>
+          <div className="flex-1 flex items-center justify-end pr-6">
+            <Marquee>
+              <div className='grid grid-cols-4 gap-x-48'>
+                <div className='font-semibold text-black'>MEGA SALE! Click here to shop 50% off!</div>
+                <div className='font-semibold'>MEGA SALE! Click here to shop 50% off!</div>
+                <div className='font-semibold'>MEGA SALE! Click here to shop 50% off!</div>
+                <div className='font-semibold'>MEGA SALE! Click here to shop 50% off!</div>
+                <div></div>
+              </div>
+            </Marquee>
+          </div>          
+        </div>
+        
+        <nav aria-label="Top" className="mx-auto pt-2">
           <div className="px-4 pb-0 sm:px-0 sm:pb-0">
             <div className="h-16 flex items-center justify-between">
                {/* Search */}
