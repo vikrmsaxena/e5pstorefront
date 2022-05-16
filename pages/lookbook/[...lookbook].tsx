@@ -98,7 +98,7 @@ function LookbookDetailPage({ data, slug }: any) {
             {data.name}
           </h1>
           <h2>{data.description}</h2>
-          <div className="w-full sm:w-2/4 bg-gray-200 rounded-md overflow-hidden aspect-w-1 aspect-h-1 mt-10">
+          <div className="w-full sm:w-2/4 bg-gray-200 rounded-sm overflow-hidden aspect-w-1 aspect-h-1 mt-10">
               <div className='image-container'>
                 <Image
                   layout='fill'

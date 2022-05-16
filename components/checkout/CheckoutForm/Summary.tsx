@@ -35,12 +35,12 @@ export default function Summary({
                   height={80}
                   src={`${product.image}`}
                   alt={product.name}
-                  className="w-20 rounded-md"
+                  className="w-20 rounded-sm"
                 ></Image>
                 {/* <img
                   src={product.image}
                   alt={product.name}
-                  className="w-20 rounded-md"
+                  className="w-20 rounded-sm"
                 /> */}
               </div>
 
@@ -113,7 +113,7 @@ export default function Summary({
           <button
             type="button"
             onClick={confirmOrder}
-            className="w-full bg-indigo-600 border border-transparent rounded-md shadow-sm py-3 px-4 font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-50 focus:ring-indigo-500"
+            className="w-full bg-black border border-transparent rounded-sm shadow-sm py-3 px-4 font-medium text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-50 focus:ring-gray-500"
           >
             {GENERAL_CONFIRM_ORDER}
           </button>

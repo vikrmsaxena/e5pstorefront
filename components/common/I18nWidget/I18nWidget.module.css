@@ -3,7 +3,7 @@
 }
 
 .button {
-  @apply h-10 px-2 rounded-md border border-accent-2 flex items-center justify-center transition-colors ease-linear;
+  @apply h-10 px-2 rounded-sm border border-accent-2 flex items-center justify-center transition-colors ease-linear;
 }
 
 .button:hover {

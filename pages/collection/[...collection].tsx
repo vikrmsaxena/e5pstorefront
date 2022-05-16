@@ -216,7 +216,7 @@ export default function CollectionPage(props: any) {
                       height={460}
                       src={img.url || IMG_PLACEHOLDER}
                       alt={props.name}
-                      className="cursor-pointer w-full h-48 sm:h-96 sm:max-h-96 object-center object-cover sm:rounded-md"
+                      className="cursor-pointer w-full h-48 sm:h-96 sm:max-h-96 object-center object-cover sm:rounded-sm"
                     ></Image>
                 </Link>
               </SwiperSlide>

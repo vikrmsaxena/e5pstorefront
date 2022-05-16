@@ -298,7 +298,7 @@ function CategoryPage({ category, products }: any) {
                           height={460}
                           src={image.url || IMG_PLACEHOLDER}
                           alt={category.name}
-                          className="cursor-pointer w-full h-48 sm:h-96 sm:max-h-96 object-center object-cover sm:rounded-md"
+                          className="cursor-pointer w-full h-48 sm:h-96 sm:max-h-96 object-center object-cover sm:rounded-sm"
                         ></Image>
                       </Link>
                     </SwiperSlide>

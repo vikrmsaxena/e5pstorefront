@@ -79,7 +79,7 @@ function BrandsPage({ brands }: any) {
               if (brandExists) {
                 return (
                   <Link key={key} passHref href={`#${letter.toUpperCase()}`}>
-                    <a className="hover:bg-indigo-600 hover:text-white sm:mr-3 sm:mt-5 sm:py-2 sm:px-4 mr-1 mt-2 py-1 px-2 text-gray-900 border font-extrabold sm:text-lg text-sm">
+                    <a className="hover:bg-black hover:text-white sm:mr-3 sm:mt-5 sm:py-2 sm:px-4 mr-1 mt-2 py-1 px-2 text-gray-900 border font-extrabold sm:text-lg text-sm">
                       {letter.toUpperCase()}
                     </a>
                   </Link>
@@ -96,13 +96,13 @@ function BrandsPage({ brands }: any) {
             })}
           </div>
           <div className="flex justify-center items-center py-5 w-full">
-            <div className="min-w-searchbar flex w-1/3 flex-row border border-gray-300 rounded-md py-2 px-4 shadow-sm ">
+            <div className="min-w-searchbar flex w-1/3 flex-row border border-gray-300 rounded-sm py-2 px-4 shadow-sm ">
               <label className="hidden" htmlFor={'search-bar'}>
                 Search
               </label>
               <input
                 id={'search-bar'}
-                className="text-gray-700 appearance-none min-w-0 w-full bg-white  placeholder-gray-500 focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500"
+                className="text-gray-700 appearance-none min-w-0 w-full bg-white  placeholder-gray-500 focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-gray-500"
                 placeholder="Search..."
                 onChange={(e: any) => handleSearch(e.target.value)}
               />

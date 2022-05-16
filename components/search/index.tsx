@@ -81,13 +81,13 @@ export default function Search({ closeWrapper = () => {}, keywords }: any) {
       </div>
       <div className="w-full mt-20 justify-center items-center flex flex-col px-10 py-5">
         <div className="flex flex-row mb-10">
-          <div className="min-w-searchbar flex flex-row border border-gray-300 rounded-md py-2 px-4 shadow-sm ">
+          <div className="min-w-searchbar flex flex-row border border-gray-300 rounded-sm py-2 px-4 shadow-sm ">
             <label className="hidden" htmlFor={'search-bar'}>
               {BTN_SEARCH}
             </label>
             <input
               id={'search-bar'}
-              className="text-gray-700 appearance-none min-w-0 w-full bg-white  placeholder-gray-500 focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500"
+              className="text-gray-700 appearance-none min-w-0 w-full bg-white  placeholder-gray-500 focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-gray-500"
               placeholder={BTN_SEARCH}
               onChange={(e: any) => setInputValue(e.target.value)}
             />
@@ -101,12 +101,12 @@ export default function Search({ closeWrapper = () => {}, keywords }: any) {
             rangeMap(12, (i) => (
               <div
                 key={i}
-                className="shadow-md w-60 h-72 rounded-md mx-auto mt-20"
+                className="shadow-md w-60 h-72 rounded-sm mx-auto mt-20"
               >
                 <div className="flex animate-pulse flex-row items-center h-full justify-center space-x-5">
                   <div className="flex flex-col space-y-3">
-                    <div className="w-full bg-gray-100 h-48 rounded-md "></div>
-                    <div className="w-36 bg-gray-100 h-6 mt-40 rounded-md "></div>
+                    <div className="w-full bg-gray-100 h-48 rounded-sm "></div>
+                    <div className="w-36 bg-gray-100 h-6 mt-40 rounded-sm "></div>
                   </div>
                 </div>
               </div>

@@ -86,7 +86,7 @@ export default function Filters({
                 <h2 className="text-lg font-medium text-gray-900">{GENERAL_FILTER_TITLE}</h2>
                 <button
                   type="button"
-                  className="-mr-2 w-10 sm:h-10 h-6 bg-white p-2 rounded-md flex items-center justify-center text-gray-400 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                  className="-mr-2 w-10 sm:h-10 h-6 bg-white p-2 rounded-sm flex items-center justify-center text-gray-400 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-gray-500"
                   onClick={() => setOpen(false)}
                 >
                   <span className="sr-only">{GENERAL_CLOSE}</span>

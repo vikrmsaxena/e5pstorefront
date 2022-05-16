@@ -162,7 +162,7 @@ const CartSidebarView: FC = () => {
                           {cartItems.lineItems?.map((product: any) => (
                             <li key={product.id} className="">
                               <div className="py-6 flex">
-                                <div className="flex-shrink-0 w-24 h-24 border border-gray-200 rounded-md overflow-hidden">
+                                <div className="flex-shrink-0 w-24 h-24 border border-gray-200 rounded-sm overflow-hidden">
                                   <Image
                                     width={100}
                                     height={100}
@@ -230,7 +230,7 @@ const CartSidebarView: FC = () => {
                                 (child: any, idx: number) => {
                                   return (
                                     <div className="flex" key={idx}>
-                                      <div className="ml-10 flex-shrink-0 w-12 h-12 border border-gray-200 rounded-md overflow-hidden">
+                                      <div className="ml-10 flex-shrink-0 w-12 h-12 border border-gray-200 rounded-sm overflow-hidden">
                                         <div className='image-container'>
                                           <Image
                                             layout='fill'
@@ -310,7 +310,7 @@ const CartSidebarView: FC = () => {
                         <Link href="/cart" passHref>
                           <a
                             onClick={handleClose}
-                            className="flex justify-center items-center px-6 py-3 border border-transparent rounded-md shadow-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700"
+                            className="flex justify-center items-center px-6 py-3 border border-transparent rounded-sm shadow-sm font-medium text-white bg-black hover:bg-gray-700"
                             href="/cart"
                           >
                             {content.GENERAL_CHECKOUT}

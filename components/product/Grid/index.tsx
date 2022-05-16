@@ -46,12 +46,12 @@ export default function Grid({
                 rangeMap(12, (i) => (
                   <div
                     key={i}
-                    className="shadow-md w-60 h-72 rounded-md mx-auto mt-20"
+                    className="shadow-md w-60 h-72 rounded-sm mx-auto mt-20"
                   >
                     <div className="flex animate-pulse flex-row items-center h-full justify-center space-x-5">
                       <div className="flex flex-col space-y-3">
-                        <div className="w-full bg-gray-100 h-48 rounded-md "></div>
-                        <div className="w-36 bg-gray-100 h-6 mt-40 rounded-md "></div>
+                        <div className="w-full bg-gray-100 h-48 rounded-sm "></div>
+                        <div className="w-36 bg-gray-100 h-6 mt-40 rounded-sm "></div>
                       </div>
                     </div>
                   </div>
@@ -70,12 +70,12 @@ export default function Grid({
               rangeMap(12, (i) => (
                 <div
                   key={i}
-                  className="shadow-md w-60 h-72 rounded-md mx-auto mt-20"
+                  className="shadow-md w-60 h-72 rounded-sm mx-auto mt-20"
                 >
                   <div className="flex animate-pulse flex-row items-center h-full justify-center space-x-5">
                     <div className="flex flex-col space-y-3">
-                      <div className="w-full bg-gray-100 h-48 rounded-md "></div>
-                      <div className="w-36 bg-gray-100 h-6 mt-40 rounded-md "></div>
+                      <div className="w-full bg-gray-100 h-48 rounded-sm "></div>
+                      <div className="w-36 bg-gray-100 h-6 mt-40 rounded-sm "></div>
                     </div>
                   </div>
                 </div>

@@ -154,12 +154,12 @@ function Cart({ cart }: any) {
                         height={160}
                         src={`${product.image}`}
                         alt={product.name}
-                        className="w-16 h-16 rounded-md object-center object-cover sm:w-48 sm:h-48 image"
+                        className="w-16 h-16 rounded-sm object-center object-cover sm:w-48 sm:h-48 image"
                       ></Image>
                       {/* <img
                         src={product.image}
                         alt={product.name}
-                        className="w-16 h-16 rounded-md object-center object-cover sm:w-48 sm:h-48"
+                        className="w-16 h-16 rounded-sm object-center object-cover sm:w-48 sm:h-48"
                       /> */}
                     </div>
                     <div className="ml-4 flex-1 flex flex-col justify-between sm:ml-6">
@@ -192,7 +192,7 @@ function Cart({ cart }: any) {
                                     className="flex mt-10"
                                     key={'child' + idx}
                                   >
-                                    <div className="flex-shrink-0 w-12 h-12 border border-gray-200 rounded-md overflow-hidden">
+                                    <div className="flex-shrink-0 w-12 h-12 border border-gray-200 rounded-sm overflow-hidden">
                                       <img
                                         src={child.image}
                                         alt={child.name}
@@ -331,7 +331,7 @@ function Cart({ cart }: any) {
                 <Link href="/checkout">
                   <a
                     type="submit"
-                    className="text-center w-full bg-indigo-600 border border-transparent rounded-md shadow-sm py-3 px-4 font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-50 focus:ring-indigo-500"
+                    className="text-center w-full bg-black border border-transparent rounded-sm shadow-sm py-3 px-4 font-medium text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-50 focus:ring-gray-500"
                   >
                     {BTN_CHECKOUT_NOW}
                   </a>
