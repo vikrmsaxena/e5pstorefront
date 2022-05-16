@@ -10,13 +10,14 @@ interface Props {
 
 const Searchbar: FC<Props> = ({ id = 'search', onClick }) => {
   return (
-    <div className="flex flex-row">
+    <div className="flex flex-row pl-8">
       <button
         onClick={onClick}
-        className="p-2 text-gray-400 hover:text-gray-500"
+        className="p-2 text-gray-400 hover:text-gray-500 border-b"
       >
-        <span className="sr-only">{BTN_SEARCH}</span>
-        <SearchIcon className="w-6 h-6" aria-hidden="true" />
+        <span className="sr-only">{BTN_SEARCH}</span>       
+        <span className='text-lime pr-2 font-normal text-sm inline-block pr-32'>Search</span>
+        <SearchIcon className="w-6 h-6 inline-block" aria-hidden="true" />
       </button>
     </div>
   )
