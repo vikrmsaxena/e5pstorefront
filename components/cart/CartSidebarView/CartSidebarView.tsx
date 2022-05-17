@@ -322,7 +322,7 @@ const CartSidebarView: FC = () => {
                           {GENERAL_OR_TEXT}{' '}
                           <button
                             type="button"
-                            className="text-black font-medium hover:text-indigo-500"
+                            className="text-black font-medium hover:text-pink"
                             onClick={handleClose}
                           >
                             {GENERAL_CONTINUE_SHOPPING}

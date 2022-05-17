@@ -131,7 +131,7 @@ function Cart({ cart }: any) {
   return (
     <div className="bg-white">
       <main className="max-w-2xl mx-auto sm:pt-16 pt-6 sm:pb-24 pb-0 px-4 sm:px-6 lg:max-w-7xl lg:px-8">
-        <h1 className="text-2xl font-extrabold tracking-tight text-gray-900 sm:text-4xl">
+        <h1 className="text-2xl font-semibold tracking-tight text-gray-900 sm:text-4xl">
           {GENERAL_SHOPPING_CART}
         </h1>
         {!isEmpty && (
@@ -283,7 +283,7 @@ function Cart({ cart }: any) {
             >
               <h2
                 id="summary-heading"
-                className="text-lg font-medium text-gray-900"
+                className="text-xl font-bold text-black"
               >
                 {GENERAL_ORDER_SUMMARY}
               </h2>
@@ -293,7 +293,7 @@ function Cart({ cart }: any) {
                   <dt className="text-sm text-gray-600">
                     {SUBTOTAL_INCLUDING_TAX}
                   </dt>
-                  <dd className="text-sm font-medium text-gray-900">
+                  <dd className="text-md font-medium text-gray-900">
                     {cartItems.subTotal?.formatted?.withTax}
                   </dd>
                 </div>
@@ -320,8 +320,8 @@ function Cart({ cart }: any) {
                 <PromotionInput />
 
                 <div className="text-gray-900 border-t border-gray-200 pt-4 flex items-center justify-between">
-                  <dt className="font-medium text-gray-900">{GENERAL_TOTAL}</dt>
-                  <dd className="font-medium text-gray-900">
+                  <dt className="font-medium text-xl text-gray-900">{GENERAL_TOTAL}</dt>
+                  <dd className="font-bold text-2xl text-black">
                     {cartItems.grandTotal?.formatted?.withTax}
                   </dd>
                 </div>

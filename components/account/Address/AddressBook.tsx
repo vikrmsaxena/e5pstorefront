@@ -105,7 +105,7 @@ export default function AddressBook() {
     <main className="sm:px-6 lg:px-8">
       <div className="max-w-4xl mx-auto">
         <div className="px-4 sm:px-0">
-          <h1 className="text-2xl font-extrabold tracking-tight text-gray-900 sm:text-3xl">
+          <h1 className="text-2xl font-bold tracking-tight text-gray-900 sm:text-3xl">
             {title}
           </h1>
           <p className="mt-2 text-sm text-gray-500">{DETAILS_SUBTITLE}</p>
@@ -147,7 +147,7 @@ export default function AddressBook() {
               setNewFormMode(true)
               window.scrollTo(0, 0)
             }}
-            className="max-w-xs flex-1 bg-indigo-600 border border-transparent rounded-md py-3 px-8 flex items-center justify-center font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-50 focus:ring-indigo-500 sm:w-full"
+            className="max-w-xs flex-1 bg-black border border-transparent rounded-sm py-3 px-8 flex items-center justify-center font-medium text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-50 focus:ring-gray-500 sm:w-full"
           >
             {ADD_ADDRESS}
           </button>

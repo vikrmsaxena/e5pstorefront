@@ -190,7 +190,7 @@ const WishlistSidebar: FC = () => {
                                   <div className="flex justify-between w-full">
                                     <button
                                       type="button"
-                                      className="font-medium text-indigo-600 hover:text-indigo-500"
+                                      className="font-medium text-red-300 hover:text-red-500"
                                       onClick={() =>
                                         deleteItemFromWishlist(product.recordId)
                                       }
@@ -201,7 +201,7 @@ const WishlistSidebar: FC = () => {
                                   <div className="flex justify-between w-full">
                                     <button
                                       type="button"
-                                      className="font-medium text-indigo-600 hover:text-indigo-500"
+                                      className="font-medium text-black hover:text-indigo-500"
                                       onClick={() => handleAddToCart(product)}
                                     >
                                       {GENERAL_ADD_TO_BASKET}
@@ -229,7 +229,7 @@ const WishlistSidebar: FC = () => {
                       <p>
                         <button
                           type="button"
-                          className="flex justify-center items-center px-6 py-3 border border-transparent rounded-md shadow-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700"
+                          className="flex justify-center items-center px-6 py-3 border border-transparent uppercase rounded-sm shadow-sm font-medium text-white bg-black hover:bg-gray-700"
                           onClick={handleClose}
                         >
                           {GENERAL_CONTINUE_SHOPPING}

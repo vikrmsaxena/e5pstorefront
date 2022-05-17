@@ -43,7 +43,7 @@ export default function MyDetails() {
     <main className="sm:px-6 lg:px-8">
       <div className="max-w-4xl mx-auto">
         <div className="px-4 sm:px-0">
-          <h1 className="text-2xl font-extrabold tracking-tight text-gray-900 sm:text-3xl">
+          <h1 className="text-2xl font-bold tracking-tight text-gray-900 sm:text-3xl">
             {title}
           </h1>
           <p className="mt-2 text-sm text-gray-500">
@@ -81,7 +81,7 @@ export default function MyDetails() {
                           onChange={handleChange}
                           value={values[formItem.name]}
                           type={formItem.type}
-                          className="mb-2 mt-2 appearance-none min-w-0 w-full bg-white border border-gray-300 rounded-md shadow-sm py-2 px-4 text-gray-900 placeholder-gray-500 focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 "
+                          className="mb-2 mt-2 appearance-none min-w-0 w-full bg-white border border-gray-300 rounded-sm shadow-sm py-2 px-4 text-gray-900 placeholder-gray-300 focus:outline-none focus:border-black focus:ring-1 focus:ring-gray-500 "
                         />
 
                         {errors[formItem.name] && touched[formItem.name] ? (
@@ -97,7 +97,7 @@ export default function MyDetails() {
                   <button
                     type="submit"
                     onClick={handleSubmit}
-                    className="max-w-xs flex-1 bg-indigo-600 border border-transparent rounded-md py-3 px-8 flex items-center justify-center font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-50 focus:ring-indigo-500 sm:w-full"
+                    className="max-w-xs flex-1 bg-black border border-transparent rounded-sm py-3 px-8 flex items-center justify-center font-medium text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-50 focus:ring-gray-500 sm:w-full"
                   >
                     {isSubmitting ? <LoadingDots /> : GENERAL_SAVE_CHANGES}
                   </button>

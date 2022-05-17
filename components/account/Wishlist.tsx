@@ -87,7 +87,7 @@ export default function Wishlist() {
       <main className="sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto">
           <div className="px-4 sm:px-0">
-            <h1 className="text-2xl font-extrabold tracking-tight text-gray-900 sm:text-3xl">
+            <h1 className="text-2xl font-bold tracking-tight text-gray-900 sm:text-3xl">
               {WISHLIST_TITLE}
             </h1>
           </div>
@@ -104,9 +104,10 @@ export default function Wishlist() {
                     <div key={product.id} className="flex py-6 sm:py-10">
                       <div className="min-w-0 flex-1 lg:flex lg:flex-col">
                         <div className="lg:flex-1">
-                          <div className="sm:flex">
+                          <div className="grid grid-cols-3">
+                            <div className="col-span-2">
                             <div>
-                              <h4 className="font-medium text-gray-900">
+                              <h4 className="font-semibold text-lg text-black">
                                 {product.name}
                               </h4>
                               <div
@@ -116,15 +117,19 @@ export default function Wishlist() {
                                 className="hidden mt-2 text-sm text-gray-500 sm:block"
                               />
                             </div>
-                            <p className="mt-1 font-medium text-gray-900 sm:mt-0 sm:ml-6">
+                            </div>
+                            <div className="col-span-1 text-right">
+                            <p className="mt-1 font-bold text-lg text-black sm:mt-0 sm:ml-6 justify-end">
                               {product.price.formatted.withTax}
                             </p>
+                            </div>
                           </div>
+                         
                           <div className="mt-2 flex text-sm font-medium sm:mt-4">
                             <Link href={`/${product.slug}`}>
                               <a
                                 href={product.slug}
-                                className="text-indigo-600 hover:text-indigo-500"
+                                className="text-black underline hover:text-pink"
                               >
                                 {GENERAL_VIEW_PRODUCT}
                               </a>
@@ -132,7 +137,7 @@ export default function Wishlist() {
                             <div className="border-l border-gray-200 ml-4 pl-4 sm:ml-6 sm:pl-6">
                               <button
                                 onClick={() => handleAddToCart(product)}
-                                className="text-indigo-600 hover:text-indigo-500"
+                                className="text-indigo-600 font-semibold hover:text-indigo-500"
                               >
                                 {GENERAL_ADD_TO_BASKET}
                               </button>
@@ -142,7 +147,7 @@ export default function Wishlist() {
                                 onClick={() =>
                                   handleRemoveFromWishlist(product)
                                 }
-                                className="text-red-600 hover:text-red-500"
+                                className="text-red-300 font-semibold hover:text-red-500"
                               >
                                 {GENERAL_REMOVE}
                               </button>
@@ -151,19 +156,21 @@ export default function Wishlist() {
                         </div>
                       </div>
                       <div className="ml-4 flex-shrink-0 sm:m-0 sm:mr-6 sm:order-first">
-                       <Image
-                            width={80}
-                            height={80}
-                            layout='fixed'
-                            src={product.image}
-                            alt={product.name}
-                            className="col-start-2 col-end-3 sm:col-start-1 sm:row-start-1 sm:row-span-2 w-20 h-20 rounded-lg object-center object-cover sm:w-40 sm:h-40 lg:w-52 lg:h-52 image"
-                          ></Image>
-                        {/* <img
-                          src={product.image}
-                          alt={product.name}
-                          className="col-start-2 col-end-3 sm:col-start-1 sm:row-start-1 sm:row-span-2 w-20 h-20 rounded-lg object-center object-cover sm:w-40 sm:h-40 lg:w-52 lg:h-52"
-                        /> */}
+                        <Link href={`/${product.slug}`}>
+                          <a
+                            href={product.slug}
+                            className="text-black underline hover:text-indigo-500"
+                          >
+                            <Image
+                              width={80}
+                              height={80}
+                              layout='fixed'
+                              src={product.image}
+                              alt={product.name}
+                              className="col-start-2 col-end-3 sm:col-start-1 sm:row-start-1 sm:row-span-2 w-20 h-20 rounded-lg object-center object-cover sm:w-40 sm:h-40 lg:w-52 lg:h-52 image"
+                            ></Image>
+                          </a>
+                        </Link>
                       </div>
                     </div>
                   ))}
