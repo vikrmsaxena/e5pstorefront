@@ -400,7 +400,7 @@ export default function ProductView({
                       {content?.map((image: any, idx) => (
                         <Tab
                           key={`${idx}-tab`}
-                          className="relative h-24 sm:h-44 bg-white rounded-sm flex items-center justify-center text-sm font-medium uppercase text-gray-900 cursor-pointer hover:bg-gray-50 focus:outline-none focus:ring focus:ring-offset-4 focus:ring-opacity-50"
+                          className="relative h-24 sm:h-44 bg-white rounded-md flex items-center justify-center text-sm font-medium uppercase text-gray-900 cursor-pointer hover:bg-gray-50 focus:outline-none focus:ring focus:ring-offset-4 focus:ring-opacity-50"
                         >
                           {() => (
                             <>
@@ -435,7 +435,7 @@ export default function ProductView({
                             <Image
                               src={`${image.image}` || IMG_PLACEHOLDER}
                               alt={image.name}
-                              className="w-full h-full object-center object-cover image rounded-sm"
+                              className="w-full h-full object-center object-cover image rounded-lg"
                               layout='fill'
                             ></Image>
                           </div>
@@ -492,8 +492,8 @@ export default function ProductView({
                         key={rating}
                         className={classNames(
                           product.rating > rating
-                            ? 'text-black'
-                            : 'text-gray-200',
+                            ? 'text-indigo-500'
+                            : 'text-gray-300',
                           'h-5 w-5 flex-shrink-0'
                         )}
                         aria-hidden="true"
@@ -558,7 +558,7 @@ export default function ProductView({
               ) : null}
             <section
               aria-labelledby="details-heading"
-              className="sm:mt-6 mt-6"
+              className="sm:mt-6 mt-4"
             >
               <h2 id="details-heading" className="sr-only">
                 {PRICEMATCH_ADDITIONAL_DETAILS}
@@ -569,7 +569,7 @@ export default function ProductView({
                   selectedAttrData.description || product.description
                 }
               />              
-              <div className="divide-y divide-gray-200 sm:mt-10 mt-6">
+              <div className="border-t divide-y divide-gray-200 sm:mt-10 mt-6">
                 <p className="text-gray-900 text-lg">
                   {selectedAttrData.currentStock > 0
                       ? product.deliveryMessage

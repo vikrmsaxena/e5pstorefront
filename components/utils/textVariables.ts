@@ -310,4 +310,3 @@ export const SHOP_BY_CATEGORY = 'Shop by Category'
 export const SHOP_BY_COLLECTION = 'Shop by Collection'
 export const SHOP_BY_LIFESTYLRE = 'Shop by Lifestyle'
 export const PRODUCTS_AVAILABLE = 'Products available'
-export const PRICE_MATCH_DESCRIPTION = "Find it cheaper & we'll match the price plus 15% of the difference! terms apply Like the reasurrance of buying from one of the largest independent retailers in the country but don't like the idea of paying too much? Not a problem! We work hard every day to bring you the best possible prices. But sometimes, somewhere, someone is selling the item you want for less. Let us help!"

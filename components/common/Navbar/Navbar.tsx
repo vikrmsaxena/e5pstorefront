@@ -344,8 +344,10 @@ const Navbar: FC<Props> = ({ config, currencies, languages }) => {
                       className="flex-shrink-0 h-7 w-7 text-black group-hover:text-black"
                       aria-hidden="true"
                     />
-                    {wishListItems.length>0 &&                    
-                      <span className="ml-2 text-xs text-black group-hover:text-black absolute top-3 right-4">
+                
+                    {wishListItems.length>0 &&
+                    
+                      <span className="ml-2 text-sm font-medium text-gray-700 group-hover:text-gray-800 absolute top-2 right-4">
                         {wishListItems.length}
                       </span>
                     }
