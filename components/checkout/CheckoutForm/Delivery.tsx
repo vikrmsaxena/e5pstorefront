@@ -214,7 +214,7 @@ export default function Delivery({
                 <div className="flex">
                   <button
                     onClick={() => setIsSelected(false)}
-                    className="btn text-indigo-500 font-xs"
+                    className="btn text-black font-xs"
                     type="button"
                   >
                     {GENERAL_EDIT}
@@ -269,8 +269,8 @@ export default function Delivery({
                       className={({ checked, active }) =>
                         classNames(
                           checked ? 'border-transparent' : 'border-gray-300',
-                          active ? 'ring-2 ring-indigo-500' : '',
-                          'relative bg-white border rounded-lg shadow-sm p-4 flex cursor-pointer focus:outline-none'
+                          active ? 'ring-2 ring-gray-500' : '',
+                          'relative bg-white border rounded-sm shadow-sm p-4 flex cursor-pointer focus:outline-none'
                         )
                       }
                     >
@@ -300,7 +300,7 @@ export default function Delivery({
                           </div>
                           {checked ? (
                             <CheckCircleIcon
-                              className="h-5 w-5 text-indigo-600"
+                              className="h-5 w-5 text-black"
                               aria-hidden="true"
                             />
                           ) : null}
@@ -308,9 +308,9 @@ export default function Delivery({
                             className={classNames(
                               active ? 'border' : 'border-2',
                               checked
-                                ? 'border-indigo-500'
+                                ? 'border-black'
                                 : 'border-transparent',
-                              'absolute -inset-px rounded-lg pointer-events-none'
+                              'absolute -inset-px rounded-sm pointer-events-none'
                             )}
                             aria-hidden="true"
                           />
@@ -327,7 +327,7 @@ export default function Delivery({
                     <li
                       onClick={() => handleShippingMethod(item)}
                       className={`${
-                        shippingMethod.id === item.id ? 'border-indigo-600' : ''
+                        shippingMethod.id === item.id ? 'border-black' : ''
                       }  pointer border-t border py-5 px-5 flex justify-between flex-row`}
                     >
                       <div>
@@ -339,7 +339,7 @@ export default function Delivery({
                         {shippingMethod.id === item.id ? (
                           <div className="ml-5">
                             <CheckCircleIcon
-                              className="h-5 w-5 text-indigo-600"
+                              className="h-5 w-5 text-black"
                               aria-hidden="true"
                             />
                           </div>

@@ -180,7 +180,7 @@ const CartSidebarView: FC = () => {
 
                                 <div className="ml-4 flex-1 flex flex-col">
                                   <div>
-                                    <div className="flex justify-between font-medium text-gray-900">
+                                    <div className="flex justify-between font-sm font-semibold text-gray-900">
                                       <h3 onClick={handleClose}>
                                         <Link href={`/${product.slug}`}>
                                           {product.name}
@@ -198,7 +198,7 @@ const CartSidebarView: FC = () => {
                                     <div className="flex justify-between w-full">
                                       <button
                                         type="button"
-                                        className="font-medium text-indigo-600 hover:text-indigo-500"
+                                        className="font-medium text-red-300 hover:text-red-500"
                                         onClick={() =>
                                           handleItem(product, 'delete')
                                         }
@@ -310,7 +310,7 @@ const CartSidebarView: FC = () => {
                         <Link href="/cart" passHref>
                           <a
                             onClick={handleClose}
-                            className="flex justify-center items-center px-6 py-3 border border-transparent rounded-md shadow-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700"
+                            className="flex justify-center items-center px-6 py-3 border border-transparent rounded-sm uppercase shadow-sm font-medium text-white bg-black hover:bg-gray-700"
                             href="/cart"
                           >
                             {content.GENERAL_CHECKOUT}
@@ -322,7 +322,7 @@ const CartSidebarView: FC = () => {
                           {GENERAL_OR_TEXT}{' '}
                           <button
                             type="button"
-                            className="text-indigo-600 font-medium hover:text-indigo-500"
+                            className="text-black font-medium hover:text-indigo-500"
                             onClick={handleClose}
                           >
                             {GENERAL_CONTINUE_SHOPPING}
