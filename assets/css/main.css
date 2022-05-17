@@ -277,3 +277,8 @@
 .marquee-container .overlay{
   --gradient-color: transparent!important;
 }
+
+.bg-gray{
+  background-color: #ededed!important;
+  color: #000000!important;
+}

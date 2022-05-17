@@ -4,6 +4,7 @@ import { XIcon } from '@heroicons/react/outline'
 import Form from './form'
 import axios from 'axios'
 import { NEXT_API_PRICE_MATCH_ENDPOINT } from '@components/utils/constants'
+import { GENERAL_CONTACT, PRICE_MATCH_DESCRIPTION } from '@components/utils/textVariables'
 
 export default function PriceMatch({
   show,
@@ -94,26 +95,20 @@ export default function PriceMatch({
                 {/* <div className="text-gray-900">hello</div>  */}
                 <section className="flex py-10">
                   <div className="w-1/2 bg-gray-50 p-2">
-                    <p className="py-5 text-black font-bold text-justify">
-                      Find it cheaper & we'll match the price plus 15% of the
-                      difference! terms apply Like the reasurrance of buying
-                      from one of the largest independent retailers in the
-                      country but don't like the idea of paying too much? Not a
-                      problem! We work hard every day to bring you the best
-                      possible prices. But sometimes, somewhere, someone is
-                      selling the item you want for less. Let us help!
+                    <p className="py-5 text-gray-500 font-normal text-sm text-justify">
+                      {PRICE_MATCH_DESCRIPTION}
                     </p>
                     <img
                       src={productImage}
                       className="h-96 w-96 object-cover object-top"
                     />
-                    <p className="text-black font-bold text-center py-5">
+                    <p className="text-black font-bold uppercase text-sm text-center py-5">
                       {productName}
                     </p>
                   </div>
                   <div className="px-5 w-1/2">
-                    <p className="text-black center font-bold text-lg text-center py-5">
-                      Contact
+                    <p className="text-black center font-bold uppercase text-xl text-center py-5">
+                      {GENERAL_CONTACT}
                     </p>
                     <Form submitContactForm={submitContactForm} />
                   </div>
