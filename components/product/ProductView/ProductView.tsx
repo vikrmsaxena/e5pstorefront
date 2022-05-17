@@ -387,88 +387,91 @@ export default function ProductView({
           <BreadCrumbs items={product.breadCrumbs} currentProduct={product} />
         )}
       </div>
-      <main className="max-w-7xl mx-auto sm:pt-16 sm:px-6 lg:px-8">
+      <main className="max-w-7xl mx-auto sm:pt-8 sm:px-6 lg:px-8">
         <div className="max-w-2xl mx-auto lg:max-w-none">
           {/* Product */}
           <div className="lg:grid lg:grid-cols-2 lg:gap-x-8 lg:items-start">
             {/* Image gallery */}
             <Tab.Group as="div" className="flex flex-col-reverse">
-              {/* Image selector */}
-              <div className="hidden mt-6 w-full max-w-2xl mx-auto sm:block lg:max-w-none">
-                <Tab.List className="grid grid-cols-4 gap-6">
-                  {content?.map((image: any, idx) => (
-                    <Tab
-                      key={`${idx}-tab`}
-                      className="relative h-24 sm:h-44 bg-white rounded-md flex items-center justify-center text-sm font-medium uppercase text-gray-900 cursor-pointer hover:bg-gray-50 focus:outline-none focus:ring focus:ring-offset-4 focus:ring-opacity-50"
-                    >
-                      {() => (
-                        <>
-                          <span className="sr-only">{image.name}</span>
-                          <span className="absolute inset-0 rounded-md overflow-hidden">
-                            {image.image ? (
-                              <div className='image-container'>
-                                <Image
-                                  src={`${image.image}` || IMG_PLACEHOLDER}
-                                  alt={image.name}
-                                  className="w-full h-full sm:h-44 object-center object-cover image"
-                                  layout='fill'
-                                ></Image>
-                              </div>
-                            ) : (
-                              <PlayIcon className="h-full w-full object-center object-cover" />
-                            )}
-                          </span>
-                        </>
-                      )}
-                    </Tab>
-                  ))}
-                </Tab.List>
+              <div className="grid grid-cols-12 gap-x-2">
+                <div className='col-span-3'>
+                  <div className="hidden w-full max-w-2xl mx-auto sm:block lg:max-w-none">
+                    <Tab.List className="grid grid-cols-1 gap-6">
+                      {content?.map((image: any, idx) => (
+                        <Tab
+                          key={`${idx}-tab`}
+                          className="relative h-24 sm:h-44 bg-white rounded-md flex items-center justify-center text-sm font-medium uppercase text-gray-900 cursor-pointer hover:bg-gray-50 focus:outline-none focus:ring focus:ring-offset-4 focus:ring-opacity-50"
+                        >
+                          {() => (
+                            <>
+                              <span className="sr-only">{image.name}</span>
+                              <span className="absolute inset-0 rounded-md overflow-hidden">
+                                {image.image ? (
+                                  <div className='image-container'>
+                                    <Image
+                                      src={`${image.image}` || IMG_PLACEHOLDER}
+                                      alt={image.name}
+                                      className="w-full h-full sm:h-44 object-center object-cover image"
+                                      layout='fill'
+                                    ></Image>
+                                  </div>
+                                ) : (
+                                  <PlayIcon className="h-full w-full object-center object-cover" />
+                                )}
+                              </span>
+                            </>
+                          )}
+                        </Tab>
+                      ))}
+                    </Tab.List>
+                  </div>
+                </div>
+                <div className='col-span-9'>
+                  <Tab.Panels className="w-full aspect-w-1 aspect-h-1 p-3 sm:p-0">
+                    {content?.map((image: any) => (
+                      <Tab.Panel key={image.name + 'tab-panel'}>
+                        {image.image ? (
+                          <div className='image-container'>
+                            <Image
+                              src={`${image.image}` || IMG_PLACEHOLDER}
+                              alt={image.name}
+                              className="w-full h-full object-center object-cover image rounded-lg"
+                              layout='fill'
+                            ></Image>
+                          </div>
+                        ) : (
+                          <iframe
+                            width="560"
+                            height="315"
+                            src={image.url}
+                            title={YOUTUBE_VIDEO_PLAYER}
+                            frameBorder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowFullScreen
+                          />
+                        )}
+                      </Tab.Panel>
+                    ))}
+                  </Tab.Panels>
+                </div>
               </div>
-
-              <Tab.Panels className="w-full aspect-w-1 aspect-h-1 p-3 sm:p-0">
-                {content?.map((image: any) => (
-                  <Tab.Panel key={image.name + 'tab-panel'}>
-                    {image.image ? (
-                      <div className='image-container'>
-                        <Image
-                          src={`${image.image}` || IMG_PLACEHOLDER}
-                          alt={image.name}
-                          className="w-full h-full object-center object-cover image rounded-lg"
-                          layout='fill'
-                        ></Image>
-                      </div>
-                    ) : (
-                      <iframe
-                        width="560"
-                        height="315"
-                        src={image.url}
-                        title={YOUTUBE_VIDEO_PLAYER}
-                        frameBorder="0"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                        allowFullScreen
-                      />
-                    )}
-                  </Tab.Panel>
-                ))}
-              </Tab.Panels>
             </Tab.Group>
 
             {/* Product info */}
             <div className="sm:mt-10 mt-2 px-4 sm:px-0 sm:mt-16 lg:mt-0">
-              <h1 className="sm:text-3xl text-xl font-bold sm:font-extrabold tracking-tight text-gray-900">
+              <h1 className="sm:text-2xl text-xl font-bold sm:font-bold tracking-tight text-gray-900">
                 {selectedAttrData.name || selectedAttrData.productName}
               </h1>
-
-              <p className="text-gray-500 sm:text-md text-sm mt-2 sm:mt-0">
+              <p className="text-gray-500 sm:text-md text-sm mt-3 sm:mt-1">
                 {GENERAL_REFERENCE}: {selectedAttrData.stockCode}
               </p>
-              <div className="mt-3">
+              <div className="mt-2">
                 <h2 className="sr-only">{PRODUCT_INFORMATION}</h2>
                 {updatedProduct ? (
-                  <p className="sm:text-3xl text-2xl font-bold sm:font-medium text-gray-900">
+                  <p className="sm:text-3xl text-2xl font-medium sm:font-semibold text-gray-900">
                     {selectedAttrData.price?.formatted?.withTax}
                     {selectedAttrData.listPrice?.raw.tax > 0 ? (
-                      <span className="px-5 text-sm line-through text-gray-500">
+                      <span className="px-2 text-sm line-through text-red-400">
                         {GENERAL_PRICE_LABEL_RRP}{' '}
                         {product.listPrice.formatted.withTax}
                       </span>
@@ -518,59 +521,57 @@ export default function ProductView({
                   {''} {PRICEMATCH_BEST_PRICE}
                 </span>
               </p>
-
-              <section
-                aria-labelledby="details-heading"
-                className="sm:mt-12 mt-4"
-              >
-                <h2 id="details-heading" className="sr-only">
-                  {PRICEMATCH_ADDITIONAL_DETAILS}
-                </h2>
-                <ProductDetails
-                  product={product}
-                  description={
-                    selectedAttrData.description || product.description
-                  }
-                />
-                {updatedProduct ? (
-                  <>
-                    <div className="sm:mt-10 mt-6 flex sm:flex-col1">
-                      <Button
-                        title={buttonConfig.title}
-                        action={buttonConfig.action}
-                        buttonType={buttonConfig.type || 'cart'}
-                      />
-
-                      <button
-                        type="button"
-                        onClick={() => {
-                          if (!isInWishList) {
-                            handleWishList()
-                          }
-                        }}
-                        className="ml-4 py-3 px-3 rounded-md flex items-center justify-center text-gray-400 hover:bg-gray-100 hover:text-gray-500"
-                      >
-                        {isInWishList ? (
-                          <span>{ALERT_SUCCESS_WISHLIST_MESSAGE}</span>
-                        ) : (
-                          <HeartIcon className="h-6 w-6 flex-shrink-0" />
-                        )}
-                        <span className="sr-only">{BTN_ADD_TO_FAVORITES}</span>
-                      </button>
-                    </div>
-                    {isEngravingAvailable && (
-                      <button
-                        className="max-w-xs flex-1 mt-5 bg-gray-400 border border-transparent rounded-md py-3 px-8 flex items-center justify-center font-medium text-white hover:bg-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-50 focus:ring-gray-500 sm:w-full"
-                        onClick={() => showEngravingModal(true)}
-                      >
-                        <span className="font-bold">{GENERAL_ENGRAVING}</span>
-                      </button>
+              {updatedProduct ? (
+                <>
+                  <div className="sm:mt-4 mt-6 flex sm:flex-col1">
+                    <Button
+                      title={buttonConfig.title}
+                      action={buttonConfig.action}
+                      buttonType={buttonConfig.type || 'cart'}
+                    />
+                    <button
+                      type="button"
+                      onClick={() => {
+                        if (!isInWishList) {
+                          handleWishList()
+                        }
+                      }}
+                      className="ml-4 py-3 px-3 rounded-md flex items-center justify-center text-gray-400 hover:bg-gray-100 hover:text-gray-500"
+                    >
+                    {isInWishList ? (
+                      <span>{ALERT_SUCCESS_WISHLIST_MESSAGE}</span>
+                    ) : (
+                      <HeartIcon className="h-6 w-6 flex-shrink-0" />
                     )}
-                  </>
-                ) : null}
-                <div className="border-t divide-y divide-gray-200 sm:mt-10 mt-6">
-                  <p className="text-gray-900 text-lg">
-                    {selectedAttrData.currentStock > 0
+                      <span className="sr-only">{BTN_ADD_TO_FAVORITES}</span>
+                    </button>
+                  </div>
+                  {isEngravingAvailable && (
+                    <button
+                      className="max-w-xs flex-1 mt-5 bg-gray-400 border border-transparent rounded-md py-3 px-8 flex items-center justify-center font-medium text-white hover:bg-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-50 focus:ring-gray-500 sm:w-full"
+                      onClick={() => showEngravingModal(true)}
+                    >
+                      <span className="font-bold">{GENERAL_ENGRAVING}</span>
+                    </button>
+                  )}
+                </>
+              ) : null}
+            <section
+              aria-labelledby="details-heading"
+              className="sm:mt-6 mt-4"
+            >
+              <h2 id="details-heading" className="sr-only">
+                {PRICEMATCH_ADDITIONAL_DETAILS}
+              </h2>
+              <ProductDetails
+                product={product}
+                description={
+                  selectedAttrData.description || product.description
+                }
+              />              
+              <div className="border-t divide-y divide-gray-200 sm:mt-10 mt-6">
+                <p className="text-gray-900 text-lg">
+                  {selectedAttrData.currentStock > 0
                       ? product.deliveryMessage
                       : product.stockAvailabilityMessage}
                   </p>

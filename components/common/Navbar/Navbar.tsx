@@ -410,7 +410,7 @@ const Navbar: FC<Props> = ({ config, currencies, languages }) => {
                                   openState == idx
                                     ? 'border-gray-900 text-black'
                                     : 'border-transparent text-gray-600 hover:text-gray-800',
-                                  'relative z-10 flex items-center transition-colors py-3 ease-out duration-200 text-sm font-medium border-b-2 -mb-px pt-px'
+                                  'relative z-10 flex items-center transition-colors py-3 ease-out duration-200 text-lg font-medium border-b-2 -mb-px pt-px'
                                 )}
                               >
                                 {item.caption}

@@ -72,11 +72,11 @@ export default function ProductDetails({ product, description }: any) {
           {({ open }) => (
             <>
               <h3>
-                <Disclosure.Button className="group relative w-full sm:py-6 py-2 pr-2 flex justify-between items-center text-left">
+                <Disclosure.Button className="group relative w-full sm:py-2 py-2 pr-2 flex justify-between items-center text-left">
                   <span
                     className={classNames(
-                      open ? 'text-indigo-600' : 'text-gray-900',
-                      'text-sm font-medium'
+                      open ? 'text-black font-bold' : 'text-gray-900',
+                      'text-lg font-medium'
                     )}
                   >
                     {detail.title}
@@ -84,12 +84,12 @@ export default function ProductDetails({ product, description }: any) {
                   <span className="ml-6 flex items-center">
                     {open ? (
                       <MinusSmIcon
-                        className="block h-6 w-6 text-indigo-400 group-hover:text-indigo-500"
+                        className="block h-6 w-6 text-black group-hover:text-gray-700"
                         aria-hidden="true"
                       />
                     ) : (
                       <PlusSmIcon
-                        className="block h-6 w-6 text-gray-400 group-hover:text-gray-500"
+                        className="block h-6 w-6 text-black group-hover:text-gray-700"
                         aria-hidden="true"
                       />
                     )}
