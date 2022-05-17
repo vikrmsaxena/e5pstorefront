@@ -12,7 +12,7 @@ export default function ProgressBar() {
 
   return (
     <div className="fixed top-0 w-full z-50">
-      <div className="overflow-hidden h-2 text-xs flex bg-black">
+      <div className="overflow-hidden sm:h-2 h-1 text-xs flex bg-black">
         <div
           style={{
             transition: 'width 1s ease-in-out',

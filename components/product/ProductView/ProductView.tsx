@@ -393,7 +393,7 @@ export default function ProductView({
           <div className="lg:grid lg:grid-cols-2 lg:gap-x-8 lg:items-start">
             {/* Image gallery */}
             <Tab.Group as="div" className="flex flex-col-reverse">
-              <div className="grid grid-cols-12 gap-x-2">
+              <div className="grid sm:grid-cols-12 grid-cols-1 sm:gap-x-2">
                 <div className='col-span-3'>
                   <div className="hidden w-full max-w-2xl mx-auto sm:block lg:max-w-none">
                     <Tab.List className="grid grid-cols-1 gap-6">
@@ -426,7 +426,7 @@ export default function ProductView({
                     </Tab.List>
                   </div>
                 </div>
-                <div className='col-span-9'>
+                <div className='sm:col-span-9'>
                   <Tab.Panels className="w-full aspect-w-1 aspect-h-1 p-3 sm:p-0">
                     {content?.map((image: any) => (
                       <Tab.Panel key={image.name + 'tab-panel'}>

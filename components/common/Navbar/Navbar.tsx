@@ -128,18 +128,6 @@ const Navbar: FC<Props> = ({ config, currencies, languages }) => {
         >
           <Transition.Child
             as={Fragment}
-            enter="transition-opacity ease-linear duration-300"
-            enterFrom="opacity-0"
-            enterTo="opacity-100"
-            leave="transition-opacity ease-linear duration-300"
-            leaveFrom="opacity-100"
-            leaveTo="opacity-0"
-          >
-            <Dialog.Overlay className="fixed inset-0 bg-black bg-opacity-25" />
-          </Transition.Child>
-
-          <Transition.Child
-            as={Fragment}
             enter="transition ease-in-out duration-300 transform"
             enterFrom="-translate-x-full"
             enterTo="translate-x-0"
@@ -147,15 +135,15 @@ const Navbar: FC<Props> = ({ config, currencies, languages }) => {
             leaveFrom="translate-x-0"
             leaveTo="-translate-x-full"
           >
-            <div className="relative max-w-xs w-full bg-white shadow-xl pb-12 flex flex-col overflow-y-auto">
-              <div className="px-4 pt-5 pb-2 flex">
+            <div className="relative w-full bg-white shadow-xl pb-12 flex flex-col overflow-y-auto">
+              <div className="px-6 pt-5 pb-2 flex bg-black text-right align-right justify-end">
                 <button
                   type="button"
-                  className="-m-2 p-2 rounded-md inline-flex items-center justify-center text-gray-400"
+                  className="-m-4 p-1 pb-4 rounded-md inline-flex items-rigt justify-end text-gray-400"
                   onClick={() => setOpen(false)}
                 >
                   <span className="sr-only">Close menu</span>
-                  <XIcon className="h-6 w-6" aria-hidden="true" />
+                  <XIcon className="h-6 w-6 text-white float-right" aria-hidden="true" />
                 </button>
               </div>
 
@@ -172,7 +160,7 @@ const Navbar: FC<Props> = ({ config, currencies, languages }) => {
                           >
                             <a
                               onClick={() => setOpen(false)}
-                              className="flex flex-col whitespace-nowrap py-4 px-1 border-b text-sm font-medium"
+                              className="flex flex-col whitespace-nowrap py-3 px-3 border-b text-md uppercase font-medium"
                               href={item.hyperlink}
                             >
                               {item.caption}
@@ -188,7 +176,7 @@ const Navbar: FC<Props> = ({ config, currencies, languages }) => {
                                     selected
                                       ? 'text-gray-900'
                                       : 'text-gray-900',
-                                    'flex-1 flex-col whitespace-nowrap py-4 px-1 border-b text-sm font-medium'
+                                    'flex-1 flex-col whitespace-nowrap py-3 px-3 uppercase border-b text-sm font-medium'
                                   )
                                 }
                               >
@@ -279,7 +267,7 @@ const Navbar: FC<Props> = ({ config, currencies, languages }) => {
 
       <header className="relative bg-white">
         <div className='bg-black h-10 flex flex-1'>
-          <div className="flex-1 flex items-center justify-end pr-6">
+          <div className="flex-1 flex items-center justify-end pr-0 sm:pr-6">
             <CurrencySwitcher
               config={currencies}
               title={SELECT_CURRENCY}
@@ -292,14 +280,14 @@ const Navbar: FC<Props> = ({ config, currencies, languages }) => {
             />
           </div>          
         </div>
-        <div className='bg-gray-200 h-12 flex flex-1'>
+        <div className='bg-gray-200 sm:h-12 h-10 flex flex-1'>
           <div className="flex-1 flex items-center justify-end pr-6">
             <Marquee>
-              <div className='grid grid-cols-4 gap-x-48'>
-                <div className='font-semibold text-black'>MEGA SALE! Click here to shop 50% off!</div>
-                <div className='font-semibold'>MEGA SALE! Click here to shop 50% off!</div>
-                <div className='font-semibold'>MEGA SALE! Click here to shop 50% off!</div>
-                <div className='font-semibold'>MEGA SALE! Click here to shop 50% off!</div>
+              <div className='grid grid-cols-4 sm:gap-x-48'>
+                <div className='font-semibold text-black sm:text-md text-sm px-10'>MEGA SALE! Click here to shop 50% off!</div>
+                <div className='font-semibold text-black sm:text-md text-sm px-10'>MEGA SALE! Click here to shop 50% off!</div>
+                <div className='font-semibold text-black sm:text-md text-sm px-10'>MEGA SALE! Click here to shop 50% off!</div>
+                <div className='font-semibold text-black sm:text-md text-sm px-10'>MEGA SALE! Click here to shop 50% off!</div>
                 <div></div>
               </div>
             </Marquee>
@@ -308,46 +296,45 @@ const Navbar: FC<Props> = ({ config, currencies, languages }) => {
         
         <nav aria-label="Top" className="mx-auto pt-2">
           <div className="px-4 pb-0 sm:px-0 sm:pb-0">
-            <div className="h-16 flex items-center justify-between">
+            <div className="sm:h-16 h-10 flex items-center justify-between">
                {/* Search */}
-              <div className='flex-1'>                 
+              <div className='flex-1 sm:order-first order-2'>                 
                   <Searchbar onClick={setShowSearchBar} />
               </div>
               {/* Mobile Menu Icon */}
               <button
                 type="button"
-                className="-ml-2 bg-white p-2 rounded-md text-gray-400 sm:hidden"
+                className="-ml-2 bg-white p-2 rounded-md text-gray-400 sm:hidden order-1"
                 onClick={() => setOpen(true)}
               >
-              <span className="sr-only">Open menu</span>
-                <MenuIcon className="h-6 w-6" aria-hidden="true" />
+                <span className="sr-only">Open menu</span>
+                <MenuIcon className="h-6 w-6 text-black" aria-hidden="true" />
               </button>
               {/* Logo */}
-              <Link href="/">
-                <div className="w-auto flex cursor-pointer">
+              <Link href="/" className='order-3 sm:order-2'>
+                <div className="w-auto flex cursor-pointer order-3 sm:order-2">
                   <span className="sr-only">{GENERAL_WORKFLOW_TITLE}</span>
                   <Logo />
                 </div>
               </Link>
               
-              <div className="flex-1 flex items-center justify-end">              
+              <div className="flex-1 flex items-center justify-end order-3 sm:order-3">              
                 {/* account */}
                 <Account title={title} config={accountDropdownConfig} />
 
                 {/* Wishlist*/}
-                <div className="px-4 flow-root border-l border-r">
+                <div className="sm:px-4 px-1 flow-root sm:border-l sm:border-r">
                   <button
                     className="group -m-2 p-2 flex items-center relative"
                     onClick={openWishlist}
                   >
                     <HeartIcon
-                      className="flex-shrink-0 h-7 w-7 text-black group-hover:text-black"
+                      className="flex-shrink-0 sm:h-7 sm:w-7 h-5 w-5 text-black group-hover:text-black"
                       aria-hidden="true"
                     />
                 
-                    {wishListItems.length>0 &&
-                    
-                      <span className="ml-2 text-sm font-medium text-gray-700 group-hover:text-gray-800 absolute top-2 right-4">
+                    {wishListItems.length>0 &&                    
+                      <span className="ml-2 hidden sm:inline text-sm font-medium text-gray-700 group-hover:text-gray-800 absolute top-2 right-4">
                         {wishListItems.length}
                       </span>
                     }
@@ -356,17 +343,17 @@ const Navbar: FC<Props> = ({ config, currencies, languages }) => {
                 </div>
                 {/* Cart */}
 
-                <div className="pl-4 pr-10 flow-root">
+                <div className="sm:pl-4 sm:pr-10 flow-root">
                   <button
                     className="group -m-2 p-2 flex items-center relative"
                     onClick={openCart}
                   >
                     <ShoppingBagIcon
-                      className="flex-shrink-0 h-7 w-7 text-black group-hover:text-black"
+                      className="flex-shrink-0 sm:h-7 sm:w-7 h-5 w-5  text-black group-hover:text-black"
                       aria-hidden="true"
                     />
                     {cartItems.lineItems?.length>0 &&
-                      <span className="ml-2 text-sm w-5 h-4 bg-black font-medium text-white group-hover:text-white absolute top-4 right-3">
+                      <span className="ml-2 text-sm hidden sm:inline w-5 h-4 bg-black font-medium text-white group-hover:text-white absolute top-4 right-3">
                         {cartItems.lineItems?.length}
                       </span>
                     }

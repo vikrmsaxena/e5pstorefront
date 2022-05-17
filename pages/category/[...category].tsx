@@ -310,16 +310,16 @@ function CategoryPage({ category, products }: any) {
             )
           }
         </div>
-        <div className="text-center pt-6 mb-4 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+        <div className="text-center sm:pt-6 pt-3 mb-4 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
           <h1 className="sm:text-4xl text-2xl font-bold my-4 tracking-tight text-gray-900">
             {category.name}
           </h1>
-          <h2 className='text-md text-gray-500'>{category.description}</h2>
+          <h2 className='sm:text-md text-xs text-gray-500'>{category.description}</h2>
           
         </div>
         <div className='sm:max-w-7xl sm:px-7 mx-auto grid grid-cols-1 sm:grid-cols-12 mb-4'>
           <div className='sm:col-span-12 py-2'>
-            <div className="grid grid-cols-3 sm:grid-cols-5 text-left">
+            <div className="grid grid-cols-2 sm:grid-cols-5 text-left">
               {category?.subCategories?.map((subcateg: any, idx: number) => {
                 return (
                   <Link href={'/' + subcateg.link} key={idx}>
@@ -345,13 +345,13 @@ function CategoryPage({ category, products }: any) {
                         <div className="flex justify-center text-center items-center flex-col px-2 cursor-pointer">
                           <Image
                             layout='fixed'
-                            width={80}
-                            height={80}
+                            width={40}
+                            height={40}
                             className="h-8 w-8 sm:h-20 sm:w-20 rounded-full image"
                             src={subcateg.image || IMG_PLACEHOLDER}
                             alt={subcateg.name}
                           ></Image>
-                          <h4 className="min-h-40px text-gray-900 font-semibold text-sm">
+                          <h4 className="min-h-40px text-gray-900 font-semibold sm:text-sm text-xs">
                             {subcateg.name}
                           </h4>
                         </div>
