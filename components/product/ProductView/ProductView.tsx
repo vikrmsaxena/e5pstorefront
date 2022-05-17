@@ -569,7 +569,7 @@ export default function ProductView({
                   selectedAttrData.description || product.description
                 }
               />              
-              <div className="divide-y divide-gray-200 sm:mt-10 mt-6">
+              <div className="border-t divide-y divide-gray-200 sm:mt-10 mt-6">
                 <p className="text-gray-900 text-lg">
                   {selectedAttrData.currentStock > 0
                       ? product.deliveryMessage
