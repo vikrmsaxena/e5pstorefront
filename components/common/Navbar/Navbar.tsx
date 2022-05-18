@@ -284,10 +284,10 @@ const Navbar: FC<Props> = ({ config, currencies, languages }) => {
           <div className="flex-1 flex items-center justify-end pr-6">
             <Marquee>
               <div className='grid grid-cols-4 sm:gap-x-48'>
-                <div className='font-semibold text-black sm:text-md text-sm px-10'>MEGA SALE! Click here to shop 50% off!</div>
-                <div className='font-semibold text-black sm:text-md text-sm px-10'>MEGA SALE! Click here to shop 50% off!</div>
-                <div className='font-semibold text-black sm:text-md text-sm px-10'>MEGA SALE! Click here to shop 50% off!</div>
-                <div className='font-semibold text-black sm:text-md text-sm px-10'>MEGA SALE! Click here to shop 50% off!</div>
+                <div className='font-semibold text-black sm:text-lg text-sm px-10 sm:px-20'>MEGA SALE! Click here to shop 50% off!</div>
+                <div className='font-semibold text-black sm:text-lg text-sm px-10 sm:px-20'>MEGA SALE! Click here to shop 50% off!</div>
+                <div className='font-semibold text-black sm:text-lg text-sm px-10 sm:px-20'>MEGA SALE! Click here to shop 50% off!</div>
+                <div className='font-semibold text-black sm:text-lg text-sm px-10 sm:px-20'>MEGA SALE! Click here to shop 50% off!</div>
                 <div></div>
               </div>
             </Marquee>

@@ -36,3 +36,20 @@
   text-align: center;
   right: 0!important;
 }
+
+.full-table table{
+  width: 100%!important;
+}
+
+.full-table table th{
+  background: #f5f5f5!important;
+}
+
+.footer_row_light-grey {
+  background-color: #ededed;
+  color: #000;
+}
+
+.footer_row_dark-grey {
+  background-color: #c5c5c5;
+}

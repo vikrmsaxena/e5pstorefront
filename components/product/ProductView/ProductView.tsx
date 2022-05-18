@@ -42,7 +42,10 @@ import {
   PRICEMATCH_ADDITIONAL_DETAILS,
   PRICEMATCH_BEST_PRICE,
   PRICEMATCH_SEEN_IT_CHEAPER,
+  PRODUCT_AVAILABILITY,
   PRODUCT_INFORMATION,
+  PRODUCT_IN_STOCK,
+  PRODUCT_OUT_OF_STOCK,
   YOUTUBE_VIDEO_PLAYER,
 } from '@components/utils/textVariables'
 import { ELEM_ATTR, PDP_ELEM_SELECTORS } from '@framework/content/use-content-snippet'
@@ -378,7 +381,7 @@ export default function ProductView({
       notFound: true,
     }
   }*/
-
+  console.log(product);
   return (
     <div className="bg-white page-container">
       {/* Mobile menu */}
@@ -459,11 +462,11 @@ export default function ProductView({
 
             {/* Product info */}
             <div className="sm:mt-10 mt-2 px-4 sm:px-0 sm:mt-16 lg:mt-0">
-              <h1 className="sm:text-2xl text-xl font-bold sm:font-bold tracking-tight text-gray-900">
+              <h1 className="sm:text-xl text-lg uppercase font-bold sm:font-bold tracking-tight text-gray-700">
                 {selectedAttrData.name || selectedAttrData.productName}
               </h1>
-              <p className="text-gray-500 sm:text-md text-sm mt-3 sm:mt-1">
-                {GENERAL_REFERENCE}: {selectedAttrData.stockCode}
+              <p className="text-gray-500 sm:text-md text-sm mt-3 sm:mt-1 uppercase">
+                <strong>{GENERAL_REFERENCE}:</strong> {selectedAttrData.stockCode}
               </p>
               <div className="mt-2">
                 <h2 className="sr-only">{PRODUCT_INFORMATION}</h2>
@@ -512,10 +515,19 @@ export default function ProductView({
                   setSelectedAttrData={setSelectedAttrData}
                 />
               </div>
-             
+              <h4 className="text-sm uppercase font-bold sm:font-semibold tracking-tight text-black my-4">
+                {PRODUCT_AVAILABILITY}:{' '} 
+                {product.currentStock > 0 ? (
+                  <span>
+                    {PRODUCT_IN_STOCK}
+                  </span>
+                ):(
+                  <span className="text-red-500">{PRODUCT_OUT_OF_STOCK}</span>
+                )}               
+              </h4>
               {updatedProduct ? (
                 <>
-                  <div className="sm:mt-4 mt-6 flex sm:flex-col1">
+                  <div className="sm:mt-8 mt-6 flex sm:flex-col1">
                     <Button
                       title={buttonConfig.title}
                       action={buttonConfig.action}

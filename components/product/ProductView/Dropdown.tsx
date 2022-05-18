@@ -106,16 +106,16 @@ export default function Dropdown({
           <Listbox.Label
             className={`${
               isDisabled ? 'opacity-40' : ''
-            } inline-block text-md pr-3 uppercase font-bold text-gray-800 text-left`}
+            } inline-block text-lg pr-3 uppercase font-bold text-gray-600 text-left`}
           >
             {label}
           </Listbox.Label>
-          <div className="mt-1 relative inline-block w-2/3">
+          <div className="mt-1 relative inline-block w-10/12">
             <Listbox.Button
               disabled
               className={`${
                 isDisabled ? 'opacity-40' : ''
-              } relative w-full bg-white pl-3 pr-10 py-1 text-left cursor-default focus:outline-none focus:ring-1 sm:text-sm`}
+              } relative w-full bg-white pl-3 pr-10 py-1 text-left cursor-default focus:outline-none focus:ring-1 sm:text-md`}
             >
               <span className="flex items-center">
                 <span

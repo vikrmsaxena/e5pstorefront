@@ -111,7 +111,7 @@ export default function ProductDetails({ product, description }: any) {
          </Disclosure>
         ))}
       </div>
-      <div className="border-b divide-y divide-gray-200">
+      <div className="border-b divide-y divide-gray-200 full-table">
         {detailsConfig.map((detail: any, idx: number) => (
           <Disclosure as="div" key={`${idx}-detail-item`}>
             {({ open }) => (

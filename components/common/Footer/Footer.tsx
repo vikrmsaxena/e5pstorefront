@@ -22,12 +22,46 @@ const Footer: FC<Props> = ({ config }) => {
   const handleRedirect = (path: string) => (path ? router.push(path) : {})
 
   return (
-    <footer aria-labelledby="footer-heading" className="bg-gray-50">
+    <footer aria-labelledby="footer-heading" className="footer_row_light-grey">
       <h2 id="footer-heading" className="sr-only">
         Footer
       </h2>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="border-t border-gray-200 py-20">
+      <div className="flex flex-col py-10">
+          <div className='grid grid-cols-1 justify-center text-center'>
+            {/* Newsletter section */}
+            <div className="mt-12 md:mt-0">
+              <h3 className="text-3xl uppercase font-semibold text-black">
+                {SIGN_UP_FOR_NEWSLETTER}
+              </h3>
+              <p className="mt-2 text-md text-black max-w-xl mx-auto">
+                {SIGN_UP_TEXT}
+              </p>
+              <form className="mt-8 flex sm:max-w-3xl mx-auto">
+                <label htmlFor="email-address" className="sr-only">
+                  {GENERAL_EMAIL_ADDRESS}
+                </label>
+                <input
+                  id="email-address"
+                  type="text"
+                  autoComplete="email"
+                  required
+                  placeholder='Your e-mail'
+                  className="appearance-none min-w-0 w-full bg-white rounded-sm shadow-sm py-4 px-4 text-gray-900 placeholder-gray-400 focus:outline-none focus:border-black focus:ring-1 focus:ring-black hover:border-black border border-white"
+                />
+                <div className="ml-4 flex-shrink-0">
+                  <button
+                    type="submit"
+                    className="w-full bg-black border border-transparent uppercase rounded-sm shadow-sm py-4 px-10 flex items-center justify-center text-whitw font-medium text-white hover:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-900"
+                  >
+                    {BTN_SIGN_UP}
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 border-t border-black">        
+        <div className="py-20">
           <div className="grid grid-cols-1 md:grid-cols-12 md:grid-flow-col md:gap-x-8 md:gap-y-16 md:auto-rows-min">
             {/* Image section */}
             <div className="col-span-1 md:col-span-2 lg:row-start-1 lg:col-start-1">
@@ -72,45 +106,15 @@ const Footer: FC<Props> = ({ config }) => {
                   )
                 })}
               </div>
-            </div>
-            {/* Newsletter section */}
-            <div className="mt-12 md:mt-0 md:row-start-2 md:col-start-3 md:col-span-8 lg:row-start-1 lg:col-start-9 lg:col-span-4">
-              <h3 className="text-sm font-medium text-gray-900">
-                {SIGN_UP_FOR_NEWSLETTER}
-              </h3>
-              <p className="mt-6 text-sm text-gray-500">
-                {SIGN_UP_TEXT}
-              </p>
-              <form className="mt-2 flex sm:max-w-md">
-                <label htmlFor="email-address" className="sr-only">
-                  {GENERAL_EMAIL_ADDRESS}
-                </label>
-                <input
-                  id="email-address"
-                  type="text"
-                  autoComplete="email"
-                  required
-                  className="appearance-none min-w-0 w-full bg-white border border-gray-300 rounded-sm shadow-sm py-2 px-4 text-gray-900 placeholder-gray-500 focus:outline-none focus:border-gray-500 focus:ring-1 focus:ring-gray-500"
-                />
-                <div className="ml-4 flex-shrink-0">
-                  <button
-                    type="submit"
-                    className="w-full bg-black border border-transparent uppercase rounded-sm shadow-sm py-2 px-4 flex items-center justify-center text-whitw font-medium text-white hover:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-900"
-                  >
-                    {BTN_SIGN_UP}
-                  </button>
-                </div>
-              </form>
-            </div>
+            </div>            
           </div>
-        </div>
-
-        <div className="border-t border-gray-100 py-10 text-center">
-          <p className="text-sm text-gray-500">
+        </div>        
+      </div>
+      <div className="py-10 text-center footer_row_dark-grey">
+          <p className="text-md text-gray-600">
             &copy; {COPYRIGHT_FOOTER_INFO}
           </p>
         </div>
-      </div>
     </footer>
   )
 }
