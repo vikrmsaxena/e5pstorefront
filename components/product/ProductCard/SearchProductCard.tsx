@@ -161,6 +161,7 @@ const SearchProductCard: FC<Props> = ({ product }) => {
   return (
     <div className="border-gray-100">
       <div key={product.id} className="relative p-3 sm:p-6">
+          
         <Link
           passHref
           href={`/${currentProductData.link}`}
@@ -186,20 +187,29 @@ const SearchProductCard: FC<Props> = ({ product }) => {
                   {BTN_NOTIFY_ME}
                 </div>
               )}
+              {isInWishList ? (
+                <span className="text-gray-900">
+                  {ALERT_SUCCESS_WISHLIST_MESSAGE}
+                </span>
+              ) : (
+
+                <button
+                    className="absolute right-2 bottom-0 z-99 add-wishlist"
+                    onClick={handleWishList}
+                >
+                    <HeartIcon
+                        className="flex-shrink-0 h-8 w-8 z-50 text-gray-800 hover:text-gray-500 rounded-3xl p-1 opacity-80"
+                        aria-hidden="true"
+                />
+                    <span className="ml-2 text-sm font-medium text-gray-700 hover:text-red-800"></span>
+                    <span className="sr-only">f</span>
+                </button>            
+              )}   
             </div>
           </a>
         </Link>
 
-        <div className="sm:pt-10 pt-4 text-left">
-          <h3 className="sm:min-h-50px min-h-40px sm:text-md font-medium text-gray-900">
-            <Link href={`/${currentProductData.link}`}>
-              <a href={`/${currentProductData.link}`}>{product.name}</a>
-            </Link>
-          </h3>
-
-          <p className="sm:mt-4 mt-1 font-bold text-gray-900">
-            {product?.price?.formatted?.withTax}
-          </p>
+        <div className="pt-0 text-left">
           {hasColorVariation ? (
             <AttributeSelector
               attributes={product.variantProductsAttributeMinimal}
@@ -207,8 +217,17 @@ const SearchProductCard: FC<Props> = ({ product }) => {
               link={currentProductData.link}
             />
           ) : (
-            <div className="sm:h-10 sm:w-10 h-5 w-5 sm:mr-2 mr-1 mt-2 inline-block" />
+            <div className="sm:h-1 sm:w-1 h-1 w-1 sm:mr-2 mr-1 mt-2 inline-block" />
           )}
+          <h3 className="sm:min-h-50px min-h-40px sm:text-md font-medium text-gray-900">
+            <Link href={`/${currentProductData.link}`}>
+              <a href={`/${currentProductData.link}`}>{product.name}</a>
+            </Link>
+          </h3>
+
+          <p className="sm:mt-4 mt-1 font-bold font-lg text-gray-900">
+            {product?.price?.formatted?.withTax}
+          </p>          
           <div className="flex flex-col">
             <Button
               className="mt-2 hidden"
@@ -216,8 +235,7 @@ const SearchProductCard: FC<Props> = ({ product }) => {
               action={buttonConfig.action}
               type="button"
               buttonType={buttonConfig.buttonType || 'cart'}
-            />
-            
+            />            
           </div>
         </div>
       </div>

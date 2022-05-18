@@ -14,8 +14,8 @@ const ATTR_COMPONENTS: any = {
 }
 
 const TEMP_MAP: any = {
-  'clothing.size': ATTR_COMPONENTS['Dropdown'],
   'global.colour': ATTR_COMPONENTS['HorizontalList'],
+  'clothing.size': ATTR_COMPONENTS['Dropdown'],  
 }
 
 export default function AttributesHandler({
@@ -168,7 +168,7 @@ export default function AttributesHandler({
           TEMP_MAP[option.fieldCode] ||
           DefaultComponent
         return (
-          <div key={idx} className="py-3">
+          <div key={idx} className="py-2">
             <Component
               currentAttribute={originalAttribute}
               getStockPerAttribute={getStockPerAttribute}

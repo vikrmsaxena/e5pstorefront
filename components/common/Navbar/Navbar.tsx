@@ -265,7 +265,7 @@ const Navbar: FC<Props> = ({ config, currencies, languages }) => {
         </Dialog>
       </Transition.Root>
 
-      <header className="relative bg-white">
+      <header className="relative bg-white drop-shadow-md">
         <div className='bg-black h-10 flex flex-1'>
           <div className="flex-1 flex items-center justify-end pr-0 sm:pr-6">
             <CurrencySwitcher
@@ -333,11 +333,11 @@ const Navbar: FC<Props> = ({ config, currencies, languages }) => {
                       aria-hidden="true"
                     />
                 
-                    {wishListItems.length>0 &&                    
+                    {/* {wishListItems.length>0 &&                    
                       <span className="ml-2 hidden sm:inline text-sm font-medium text-gray-700 group-hover:text-gray-800 absolute top-2 right-4">
                         {wishListItems.length}
                       </span>
-                    }
+                    } */}
                     <span className="sr-only">{GENERAL_ITEM_IN_CART}</span>
                   </button>
                 </div>
@@ -364,13 +364,13 @@ const Navbar: FC<Props> = ({ config, currencies, languages }) => {
             </div>
           </div>
         </nav>
-        <div className='bg-white mx-auto border-b pt-2'>
+        <div className='bg-white mx-auto drop-shadow-md shadow-md border-b pt-2'>
             {/* Flyout menus */}
             <Popover.Group className="absolute bottom-0 inset-x-0 sm:static w-full sm:self-stretch sm:block hidden">
                 <div className="border-t h-14 px-4 flex space-x-8 overflow-x-auto pb-px sm:h-full sm:border-t-0 sm:justify-center sm:overflow-visible sm:pb-0">
                   {config.map((item: any, idx: number) => {
                     return (
-                      <Popover key={idx} className="flex" 
+                      <Popover key={idx} className="flex nav-border-right" 
                           onMouseEnter={() => setOpenState(idx)}
                           onMouseLeave={() => setOpenState(-1)}  >
                         {({ open }) => (
@@ -384,9 +384,9 @@ const Navbar: FC<Props> = ({ config, currencies, languages }) => {
                                   <Popover.Button
                                     className={classNames(
                                       openState == idx
-                                        ? 'border-gray-900 text-black'
-                                        : 'border-transparent text-gray-600 hover:text-gray-800',
-                                      'relative z-10 flex items-center transition-colors py-3 ease-out duration-200 text-lg uppercase font-medium border-b-2 -mb-px pt-px'
+                                        ? 'border-black text-black'
+                                        : 'border-transparent text-black hover:text-pink',
+                                      'relative z-10 flex items-center transition-colors py-3 hover:text-pink ease-out duration-200 text-lg uppercase font-medium border-b-2 -mb-px pt-px'
                                     )}
                                   >
                                     {item.caption}
@@ -397,9 +397,9 @@ const Navbar: FC<Props> = ({ config, currencies, languages }) => {
                               <Popover.Button
                                 className={classNames(
                                   openState == idx
-                                    ? 'border-gray-900 text-black'
-                                    : 'border-transparent text-gray-600 hover:text-gray-800',
-                                  'relative z-10 flex items-center transition-colors py-3 ease-out duration-200 text-lg font-medium border-b-2 -mb-px pt-px'
+                                    ? 'border-black text-black'
+                                    : 'border-transparent text-black hover:text-pink',
+                                  'relative z-10 flex items-center transition-colors py-3 hover:text-pink ease-out duration-200 text-lg font-medium border-b-2 -mb-px pt-px'
                                 )}
                               >
                                 {item.caption}

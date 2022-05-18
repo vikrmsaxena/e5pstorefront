@@ -317,7 +317,7 @@ function CategoryPage({ category, products }: any) {
           <h2 className='sm:text-md text-gray-500'>{category.description}</h2>
           
         </div>
-        <div className='sm:max-w-7xl sm:px-7 mx-auto grid grid-cols-1 sm:grid-cols-12 mb-4 border-b border-gray-100'>
+        <div className='sm:max-w-7xl sm:px-7 mx-auto grid grid-cols-1 sm:grid-cols-12 mb-4'>
           <div className='sm:col-span-12 py-2'>
             <div className="grid grid-cols-2 sm:grid-cols-5 text-left">
               {category?.subCategories?.map((subcateg: any, idx: number) => {
@@ -335,7 +335,7 @@ function CategoryPage({ category, products }: any) {
           </div>
         </div>
         
-        <div className="grid sm:grid-cols-12 grid-cols-1 gap-1 max-w-7xl mx-auto overflow-hidden sm:px-6 lg:px-8">
+        <div className="grid sm:grid-cols-12 grid-cols-1 gap-1 max-w-7xl mx-auto overflow-hidden sm:border-t sm:border-gray-200">
           {!!products && (
             <>
               {/* {MOBILE FILTER PANEL SHOW ONLY IN MOBILE} */}

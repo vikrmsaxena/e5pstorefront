@@ -35,15 +35,6 @@ const Attributes = ({ attributes = [] }: any) => {
 export default function ProductDetails({ product, description }: any) {
   const detailsConfig = [
     {
-      title: PRODUCT_DESCRIPTION,
-      InnerComponent: (props: any) => (
-        <div
-          className="text-gray-700 sm:space-y-6 space-y-2"
-          dangerouslySetInnerHTML={{ __html: description || '' }}
-        />
-      ),
-    },
-    {
       title: PRODUCT_SPECIFICATION,
       InnerComponent: (props: any) => <Attributes {...props} />,
     },
@@ -65,46 +56,100 @@ export default function ProductDetails({ product, description }: any) {
     },
   ]
 
+  const descriptionConfig = [
+    {
+      title: PRODUCT_DESCRIPTION,
+      InnerComponent: (props: any) => (
+        <div
+          className="text-gray-700 sm:space-y-6 space-y-2"
+          dangerouslySetInnerHTML={{ __html: description || '' }}
+        />
+      ),
+    }
+  ]
+
   return (
-    <div className="border-b divide-y divide-gray-200">
-      {detailsConfig.map((detail: any, idx: number) => (
-        <Disclosure as="div" key={`${idx}-detail-item`}>
-          {({ open }) => (
-            <>
-              <h3>
-                <Disclosure.Button className="group relative w-full sm:py-2 py-2 pr-2 flex justify-between items-center text-left">
-                  <span
-                    className={classNames(
-                      open ? 'text-black font-bold' : 'text-gray-900',
-                      'text-lg font-medium'
-                    )}
-                  >
-                    {detail.title}
-                  </span>
-                  <span className="ml-6 flex items-center">
-                    {open ? (
-                      <MinusSmIcon
-                        className="block h-6 w-6 text-black group-hover:text-gray-700"
-                        aria-hidden="true"
-                      />
-                    ) : (
-                      <PlusSmIcon
-                        className="block h-6 w-6 text-black group-hover:text-gray-700"
-                        aria-hidden="true"
-                      />
-                    )}
-                  </span>
-                </Disclosure.Button>
-              </h3>
-              <Disclosure.Panel as="div" className="pb-6 prose prose-sm">
-                {detail.InnerComponent({
-                  attributes: product.customAttributes || product.attributes,
-                })}
-              </Disclosure.Panel>
-            </>
-          )}
-        </Disclosure>
-      ))}
-    </div>
+    <>
+      <div className='border-b divide-y divide-gray-200'>
+        {descriptionConfig.map((desc:any, id:number) => (
+           <Disclosure as="div" key={`${id}-desc-item`}>
+           {({ open }) => (
+             <>
+               <h3>
+                 <Disclosure.Button className="group relative w-full sm:py-2 py-2 pr-2 flex justify-between items-center text-left">
+                   <span
+                     className={classNames(
+                       open ? 'text-black font-bold' : 'text-gray-900',
+                       'text-lg font-medium'
+                     )}
+                   >
+                     {desc.title}
+                   </span>
+                   <span className="ml-6 flex items-center">
+                     {open ? (
+                       <MinusSmIcon
+                         className="block h-6 w-6 text-black group-hover:text-gray-700"
+                         aria-hidden="true"
+                       />
+                     ) : (
+                       <PlusSmIcon
+                         className="block h-6 w-6 text-black group-hover:text-gray-700"
+                         aria-hidden="true"
+                       />
+                     )}
+                   </span>
+                 </Disclosure.Button>
+               </h3>
+               <Disclosure.Panel as="div" className="pb-6 prose prose-sm">
+                 {desc.InnerComponent({
+                   attributes: product.customAttributes || product.attributes,
+                 })}
+               </Disclosure.Panel>
+             </>
+           )}
+         </Disclosure>
+        ))}
+      </div>
+      <div className="border-b divide-y divide-gray-200">
+        {detailsConfig.map((detail: any, idx: number) => (
+          <Disclosure as="div" key={`${idx}-detail-item`}>
+            {({ open }) => (
+              <>
+                <h3>
+                  <Disclosure.Button className="group relative w-full sm:py-2 py-2 pr-2 flex justify-between items-center text-left">
+                    <span
+                      className={classNames(
+                        open ? 'text-black font-bold' : 'text-gray-900',
+                        'text-lg font-medium'
+                      )}
+                    >
+                      {detail.title}
+                    </span>
+                    <span className="ml-6 flex items-center">
+                      {open ? (
+                        <MinusSmIcon
+                          className="block h-6 w-6 text-black group-hover:text-gray-700"
+                          aria-hidden="true"
+                        />
+                      ) : (
+                        <PlusSmIcon
+                          className="block h-6 w-6 text-black group-hover:text-gray-700"
+                          aria-hidden="true"
+                        />
+                      )}
+                    </span>
+                  </Disclosure.Button>
+                </h3>
+                <Disclosure.Panel as="div" className="pb-6 prose prose-sm">
+                  {detail.InnerComponent({
+                    attributes: product.customAttributes || product.attributes,
+                  })}
+                </Disclosure.Panel>
+              </>
+            )}
+          </Disclosure>
+        ))}
+      </div>
+    </>
   )
 }

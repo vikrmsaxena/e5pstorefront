@@ -1,3 +1,38 @@
 .fit {
   min-height: calc(100vh - 88px);
 }
+
+.nav-border-right {
+  padding: 0px;
+  position: relative;
+}
+
+.nav-border-right:after{
+    content: "";
+    position: absolute;
+    right: -18px;
+    top: 4px;
+    width: 1px;
+    height: 25px;
+    background-color: #eaeaea;
+} 
+.nav-border-right:last-child:after{
+    content: "";
+    position: absolute;
+    right: -18px;
+    top: 4px;
+    width: 0px;
+    height: 25px;
+    background-color: #FFFFFF;
+} 
+.z-99{
+  z-index: 99999;
+}
+
+.add-wishlist{
+  bottom: -25px!important;
+  background-color: #f5f3f4;
+  padding: 6px;
+  text-align: center;
+  right: 0!important;
+}

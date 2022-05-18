@@ -393,25 +393,25 @@ export default function ProductView({
           <div className="lg:grid lg:grid-cols-2 lg:gap-x-8 lg:items-start">
             {/* Image gallery */}
             <Tab.Group as="div" className="flex flex-col-reverse">
-              <div className="grid sm:grid-cols-12 grid-cols-1 sm:gap-x-2">
+              <div className="grid sm:grid-cols-12 grid-cols-1 sm:gap-x-8">
                 <div className='col-span-3'>
                   <div className="hidden w-full max-w-2xl mx-auto sm:block lg:max-w-none">
                     <Tab.List className="grid grid-cols-1 gap-6">
                       {content?.map((image: any, idx) => (
                         <Tab
                           key={`${idx}-tab`}
-                          className="relative h-24 sm:h-44 bg-white rounded-md flex items-center justify-center text-sm font-medium uppercase text-gray-900 cursor-pointer hover:bg-gray-50 focus:outline-none focus:ring focus:ring-offset-4 focus:ring-opacity-50"
+                          className="relative h-24 sm:h-36 bg-white flex items-center justify-center text-sm font-medium uppercase text-gray-900 cursor-pointer hover:bg-gray-50 focus:outline-none focus:ring focus:ring-offset-4 focus:ring-opacity-50"
                         >
                           {() => (
                             <>
                               <span className="sr-only">{image.name}</span>
-                              <span className="absolute inset-0 rounded-md overflow-hidden">
+                              <span className="absolute inset-0 overflow-hidden">
                                 {image.image ? (
                                   <div className='image-container'>
                                     <Image
                                       src={`${image.image}` || IMG_PLACEHOLDER}
                                       alt={image.name}
-                                      className="w-full h-full sm:h-44 object-center object-cover image"
+                                      className="w-full h-full sm:h-36 object-center object-cover image"
                                       layout='fill'
                                     ></Image>
                                   </div>
@@ -435,7 +435,7 @@ export default function ProductView({
                             <Image
                               src={`${image.image}` || IMG_PLACEHOLDER}
                               alt={image.name}
-                              className="w-full h-full object-center object-cover image rounded-lg"
+                              className="w-full h-full object-center object-cover image"
                               layout='fill'
                             ></Image>
                           </div>
@@ -493,7 +493,7 @@ export default function ProductView({
                         className={classNames(
                           product.rating > rating
                             ? 'text-indigo-500'
-                            : 'text-gray-300',
+                            : 'text-gray-200',
                           'h-5 w-5 flex-shrink-0'
                         )}
                         aria-hidden="true"
@@ -512,15 +512,7 @@ export default function ProductView({
                   setSelectedAttrData={setSelectedAttrData}
                 />
               </div>
-              <p
-                className="text-gray-900 sm:text-md text-sm cursor-pointer hover:underline"
-                onClick={() => showPriceMatchModal(true)}
-              >
-                <span className="font-bold">{PRICEMATCH_SEEN_IT_CHEAPER}</span>
-                <span>
-                  {''} {PRICEMATCH_BEST_PRICE}
-                </span>
-              </p>
+             
               {updatedProduct ? (
                 <>
                   <div className="sm:mt-4 mt-6 flex sm:flex-col1">
@@ -536,7 +528,7 @@ export default function ProductView({
                           handleWishList()
                         }
                       }}
-                      className="ml-4 py-3 px-3 rounded-md flex items-center justify-center text-gray-400 hover:bg-gray-100 hover:text-gray-500"
+                      className="ml-4 py-3 px-4 rounded-sm bg-gray-100 flex items-center justify-center text-gray-400 hover:bg-gray-100 hover:text-gray-500"
                     >
                     {isInWishList ? (
                       <span>{ALERT_SUCCESS_WISHLIST_MESSAGE}</span>
@@ -548,7 +540,7 @@ export default function ProductView({
                   </div>
                   {isEngravingAvailable && (
                     <button
-                      className="max-w-xs flex-1 mt-5 bg-gray-400 border border-transparent rounded-md py-3 px-8 flex items-center justify-center font-medium text-white hover:bg-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-50 focus:ring-gray-500 sm:w-full"
+                      className="max-w-xs flex-1 mt-5 bg-gray-400 border border-transparent rounded-sm uppercase py-3 px-8 flex items-center justify-center font-medium text-white hover:bg-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-50 focus:ring-gray-500 sm:w-full"
                       onClick={() => showEngravingModal(true)}
                     >
                       <span className="font-bold">{GENERAL_ENGRAVING}</span>
