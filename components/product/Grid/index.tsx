@@ -36,9 +36,9 @@ export default function Grid({
           currentNumber={products.results.length}
           component={
             <div
-              className={`-mx-px border-l border-t border-gray-100 grid grid-cols-2 sm:mx-0 md:grid-cols-3 ${
-                products.results.length < 3
-                  ? `lg:grid-cols-2`
+              className={`-mx-px border-gray-100 grid grid-cols-3 sm:mx-0 md:grid-cols-4 ${
+                products.results.length < 4
+                  ? `lg:grid-cols-3`
                   : 'lg:grid-cols-3'
               }`}
             >
@@ -65,7 +65,7 @@ export default function Grid({
       )}
       {!IS_INFINITE_SCROLL && (
         <>
-          <div className="-mx-px border-l border-t border-gray-200 grid grid-cols-2 sm:mx-0 md:grid-cols-3 lg:grid-cols-4">
+          <div className="-mx-px border-gray-200 grid grid-cols-2 sm:mx-0 md:grid-cols-4 lg:grid-cols-4">
             {!products.results.length &&
               rangeMap(12, (i) => (
                 <div

@@ -14,8 +14,8 @@ interface Props {
 
 const DEFAULT_COLOR_SCHEME = {
   bgColor: 'bg-black',
-  hoverBgColor: 'bg-gray-500',
-  focusRingColor: 'ring-gray-500',
+  hoverBgColor: 'bg-gray-900',
+  focusRingColor: 'ring-gray-700',
 }
 
 const DefaultButton: FC<Props> = ({
