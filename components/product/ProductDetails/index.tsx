@@ -71,8 +71,8 @@ export default function ProductDetails({ product, description }: any) {
   return (
     <>
       <div className='border-b divide-y divide-gray-200'>
-        {descriptionConfig.map((desc:any, id:number) => (
-           <Disclosure as="div" key={`${id}-desc-item`}>
+        {descriptionConfig.map((desc:any, id:number)=>(
+           <Disclosure as="div" key={`${id}-desc-item`} defaultOpen>
            {({ open }) => (
              <>
                <h3>
@@ -100,6 +100,7 @@ export default function ProductDetails({ product, description }: any) {
                    </span>
                  </Disclosure.Button>
                </h3>
+               
                <Disclosure.Panel as="div" className="pb-6 prose prose-sm">
                  {desc.InnerComponent({
                    attributes: product.customAttributes || product.attributes,
