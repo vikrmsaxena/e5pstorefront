@@ -167,7 +167,7 @@ const ProductCard: FC<Props> = ({ product }) => {
           key={'data-product' + currentProductData.link}
         >
           <a href={currentProductData.link}>
-            <div className="relative rounded-lg overflow-hidden bg-gray-200 aspect-w-1 aspect-h-1 hover:opacity-75">
+            <div className="relative overflow-hidden bg-gray-200 aspect-w-1 aspect-h-1 hover:opacity-75">
               
               <img
                 src={currentProductData.image}
