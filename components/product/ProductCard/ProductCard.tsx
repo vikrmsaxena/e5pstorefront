@@ -160,28 +160,7 @@ const ProductCard: FC<Props> = ({ product }) => {
 
   return (
     <div className="border-gray-200">
-      <div key={product.id} className="relative p-2 sm:p-3">
-          {isInWishList ? (
-                <span className="text-gray-900">
-                    {ALERT_SUCCESS_WISHLIST_MESSAGE}
-                </span>
-            ) : (
-
-              <button
-                  className="absolute right-2 top-2 z-99"
-                  onClick={handleWishList}
-                >
-                  <HeartIcon
-                    className="flex-shrink-0 h-8 w-8 z-50 text-gray-800 group-hover:text-gray-500 rounded-3xl p-1 opacity-80"
-                    aria-hidden="true"
-                  />
-                  <span className="ml-2 text-sm font-medium text-gray-700 hover:text-red-800">
-                    
-                  </span>
-                  <span className="sr-only">f</span>
-                </button>
-                
-            )}
+      <div key={product.id} className="relative p-2 sm:p-3">          
         <Link
           passHref
           href={`/${currentProductData.link}`}
@@ -207,36 +186,48 @@ const ProductCard: FC<Props> = ({ product }) => {
                   {BTN_NOTIFY_ME}
                 </div>
               )}
+              {isInWishList ? (
+                <span className="text-gray-900">
+                  {ALERT_SUCCESS_WISHLIST_MESSAGE}
+                </span>
+              ) : (
+
+                <button
+                    className="absolute right-2 bottom-0 z-99 add-wishlist"
+                    onClick={handleWishList}
+                >
+                    <HeartIcon
+                        className="flex-shrink-0 h-8 w-8 z-50 text-gray-800 hover:text-gray-500 rounded-3xl p-1 opacity-80"
+                        aria-hidden="true"
+                />
+                    <span className="ml-2 text-sm font-medium text-gray-700 hover:text-red-800"></span>
+                    <span className="sr-only">f</span>
+                </button>            
+              )}   
             </div>
             
           </a>
         </Link>
 
-        <div className="pt-4 pb-2 text-left grid sm:grid-cols-12 grid-cols-1">
-          <div className='sm:col-span-8'>
-              <h3 className="sm:min-h-50px sm:text-sm text-xs font-medium text-gray-900 line-clip-2 text-center sm:text-left">
-                <Link href={`/${currentProductData.link}`}>
-                  <a href={`/${currentProductData.link}`}>{product.name}</a>
-                </Link>
-              </h3>
-          </div>
-          <div className='sm:col-span-4'>
-            <p className="font-bold text-gray-900 sm:text-right text-center">
-              {product?.price?.formatted?.withTax}
-            </p>
-          </div>
-        </div>
-        <div className='grid grid-cols-1 align-center text-center'>
-          <div>
-            {hasColorVariation ? (
+        <div className="pt-0 text-left">
+          {hasColorVariation ? (
             <AttributeSelector
               attributes={product.variantProductsAttributeMinimal}
               onChange={handleVariableProduct}
               link={currentProductData.link}
             />
           ) : (
-            <div className="sm:h-10 sm:w-10 h-5 w-5 sm:mr-2 mr-1 mt-2 inline-block" />
+            <div className="sm:h-1 sm:w-1 h-1 w-1 sm:mr-2 mr-1 mt-2 inline-block" />
           )}
+          <h3 className="sm:min-h-50px min-h-40px sm:text-md font-medium text-gray-900">
+            <Link href={`/${currentProductData.link}`}>
+              <a href={`/${currentProductData.link}`}>{product.name}</a>
+            </Link>
+          </h3>
+
+          <p className="sm:mt-4 mt-1 font-bold font-lg text-gray-900">
+            {product?.price?.formatted?.withTax}
+          </p>          
           <div className="flex flex-col">
             <Button
               className="mt-2 hidden"
@@ -244,9 +235,7 @@ const ProductCard: FC<Props> = ({ product }) => {
               action={buttonConfig.action}
               type="button"
               buttonType={buttonConfig.buttonType || 'cart'}
-            />
-            
-          </div>
+            />            
           </div>
         </div>
       </div>

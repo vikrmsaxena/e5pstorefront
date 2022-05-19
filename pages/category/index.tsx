@@ -7,11 +7,13 @@ import {
   IMG_PLACEHOLDER,
   SHOP_BY_CATEGORY,
 } from '@components/utils/textVariables'
-export default function CategoryList(props: any) {
+
+
+export default function CategoryList(props: any) {  
   return (
     <main className="max-w-3xl mx-auto px-4 sm:px-6 lg:max-w-7xl lg:px-8">
       <section aria-labelledby="products-heading" className="mt-8">
-        <h2 className="text-2xl font-extrabold tracking-tight text-gray-900">
+        <h2 className="text-3xl font-bold uppercase tracking-tight text-gray-900">
           {SHOP_BY_CATEGORY}
         </h2>
 
@@ -30,6 +32,7 @@ export default function CategoryList(props: any) {
                         aria-hidden="true"
                         className="absolute inset-x-0 top-0 h-full bg-gradient-to-b from-gray-100 opacity-90"
                       />
+                      
                       <span aria-hidden="true" className="absolute inset-0">
                         <div className="image-container">
                           <Image
@@ -45,7 +48,7 @@ export default function CategoryList(props: any) {
                         className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-gray-900 opacity-40"
                       />
                       <span className="relative mt-auto text-center sm:text-xl text-sm font-bold text-white">
-                        {category.name}
+                        {category.name}                        
                       </span>
                     </a>
                   </Link>

@@ -13,7 +13,7 @@ export default function CollectionList(props: any) {
   return (
     <main className="max-w-3xl mx-auto px-4 sm:px-6 lg:max-w-7xl lg:px-8">
       <section aria-labelledby="products-heading" className="mt-8">
-        <h2 className="text-2xl font-extrabold tracking-tight text-gray-900">
+        <h2 className="text-3xl uppercase font-bold tracking-tight text-gray-900">
           {SHOP_BY_COLLECTION}
         </h2>
 
