@@ -570,7 +570,7 @@ export default function ProductView({
               <ProductDetails
                 product={product}
                 description={
-                  selectedAttrData.description || product.description
+                  product.description || product.shortDescription
                 }
               />              
               <div className="border-t divide-y divide-gray-200 sm:mt-10 mt-6">

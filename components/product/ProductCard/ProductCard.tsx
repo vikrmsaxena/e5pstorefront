@@ -160,7 +160,7 @@ const ProductCard: FC<Props> = ({ product }) => {
 
   return (
     <div className="border-gray-200">
-      <div key={product.id} className="relative p-2 sm:p-6">
+      <div key={product.id} className="relative p-2 sm:p-3">
           {isInWishList ? (
                 <span className="text-gray-900">
                     {ALERT_SUCCESS_WISHLIST_MESSAGE}
@@ -195,7 +195,7 @@ const ProductCard: FC<Props> = ({ product }) => {
                 alt={product.name}
                 onMouseEnter={() => handleHover('enter')}
                 onMouseLeave={() => handleHover('leave')}
-                className="w-full sm:h-72 h-48 object-top object-cover"
+                className="w-full sm:h-full h-48 object-top object-cover"
               />
               {buttonConfig.isPreOrderEnabled && (
                 <div className="bg-yellow-400 absolute py-1 px-1 rounded-sm top-2">
