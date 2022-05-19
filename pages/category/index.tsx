@@ -26,7 +26,7 @@ export default function CategoryList(props: any) {
                     <a
                       key={category.id}
                       href={`/${category.link}`}
-                      className="relative sm:w-56 sm:h-80 h-60 w-full rounded-lg p-6 flex flex-col overflow-hidden hover:opacity-75 xl:w-auto"
+                      className="relative sm:w-56 sm:h-80 h-60 w-full p-6 flex flex-col overflow-hidden hover:opacity-75 xl:w-auto"
                     >
                       <span
                         aria-hidden="true"
