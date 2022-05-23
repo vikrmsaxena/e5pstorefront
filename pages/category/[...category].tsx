@@ -280,7 +280,7 @@ function CategoryPage({ category, products }: any) {
     IS_INFINITE_SCROLL && productListMemory.products?.results?.length
       ? productListMemory.products
       : products
-  console.log("Category:"+ JSON.stringify(category));
+  
   return (
     <div className="bg-white">
       {/* Mobile menu */}
