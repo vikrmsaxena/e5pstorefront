@@ -5,7 +5,9 @@ const Logo = ({ className = '', ...props }) => {
     <img
       className="sm:h-8 w-auto"
       src="/e5p_logo.png"
-      alt=""
+      alt="everything5pounds"
+      width={347}
+      height={32}
     />
   );
 }

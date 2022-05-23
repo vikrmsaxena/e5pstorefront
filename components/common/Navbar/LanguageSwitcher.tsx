@@ -10,7 +10,7 @@ export default function CurrencySwitcher({ config, title, action }: any) {
       <Menu.Button className="p-1 text-gray-100 hover:text-gray-500 inline-flex justify-center w-full focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75">
         <FlagIcon
           className="flex-shrink-0 h-6 w-6 text-gray-100 group-hover:text-gray-500"
-          aria-hidden="true"
+          aria-hidden="true"  aria-label="Flags"
         />
          <span className='text-lime pr-2 font-normal text-sm text-white inline-block pl-2'>Language</span>
       </Menu.Button>

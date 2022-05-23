@@ -9,7 +9,7 @@ export default function Account({ config, title }: any) {
       <Menu.Button className="sm:p-4 p-2 text-black hover:text-black inline-flex justify-center w-full focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75">
         <UserIcon
           className="flex-shrink-0 sm:h-7 sm:w-7 h-5 w-5  text-black group-hover:text-black"
-          aria-hidden="true"
+          aria-hidden="true"  aria-label="My Account"
         />
       </Menu.Button>
       <Transition

@@ -330,7 +330,7 @@ const Navbar: FC<Props> = ({ config, currencies, languages }) => {
                   >
                     <HeartIcon
                       className="flex-shrink-0 sm:h-7 sm:w-7 h-5 w-5 text-black group-hover:text-black"
-                      aria-hidden="true"
+                      aria-hidden="true" aria-label="Wishlist"
                     />
                 
                     {/* {wishListItems.length>0 &&                    
@@ -350,7 +350,7 @@ const Navbar: FC<Props> = ({ config, currencies, languages }) => {
                   >
                     <ShoppingBagIcon
                       className="flex-shrink-0 sm:h-7 sm:w-7 h-5 w-5  text-black group-hover:text-black"
-                      aria-hidden="true"
+                      aria-hidden="true" aria-label="Add to cart"
                     />
                     {cartItems.lineItems?.length>0 &&
                       <span className="ml-2 text-sm hidden sm:inline w-5 h-4 bg-black font-medium text-white group-hover:text-white absolute top-4 right-3">
