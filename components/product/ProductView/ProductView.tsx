@@ -381,7 +381,7 @@ export default function ProductView({
       notFound: true,
     }
   }*/
-  console.log(product);
+
   return (
     <div className="bg-white page-container">
       {/* Mobile menu */}
