@@ -123,7 +123,7 @@ const Navbar: FC<Props> = ({ config, currencies, languages }) => {
       <Transition.Root show={open} as={Fragment}>
         <Dialog
           as="div"
-          className="fixed inset-0 flex z-40 lg:hidden"
+          className="fixed inset-0 flex z-99 lg:hidden"
           onClose={setOpen}
         >
           <Transition.Child

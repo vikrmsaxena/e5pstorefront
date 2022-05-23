@@ -36,7 +36,7 @@ export default function Grid({
           currentNumber={products.results.length}
           component={
             <div
-              className={`-mx-px border-gray-100 grid grid-cols-3 sm:mx-0 md:grid-cols-4 ${
+              className={`-mx-px border-gray-100 grid grid-cols-2 sm:mx-0 md:grid-cols-4 ${
                 products.results.length < 4
                   ? `lg:grid-cols-3`
                   : 'lg:grid-cols-3'
