@@ -262,10 +262,12 @@
   height: 18rem !important;
 }
 
-.sm\:min-h-screen {
-  min-height: 100vh !important;
+@media screen and (min-width:768px) {
+  .sm\:min-h-screen {
+    min-height: 100vh !important;
+  }
+  
 }
-
 .h-full {
   height: 100% !important;
 }

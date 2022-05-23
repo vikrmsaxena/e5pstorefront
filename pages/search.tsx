@@ -12,6 +12,7 @@ import { EVENTS, KEYS_MAP } from '@components/utils/dataLayer'
 import { EVENTS_MAP } from '@components/services/analytics/constants'
 import { useUI } from '@components/ui/context'
 import useAnalytics from '@components/services/analytics/useAnalytics'
+import { GENERAL_CATALOG, RESULTS } from '@components/utils/textVariables'
 export const ACTION_TYPES = {
   SORT_BY: 'SORT_BY',
   PAGE: 'PAGE',
@@ -287,11 +288,11 @@ function Search({ query, setEntities, recordEvent }: any) {
       {/* Mobile menu */}
       <main className="pb-24">
         <div className="text-center sm:py-16 py-6 px-4 sm:px-6 lg:px-8">
-          <h1 className="sm:text-4xl text-2xl font-extrabold tracking-tight text-gray-900">
-            Catalog
+          <h1 className="sm:text-4xl uppercase text-2xl font-bold tracking-tight text-gray-900">
+            {GENERAL_CATALOG}
           </h1>
           <h1 className="sm:text-xl text-lg mt-2 font-medium tracking-tight text-gray-500">
-            {data.products.total} results
+            {data.products.total}{' '}{RESULTS}
           </h1>
         </div>
         <div className="grid sm:grid-cols-12 grid-cols-1 gap-1 max-w-7xl mx-auto overflow-hidden sm:border-t sm:border-gray-200 sm:pt-4">
