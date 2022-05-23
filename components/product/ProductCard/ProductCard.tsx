@@ -15,6 +15,7 @@ import {
   BTN_NOTIFY_ME,
   BTN_PRE_ORDER,
   GENERAL_ADD_TO_BASKET,
+  IMG_PLACEHOLDER
 } from '@components/utils/textVariables'
 
 interface Props {
@@ -170,7 +171,7 @@ const ProductCard: FC<Props> = ({ product }) => {
           <a href={currentProductData.link}>
             <div className="relative overflow-hidden bg-gray-200 aspect-w-1 aspect-h-1 hover:opacity-75">
             <Image
-                  src={`${currentProductData.image}?h=400&fm=webp`}
+                  src={`${currentProductData.image}?h=400&w=300&fm=webp` || IMG_PLACEHOLDER}
                   alt={product.name}
                   onMouseEnter={() => handleHover('enter')}
                   onMouseLeave={() => handleHover('leave')}

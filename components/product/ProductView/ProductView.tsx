@@ -412,7 +412,7 @@ export default function ProductView({
                                 {image.image ? (
                                   <div className='image-container'>
                                     <Image
-                                      src={`${image.image}` || IMG_PLACEHOLDER}
+                                      src={`${image.image}?h=400&w=300&fm=webp` || IMG_PLACEHOLDER}
                                       alt={image.name}
                                       className="w-full h-full sm:h-36 object-center object-cover image"
                                       layout='fill'
