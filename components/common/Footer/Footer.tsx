@@ -111,7 +111,7 @@ const Footer: FC<Props> = ({ config }) => {
         </div>        
       </div>
       <div className="py-10 text-center footer_row_dark-grey">
-          <p className="text-md text-gray-600">
+          <p className="text-md text-black font-semibold">
             &copy; {COPYRIGHT_FOOTER_INFO}
           </p>
         </div>

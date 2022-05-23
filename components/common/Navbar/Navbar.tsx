@@ -280,7 +280,7 @@ const Navbar: FC<Props> = ({ config, currencies, languages }) => {
             />
           </div>          
         </div>
-        <div className='bg-gray-200 sm:h-12 h-10 flex flex-1'>
+        <div className='footer_row_dark-grey sm:h-12 h-10 flex flex-1'>
           <div className="flex-1 flex items-center justify-end pr-6">
             <Marquee>
               <div className='grid grid-cols-4 sm:gap-x-48'>
