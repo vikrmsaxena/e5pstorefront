@@ -6,8 +6,8 @@ const Logo = ({ className = '', ...props }) => {
       className="sm:h-8 w-auto"
       src="/e5p_logo.png"
       alt="everything5pounds"
-      width={347}
-      height={32}
+      width={401}
+      height={37}
     />
   );
 }
