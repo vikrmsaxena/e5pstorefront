@@ -11,7 +11,7 @@ const isBetterCommerce = provider === 'bettercommerce'
 module.exports = withCommerceConfig({
   commerce,
   images: {
-    domains: ['liveocxcdn.azureedge.net', 'fiver.media','devocxblob.blob.core.windows.net'],
+    domains: ['liveocxcdn.azureedge.net', 'fiver.media','liveocx.imgix.net'],
     // for trident need to add domain ('res.cloudinary.com', '99yrs.co.in') for images
   },
   i18n: {

@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import { FC } from 'react'
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
@@ -14,6 +15,7 @@ import {
   BTN_NOTIFY_ME,
   BTN_PRE_ORDER,
   GENERAL_ADD_TO_BASKET,
+  IMG_PLACEHOLDER
 } from '@components/utils/textVariables'
 
 interface Props {
@@ -157,7 +159,6 @@ const SearchProductCard: FC<Props> = ({ product }) => {
   }
 
   const buttonConfig = buttonTitle()
-
   return (
     <div className="border-gray-100">
       <div key={product.id} className="relative p-3 sm:p-3">
@@ -169,14 +170,23 @@ const SearchProductCard: FC<Props> = ({ product }) => {
         >
           <a href={currentProductData.link}>
             <div className="relative overflow-hidden bg-gray-200 aspect-w-1 aspect-h-1 hover:opacity-75">
-                         
-              <img
-                src={currentProductData.image}
+                <Image
+                  src={`${currentProductData.image}?h=400&fm=webp`}
+                  alt={product.name}
+                  onMouseEnter={() => handleHover('enter')}
+                  onMouseLeave={() => handleHover('leave')}
+                  className="w-full sm:h-full h-full object-center object-cover"
+                  layout='responsive'
+                  width={400}
+                  height={600}
+                ></Image>           
+              {/* <img
+                src={`${currentProductData.image}?h=400&fm=webp`}
                 alt={product.name}
                 onMouseEnter={() => handleHover('enter')}
                 onMouseLeave={() => handleHover('leave')}
                 className="w-full sm:h-full h-full object-center object-cover"
-              />
+              /> */}
               {buttonConfig.isPreOrderEnabled && (
                 <div className="bg-yellow-400 absolute py-1 px-1 rounded-sm top-2">
                   {BTN_PRE_ORDER}

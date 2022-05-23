@@ -36,7 +36,7 @@ export default function CategoryList(props: any) {
                       <span aria-hidden="true" className="absolute inset-0">
                         <div className="image-container">
                           <Image
-                            src={category.image || IMG_PLACEHOLDER}
+                            src={`${category.image}?fm=webp&h=300&w=200` || IMG_PLACEHOLDER}
                             alt={category.name}
                             className="w-full h-full object-center object-cover group-hover:opacity-75 image"
                             layout="fill"
