@@ -14,6 +14,7 @@ import useSwr from 'swr'
 import { postData } from '@components/utils/clientFetcher'
 import { ALL_CATEGORY, BAD_URL_TEXT, IMG_PLACEHOLDER, RESULTS } from '@components/utils/textVariables'
 import { Swiper, SwiperSlide } from 'swiper/react'
+import BreadCrumbs from '@components/ui/BreadCrumbs'
 // Import Swiper styles
 import 'swiper/css'
 import 'swiper/css/navigation'
@@ -279,11 +280,16 @@ function CategoryPage({ category, products }: any) {
     IS_INFINITE_SCROLL && productListMemory.products?.results?.length
       ? productListMemory.products
       : products
-
+  console.log("Category:"+ JSON.stringify(category));
   return (
     <div className="bg-white">
       {/* Mobile menu */}
-      <main className="pb-0">        
+      <main className="pb-0">   
+      <div className="max-w-7xl mx-auto pt-2 px-2 sm:pt-6 sm:px-6 lg:px-8">
+        {category.breadCrumbs && (
+          <BreadCrumbs items={category.breadCrumbs} currentProduct={category} />
+        )}
+      </div>     
         <div className="sm:max-w-7xl sm:px-7 mx-auto sm:mt-4 mt-0 flex justify-center items-center w-full">
           {
             category && category.images && category.images.length ? (

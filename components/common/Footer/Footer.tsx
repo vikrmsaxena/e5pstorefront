@@ -26,14 +26,14 @@ const Footer: FC<Props> = ({ config }) => {
       <h2 id="footer-heading" className="sr-only">
         Footer
       </h2>
-      <div className="flex flex-col py-10">
+      <div className="flex flex-col py-10 sm:px-0 px-6">
           <div className='grid grid-cols-1 justify-center text-center'>
             {/* Newsletter section */}
             <div className="mt-12 md:mt-0">
-              <h3 className="text-3xl uppercase font-semibold text-black">
+              <h3 className="sm:text-3xl text-xl uppercase font-semibold text-black">
                 {SIGN_UP_FOR_NEWSLETTER}
               </h3>
-              <p className="mt-2 text-md text-black max-w-xl mx-auto">
+              <p className="mt-2 sm:text-md text-sm text-black max-w-xl mx-auto">
                 {SIGN_UP_TEXT}
               </p>
               <form className="mt-8 flex sm:max-w-3xl mx-auto">

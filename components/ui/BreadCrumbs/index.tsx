@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import Link from 'next/link'
 
 interface Props {
@@ -33,7 +33,8 @@ export default function BreadCrumbs({ items = [], currentProduct }: Props) {
     return map
   }
 
-  const [flattenedItems, setFlattenedItems] = useState(createBreadcrumbs(items))
+  //const [flattenedItems, setFlattenedItems] = useState(createBreadcrumbs(items))
+  const flattenedItems = createBreadcrumbs(items)
   return (
     <ol role="list" className="flex items-center sm:space-x-0 space-x-0">
       {flattenedItems.map((breadcrumb: any, breadcrumbIdx: number) => (
