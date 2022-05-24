@@ -47,6 +47,7 @@ import {
   PRODUCT_IN_STOCK,
   PRODUCT_OUT_OF_STOCK,
   YOUTUBE_VIDEO_PLAYER,
+  SLUG_TYPE_MANUFACTURER,
 } from '@components/utils/textVariables'
 import { ELEM_ATTR, PDP_ELEM_SELECTORS } from '@framework/content/use-content-snippet'
 
@@ -375,7 +376,9 @@ export default function ProductView({
   const filteredRelatedProductList = product.relatedProductList?.filter(
     (item: any) => item.stockCode !== ITEM_TYPE_ADDON
   )
-
+  const breadcrumbs = product.breadCrumbs?.filter(
+    (item: any) => item.slugType !== SLUG_TYPE_MANUFACTURER
+  )
   /*if (product === null) {
     return {
       notFound: true,
@@ -386,8 +389,8 @@ export default function ProductView({
     <div className="bg-white page-container">
       {/* Mobile menu */}
       <div className="max-w-7xl mx-auto pt-2 px-2 sm:pt-6 sm:px-6 lg:px-8">
-        {product.breadCrumbs && (
-          <BreadCrumbs items={product.breadCrumbs} currentProduct={product} />
+        {breadcrumbs && (
+          <BreadCrumbs items={breadcrumbs} currentProduct={product} />
         )}
       </div>
       <main className="max-w-7xl mx-auto sm:pt-8 sm:px-6 lg:px-8">
