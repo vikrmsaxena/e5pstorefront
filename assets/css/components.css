@@ -59,3 +59,9 @@
   max-width: 100%!important;
   height: 100%!important;
 }
+
+@media screen and (min-width:1180px) {
+  .brand-grid-3 .lg\:grid-cols-3 {
+    grid-template-columns: repeat(4, minmax(0, 1fr))!important;
+  }
+}

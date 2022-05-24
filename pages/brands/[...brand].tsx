@@ -73,7 +73,7 @@ function reducer(state: stateInterface, { type, payload }: actionInterface) {
     case REMOVE_FILTERS:
       return {
         ...state,
-        filters: state.filters.filter(
+        filters: state?.filters.filter(
           (item: any) => item.Value !== payload.Value
         ),
       }
@@ -158,10 +158,10 @@ function BrandDetailPage({
       ) {
         setProductListMemory((prevData: any) => {
           let dataClone = { ...data }
-          if (state.currentPage > 1) {
+          if (state?.currentPage > 1) {
             dataClone.products.results = [
-              ...prevData.products.results,
-              ...dataClone.products.results,
+              ...prevData?.products?.results,
+              ...dataClone?.products?.results,
             ]
           }
           return dataClone
@@ -244,6 +244,8 @@ function BrandDetailPage({
   const productDataToPass = IS_INFINITE_SCROLL
     ? productListMemory.products
     : data.products
+  
+  console.log("Brand:"+JSON.stringify(brandDetails));
 
   // IMPLEMENT HANDLING FOR NULL OBJECT
   if (brandDetails === null) {
@@ -261,55 +263,54 @@ function BrandDetailPage({
 
   return (
     <div className="bg-white">
-      {/* Mobile menu */}
-      <main className="pb-24">
-        <div className="text-center sm:py-16 py-6 px-4 sm:px-6 lg:px-8">
-          <h1 className="sm:text-4xl text-2xl font-extrabold tracking-tight text-gray-900">
-            {state.filters[0]?.Value}
+      <main className="pb-24 brand-grid-3">
+        <div className="text-center sm:pt-10 sm:pb-0 py-4 px-4 sm:px-6 lg:px-8">
+          <h1 className="sm:text-4xl text-xl font-bold tracking-tight text-gray-900">
+            {state?.filters[0]?.Value}
           </h1>
           <h1 className="sm:text-xl text-lg mt-2 font-medium tracking-tight text-gray-500">
-            {data.products.total} results
+            {data?.products?.total} results
           </h1>
           <div
             dangerouslySetInnerHTML={{
-              __html: brandDetails.description,
+              __html: brandDetails?.description,
             }}
-            className="sm:py-10 py-4 px-5 sm:mt-5 mt-2 text-gray-900"
+            className="sm:pt-4 py-2 px-5 sm:mt-2 mt-1 text-gray-900"
           />
         </div>
-        <div className="sm:py-5 py-2 w-full justify-end flex max-w-3xl mx-auto px-4 text-center sm:px-6 lg:max-w-7xl lg:px-8">
+        <div className="sm:py-2 py-2 w-full justify-end flex max-w-3xl mx-auto px-4 text-center sm:px-6 lg:max-w-7xl lg:px-8">
           <ProductSort
-            routerSortOption={state.sortBy}
-            products={data.products}
+            routerSortOption={state?.sortBy}
+            products={data?.products}
             action={handleSortBy}
           />
         </div>
         <ProductGrid
           products={productDataToPass}
-          currentPage={state.currentPage}
+          currentPage={state?.currentPage}
           handlePageChange={handlePageChange}
-          handleInfiniteScroll={handleInfiniteScroll}
+          handleInfiniteScroll={handleInfiniteScroll}          
         />
       </main>
       <NextSeo
-        title={brandDetails.name}
-        description={brandDetails.description}
+        title={brandDetails?.name}
+        description={brandDetails?.description}
         additionalMetaTags={[
           {
             name: 'keywords',
-            content: brandDetails.metaKeywords,
+            content: brandDetails?.metaKeywords,
           },
         ]}
         openGraph={{
           type: 'website',
-          title: brandDetails.metaTitle,
-          description: brandDetails.metaDescription,
+          title: brandDetails?.metaTitle,
+          description: brandDetails?.metaDescription,
           images: [
             {
-              url: brandDetails.Image,
+              url: brandDetails?.Image,
               width: 800,
               height: 600,
-              alt: brandDetails.name,
+              alt: brandDetails?.name,
             },
           ],
         }}
@@ -320,7 +321,7 @@ function BrandDetailPage({
 
 export const getServerSideProps: GetServerSideProps = async (context: any) => {
   const response = await getBrandBySlug(
-    `brands/${context.query.brand.pop()}`,
+    `brands/${context?.query?.brand.pop()}`,
     context.req.cookies
   );
 
@@ -328,8 +329,8 @@ export const getServerSideProps: GetServerSideProps = async (context: any) => {
   const infra = await infraPromise;
   return {
     props: {
-      query: context.query,
-      brandDetails: response.result,
+      query: context?.query,
+      brandDetails: response?.result,
       globalSnippets: infra?.snippets ?? [],
       snippets: response?.snippets ?? []
     }, // will be passed to the page component as props
