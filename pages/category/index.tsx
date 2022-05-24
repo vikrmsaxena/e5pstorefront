@@ -11,16 +11,16 @@ import {
 
 export default function CategoryList(props: any) {  
   return (
-    <main className="max-w-3xl mx-auto px-4 sm:px-6 lg:max-w-7xl lg:px-8">
+    <main className="w-full mx-auto px-4 sm:px-6 md:w-4/5 lg:px-8">
       <section aria-labelledby="products-heading" className="mt-8">
-        <h2 className="text-3xl font-bold uppercase tracking-tight text-gray-900">
+        <h2 className="text-2xl font-bold uppercase tracking-tight text-gray-900">
           {SHOP_BY_CATEGORY}
         </h2>
 
-        <div className="sm:mt-4 mt-8 flow-root">
+        <div className="sm:mt-0 mt-1 flow-root">
           <div className="my-0">
             <div className="box-content relative">
-              <div className="sm:py-6 py-1 grid grid-cols-2 sm:gap-y-8 gap-y-6 sm:grid-cols-4 gap-x-6 lg:grid-cols-5 xl:gap-x-8">
+              <div className="sm:py-6 py-1 grid grid-cols-2 sm:gap-y-8 gap-y-6 sm:grid-cols-5 gap-x-6 lg:grid-cols-6 xl:gap-x-8">
                 {props.data.map((category: any, key: number) => (
                   <Link key={key} href={`/${category.link}`}>
                     <a
@@ -47,7 +47,7 @@ export default function CategoryList(props: any) {
                         aria-hidden="true"
                         className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-gray-900 opacity-40"
                       />
-                      <span className="relative mt-auto text-center sm:text-xl text-sm font-bold text-white">
+                      <span className="relative mt-auto uppercase text-center sm:text-lg text-sm font-bold text-white">
                         {category.name}                        
                       </span>
                     </a>

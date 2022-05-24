@@ -161,7 +161,7 @@ const SearchProductCard: FC<Props> = ({ product }) => {
   const buttonConfig = buttonTitle()
   return (
     <div className="border-gray-100">
-      <div key={product.id} className="relative p-3 sm:p-3">
+      <div key={product.id} className="relative py-3 sm:py-3">
           
         <Link
           passHref
@@ -179,14 +179,7 @@ const SearchProductCard: FC<Props> = ({ product }) => {
                   layout='responsive'
                   width={400}
                   height={600}
-                ></Image>           
-              {/* <img
-                src={`${currentProductData.image}?h=400&fm=webp`}
-                alt={product.name}
-                onMouseEnter={() => handleHover('enter')}
-                onMouseLeave={() => handleHover('leave')}
-                className="w-full sm:h-full h-full object-center object-cover"
-              /> */}
+                ></Image>   
               {buttonConfig.isPreOrderEnabled && (
                 <div className="bg-yellow-400 absolute py-1 px-1 rounded-sm top-2">
                   {BTN_PRE_ORDER}
@@ -229,15 +222,18 @@ const SearchProductCard: FC<Props> = ({ product }) => {
           ) : (
             <div className="sm:h-1 sm:w-1 h-1 w-1 sm:mr-2 mr-1 mt-2 inline-block" />
           )}
-          <h3 className="sm:min-h-50px min-h-40px sm:text-md font-medium text-gray-900">
+          <h3 className="sm:text-sm font-semibold text-gray-900 my-2">
+              {product.brand}
+          </h3>
+          <h3 className="sm:text-sm text-xs font-normal text-gray-700 truncate">
             <Link href={`/${currentProductData.link}`}>
               <a href={`/${currentProductData.link}`}>{product.name}</a>
             </Link>
           </h3>
 
-          <p className="sm:mt-4 mt-1 font-bold font-lg text-gray-900">
+          <p className="sm:mt-1 mt-1 font-bold text-md text-gray-900">
             {product?.price?.formatted?.withTax}
-          </p>          
+          </p>            
           <div className="flex flex-col">
             <Button
               className="mt-2 hidden"

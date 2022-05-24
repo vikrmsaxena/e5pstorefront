@@ -23,7 +23,7 @@ export default function Grid({
   return (
     <section
       aria-labelledby="products-heading"
-      className="max-w-7xl overflow-hidden sm:px-5 lg:px-5 mx-auto"
+      className="max-w-7xl overflow-hidden mx-auto sm:pl-4"
     >
       <h2 id="products-heading" className="sr-only">
         {TITLE_PRODUCTS}
@@ -36,10 +36,10 @@ export default function Grid({
           currentNumber={products.results.length}
           component={
             <div
-              className={`-mx-px border-gray-100 grid grid-cols-2 sm:mx-0 md:grid-cols-4 ${
-                products.results.length < 4
-                  ? `lg:grid-cols-3`
-                  : 'lg:grid-cols-3'
+              className={`-mx-px border-gray-100 gap-x-8 gap-y-4 grid grid-cols-2 sm:mx-0 md:grid-cols-5 ${
+                products.results.length < 6
+                  ? `lg:grid-cols-5`
+                  : 'lg:grid-cols-5'
               }`}
             >
               {!products.results.length &&

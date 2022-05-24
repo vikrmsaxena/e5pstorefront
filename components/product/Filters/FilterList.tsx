@@ -85,19 +85,20 @@ const FilterItem = ({
           <div
             style={{
               content: '',
+              top:'2px',
               float: 'left',
-              height: '20px',
-              width: '20px',
+              height: '16px',
+              width: '16px',
               borderRadius: '2px',
               background: checkboxBgColor,
-              border: '1px solid #cacaca',
+              border: '1px solid #cccccc',
               position: 'relative',
-              marginRight: '10px',
+              marginRight: '6px',
             }}
           />
         </label>
       </div>
-      <span className="px-2 text-gray-500">({option.count})</span>
+      <span className="px-1 text-xs font-semibold text-black">({option.count})</span>
     </div>
   )
 }

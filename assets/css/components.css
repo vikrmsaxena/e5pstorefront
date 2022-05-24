@@ -65,3 +65,18 @@
     grid-template-columns: repeat(4, minmax(0, 1fr))!important;
   }
 }
+
+@media screen and (max-width:1480px) and (min-width:1024px) {
+  .md\:w-4\/5 {
+    width: 100%!important;
+    padding: 0px 25px!important;
+  }
+
+  .lg\:grid-cols-5 {
+    grid-template-columns: repeat(4, minmax(0, 1fr))!important;
+  }
+
+  .lg\:grid-cols-6 {
+    grid-template-columns: repeat(5, minmax(0, 1fr))!important;
+  }
+}
