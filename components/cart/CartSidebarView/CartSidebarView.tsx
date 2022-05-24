@@ -234,16 +234,11 @@ const CartSidebarView: FC = () => {
                                         <div className='image-container'>
                                           <Image
                                             layout='fill'
-                                            src={child.image}
+                                            src={`${child.image}?w=100&h=100&fm=webp`}
                                             alt={child.name}
                                             className="w-full h-full object-center object-cover image"
                                           ></Image>
                                         </div>
-                                        {/* <img
-                                          src={child.image}
-                                          alt={child.name}
-                                          className="w-full h-full object-center object-cover"
-                                        /> */}
                                       </div>
                                       <div className="ml-4 flex-1 flex flex-col">
                                         <div>

@@ -33,15 +33,10 @@ export default function Summary({
                   layout='fixed'
                   width={80}
                   height={80}
-                  src={`${product.image}`}
+                  src={`${product.image}?w=100&h=100&fm=webp`}
                   alt={product.name}
                   className="w-20 rounded-md"
                 ></Image>
-                {/* <img
-                  src={product.image}
-                  alt={product.name}
-                  className="w-20 rounded-md"
-                /> */}
               </div>
 
               <div className="ml-6 flex-1 flex flex-col">
@@ -108,16 +103,6 @@ export default function Summary({
             </dd>
           </div>
         </dl>
-
-        {/* <div className="border-t border-gray-200 py-6 px-4 sm:px-6">
-          <button
-            type="button"
-            onClick={confirmOrder}
-            className="w-full bg-indigo-600 border border-transparent rounded-md shadow-sm py-3 px-4 font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-50 focus:ring-indigo-500"
-          >
-            {GENERAL_CONFIRM_ORDER}
-          </button>
-        </div> */}
       </div>
     </div>
   )

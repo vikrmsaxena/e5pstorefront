@@ -23,6 +23,7 @@ import {
   GENERAL_SHIPPING,
   GENERAL_SHOPPING_CART,
   GENERAL_TOTAL,
+  IMG_PLACEHOLDER,
   ITEMS_IN_YOUR_CART,
   SUBTOTAL_INCLUDING_TAX,
 } from '@components/utils/textVariables'
@@ -152,7 +153,7 @@ function Cart({ cart }: any) {
                         layout="fixed"
                         width={160}
                         height={160}
-                        src={`${product.image}`}
+                        src={`${product.image}?fm=webp&h=200&w=200` || IMG_PLACEHOLDER}
                         alt={product.name}
                         className="w-16 h-16 rounded-md object-center object-cover sm:w-48 sm:h-48 image"
                       ></Image>

@@ -85,7 +85,7 @@ const CartItem = ({
                 className={s.productImage}
                 width={150}
                 height={150}
-                src={item.image}
+                src={`${item.image}?w=200&h=200&fm=webp`}
                 alt={item.name}
                 unoptimized
               />
