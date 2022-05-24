@@ -289,7 +289,7 @@ function Search({ query, setEntities, recordEvent }: any) {
       <main className="pb-24">
         <div className="text-left sm:py-4 py-3 sm:px-0 px-4">
           <h1 className="sm:text-xl text-xl font-semibold tracking-tight text-black">
-            {GENERAL_CATALOG}<span className='font-light text-gray-500 sm:text-md text-sm'> {' -'} {data.products.total}{' '}{RESULTS}</span>
+            {GENERAL_CATALOG} <span className='font-normal text-gray-500 sm:text-md text-sm'> {' -'} {data.products.total}{' '}{RESULTS}</span>
           </h1>
         </div>
         <div className="grid sm:grid-cols-12 grid-cols-1 gap-1 md:w-full mx-auto overflow-hidden sm:border-t sm:border-gray-200 sm:pt-0">
