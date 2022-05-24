@@ -245,8 +245,6 @@ function BrandDetailPage({
     ? productListMemory.products
     : data.products
   
-  console.log("Brand:"+JSON.stringify(brandDetails));
-
   // IMPLEMENT HANDLING FOR NULL OBJECT
   if (brandDetails === null) {
     return (
