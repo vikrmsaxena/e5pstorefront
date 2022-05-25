@@ -14,7 +14,7 @@ interface Props {
 
 const DEFAULT_COLOR_SCHEME = {
   bgColor: 'bg-black',
-  hoverBgColor: 'bg-gray-900',
+  hoverBgColor: 'bg-pink',
   focusRingColor: 'ring-gray-700',
 }
 

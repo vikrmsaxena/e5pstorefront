@@ -492,10 +492,10 @@ export default function ProductView({
               <h3 className="sm:text-md text-sm uppercase font-semibold sm:font-bold tracking-tight text-gray-700 mb-2">
                 {selectedAttrData.brand}
               </h3>
-              <h1 className="sm:text-2xl text-lg font-normal tracking-tight text-gray-600">
+              <h1 className="sm:text-2xl text-lg font-normal tracking-tight text-black">
                 {selectedAttrData.name || selectedAttrData.productName}
               </h1>
-              <p className="text-gray-500 sm:text-md text-sm mt-3 sm:mt-1 uppercase">
+              <p className="text-gray-500 sm:text-md text-sm mt-3 sm:mt-2 uppercase">
                 <strong>{GENERAL_REFERENCE}:</strong> {selectedAttrData.stockCode}
               </p>
               <div className="mt-2">

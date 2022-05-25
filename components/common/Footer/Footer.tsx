@@ -51,7 +51,7 @@ const Footer: FC<Props> = ({ config }) => {
                 <div className="ml-4 flex-shrink-0">
                   <button
                     type="submit"
-                    className="w-full bg-black border border-transparent uppercase rounded-sm shadow-sm py-4 px-10 flex items-center justify-center text-whitw font-medium text-white hover:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-900"
+                    className="w-full bg-black border border-transparent uppercase rounded-sm shadow-sm py-4 px-10 flex items-center justify-center text-whitw font-medium text-white hover:bg-pink focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-900"
                   >
                     {BTN_SIGN_UP}
                   </button>
