@@ -135,7 +135,7 @@ export default function RelatedProducts({
                               {isEngravingAvailable && (
                                 <>
                                   <button
-                                    className="w-full relative flex bg-gray-400 border border-transparent rounded-md py-2 mt-2 items-center justify-center text-sm font-medium text-white hover:bg-gray-500"
+                                    className="w-full relative flex bg-gray-400 border border-transparent rounded-md py-2 mt-2 items-center justify-center text-sm font-medium text-white hover:bg-pink"
                                     onClick={() => showEngravingModal(true)}
                                   >
                                     <span className="font-bold">{GENERAL_ENGRAVING}</span>

@@ -124,7 +124,7 @@ const ReviewInput = ({ productId }: ReviewInputProps) => {
           <button
             type="button"
             onClick={handleSubmit}
-            className="max-w-xs float-right flex-1 bg-black uppercase border border-transparent rounded-sm py-2 px-4 flex items-center justify-center font-medium text-white hover:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-50 focus:ring-gray-900 sm:w-full"
+            className="max-w-xs float-right flex-1 bg-black uppercase border border-transparent rounded-sm py-2 px-4 flex items-center justify-center font-medium text-white hover:bg-pink focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-50 focus:ring-gray-900 sm:w-full"
           >
             {BTN_SUBMIT}
           </button>

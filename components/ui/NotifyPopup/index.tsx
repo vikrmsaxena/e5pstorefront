@@ -124,7 +124,7 @@ export default function NotifyUserPopup() {
                         ? { opacity: '75%', pointerEvents: 'none' }
                         : {}
                     }
-                    className="w-full inline-flex justify-center rounded-sm bg-black border border-transparent shadow-sm px-4 py-2 text-white font-medium hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 sm:ml-3 sm:w-auto sm:text-sm"
+                    className="w-full inline-flex justify-center rounded-sm bg-black border border-transparent shadow-sm px-4 py-2 text-white font-medium hover:bg-pink focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 sm:ml-3 sm:w-auto sm:text-sm"
                     onClick={() => handleModal()}
                   >
                     Notify me

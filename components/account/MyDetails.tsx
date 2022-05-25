@@ -97,7 +97,7 @@ export default function MyDetails() {
                   <button
                     type="submit"
                     onClick={handleSubmit}
-                    className="max-w-xs flex-1 bg-black border border-transparent rounded-sm py-3 px-8 flex items-center justify-center font-medium text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-50 focus:ring-gray-500 sm:w-full"
+                    className="max-w-xs flex-1 bg-black border border-transparent rounded-sm py-3 px-8 flex items-center justify-center font-medium text-white hover:bg-pink focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-50 focus:ring-gray-500 sm:w-full"
                   >
                     {isSubmitting ? <LoadingDots /> : GENERAL_SAVE_CHANGES}
                   </button>

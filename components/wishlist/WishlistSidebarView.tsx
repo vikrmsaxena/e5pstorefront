@@ -229,7 +229,7 @@ const WishlistSidebar: FC = () => {
                       <p>
                         <button
                           type="button"
-                          className="flex justify-center items-center px-6 py-3 border border-transparent uppercase rounded-sm shadow-sm font-medium text-white bg-black hover:bg-gray-700"
+                          className="flex justify-center items-center px-6 py-3 border border-transparent uppercase rounded-sm shadow-sm font-medium text-white bg-black hover:bg-pink"
                           onClick={handleClose}
                         >
                           {GENERAL_CONTINUE_SHOPPING}

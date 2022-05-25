@@ -65,7 +65,7 @@ function MyAccount({ defaultView, isLoggedIn }: any) {
                         selected
                           ? 'bg-black text-white border border-black'
                           : ''
-                      } hover:bg-gray-700 hover:text-white border border-transparent text-md leading-3 font-medium text-black rounded-sm focus:outline-none focus:ring-2 ring-offset-2 ring-offset-blue-400 ring-white ring-opacity-60`
+                      } hover:bg-pink hover:text-white border border-transparent text-md leading-3 font-medium text-black rounded-sm focus:outline-none focus:ring-2 ring-offset-2 ring-offset-blue-400 ring-white ring-opacity-60`
                     }}
                   >
                     <Link
