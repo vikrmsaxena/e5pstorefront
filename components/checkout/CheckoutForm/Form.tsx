@@ -249,7 +249,7 @@ export default function AddressForm({
                                 return (
                                   <div
                                     key={addressIdx}
-                                    className="py-2 px-2 text-gray-900 hover:text-white border-t hover:bg-gray-900"
+                                    className="py-2 px-2 text-gray-900 hover:text-white border-t hover:bg-pink"
                                   >
                                     <h2
                                       className="cursor-pointer"
