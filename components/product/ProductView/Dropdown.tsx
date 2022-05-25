@@ -110,7 +110,7 @@ export default function Dropdown({
           >
             {label}
           </Listbox.Label>
-          <div className="mt-1 relative inline-block w-8/12">
+          <div className="mt-1 relative inline-block w-10/12">
             <Listbox.Button
               disabled
               className={`${

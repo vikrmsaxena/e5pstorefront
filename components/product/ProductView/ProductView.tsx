@@ -1,7 +1,4 @@
-import { useEffect, useState, useCallback } from 'react'
-import { Controlled as ControlledZoom } from 'react-medium-image-zoom'
-import Zoom from 'react-medium-image-zoom'
-import 'react-medium-image-zoom/dist/styles.css'
+import { useEffect, useState } from 'react'
 import { Tab } from '@headlessui/react'
 import { HeartIcon } from '@heroicons/react/outline'
 import { StarIcon, PlayIcon } from '@heroicons/react/solid'
@@ -387,63 +384,43 @@ export default function ProductView({
       notFound: true,
     }
   }*/
-  const [isZoomed, setIsZoomed] = useState(false)
-
-  const handleImgLoad = useCallback(() => {
-    setIsZoomed(true)
-  }, [])
-
-  const handleZoomChange = useCallback(shouldZoom => {
-    setIsZoomed(shouldZoom)
-  }, [])
-
-  const [isZoomedT, setIsZoomedT] = useState(false)
-
-  const handleImgLoadT = useCallback(() => {
-    setIsZoomedT(true)
-  }, [])
-
-  const handleZoomChangeT = useCallback(shouldZoomT => {
-    setIsZoomedT(shouldZoomT)
-  }, [])
 
   return (
-    <div className="bg-white page-container md:w-4/5 mx-auto">
+    <div className="bg-white page-container">
       {/* Mobile menu */}
-      <div className="pt-2 sm:pt-6">
+      <div className="max-w-7xl mx-auto pt-2 px-2 sm:pt-6 sm:px-6 lg:px-8">
         {breadcrumbs && (
           <BreadCrumbs items={breadcrumbs} currentProduct={product} />
         )}
       </div>
-      <main className="sm:pt-8">
-        <div className="lg:max-w-none">
+      <main className="max-w-7xl mx-auto sm:pt-8 sm:px-6 lg:px-8">
+        <div className="max-w-2xl mx-auto lg:max-w-none">
           {/* Product */}
-          <div className="lg:grid lg:grid-cols-12 lg:gap-x-8 lg:items-start">
+          <div className="lg:grid lg:grid-cols-2 lg:gap-x-8 lg:items-start">
             {/* Image gallery */}
-            <Tab.Group as="div" className="flex flex-col-reverse lg:col-span-7">
+            <Tab.Group as="div" className="flex flex-col-reverse">
               <div className="grid sm:grid-cols-12 grid-cols-1 sm:gap-x-8">
-                <div className='col-span-6'>
+                <div className='col-span-3'>
                   <div className="hidden w-full max-w-2xl mx-auto sm:block lg:max-w-none">
                     <Tab.List className="grid grid-cols-1 gap-6">
                       {content?.map((image: any, idx) => (
                         <Tab
                           key={`${idx}-tab`}
+                          className="relative h-24 sm:h-36 bg-white flex items-center justify-center text-sm font-medium uppercase text-gray-900 cursor-pointer hover:bg-gray-50 focus:outline-none focus:ring focus:ring-offset-4 focus:ring-opacity-50"
                         >
                           {() => (
                             <>
                               <span className="sr-only">{image.name}</span>
-                              <span className="relative">
+                              <span className="absolute inset-0 overflow-hidden">
                                 {image.image ? (
                                   <div className='image-container'>
-                                    <ControlledZoom isZoomed={isZoomedT} onZoomChange={handleZoomChangeT}>
-                                      <img
-                                        src={`${image.image}?h=1000&w=600&fm=webp` || IMG_PLACEHOLDER}                             
-                                        alt={image.name}
-                                        onClick={handleImgLoadT}
-                                        width="500"
-                                      />
-                                    </ControlledZoom>
-                                </div>
+                                    <Image
+                                      src={`${image.image}?h=400&w=300&fm=webp` || IMG_PLACEHOLDER}
+                                      alt={image.name}
+                                      className="w-full h-full sm:h-36 object-center object-cover image"
+                                      layout='fill'
+                                    ></Image>
+                                  </div>
                                 ) : (
                                   <PlayIcon className="h-full w-full object-center object-cover" />
                                 )}
@@ -455,20 +432,18 @@ export default function ProductView({
                     </Tab.List>
                   </div>
                 </div>
-                <div className='sm:col-span-6'>
-                  <Tab.Panels className="w-full aspect-w-1 aspect-h-1 p-3 sm:p-0 relative">
+                <div className='sm:col-span-9'>
+                  <Tab.Panels className="w-full aspect-w-1 aspect-h-1 p-3 sm:p-0">
                     {content?.map((image: any) => (
                       <Tab.Panel key={image.name + 'tab-panel'}>
                         {image.image ? (
                           <div className='image-container'>
-                            <ControlledZoom isZoomed={isZoomed} onZoomChange={handleZoomChange}>
-                                <img
-                                  src={`${image.image}?h=1000&w=600&fm=webp` || IMG_PLACEHOLDER}                             
-                                  alt={image.name}
-                                  onClick={handleImgLoad}
-                                  width="500"
-                                />
-                              </ControlledZoom>
+                            <Image
+                              src={`${image.image}?h=1000&w=600&fm=webp` || IMG_PLACEHOLDER}                             
+                              alt={image.name}
+                              className="w-full h-full object-center object-cover image"
+                              layout='fill'
+                            ></Image>
                           </div>
                         ) : (
                           <iframe
@@ -489,11 +464,8 @@ export default function ProductView({
             </Tab.Group>
 
             {/* Product info */}
-            <div className="sm:mt-10 mt-2 px-4 sm:px-0 sm:mt-16 lg:mt-0 lg:col-span-5">
-              <h3 className="sm:text-md text-sm uppercase font-semibold sm:font-bold tracking-tight text-gray-700 mb-2">
-                {selectedAttrData.brand}
-              </h3>
-              <h1 className="sm:text-2xl text-lg font-normal tracking-tight text-gray-600">
+            <div className="sm:mt-10 mt-2 px-4 sm:px-0 sm:mt-16 lg:mt-0">
+              <h1 className="sm:text-xl text-lg uppercase font-bold sm:font-bold tracking-tight text-gray-700">
                 {selectedAttrData.name || selectedAttrData.productName}
               </h1>
               <p className="text-gray-500 sm:text-md text-sm mt-3 sm:mt-1 uppercase">
@@ -571,7 +543,7 @@ export default function ProductView({
                           handleWishList()
                         }
                       }}
-                      className="ml-4 py-3 px-4 rounded-sm bg-white border border-gray-400 px-20 flex items-center justify-center text-gray-400 hover:bg-red-50 hover:border-pink hover:text-pink"
+                      className="ml-4 py-3 px-4 rounded-sm bg-gray-100 flex items-center justify-center text-gray-400 hover:bg-gray-100 hover:text-gray-500"
                     >
                     {isInWishList ? (
                       <span>{ALERT_SUCCESS_WISHLIST_MESSAGE}</span>

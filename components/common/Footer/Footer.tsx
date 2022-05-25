@@ -60,7 +60,7 @@ const Footer: FC<Props> = ({ config }) => {
             </div>
           </div>
         </div>
-      <div className="w-full md:w-4/5 mx-auto border-t border-black">        
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 border-t border-black">        
         <div className="py-20">
           <div className="grid grid-cols-1 md:grid-cols-12 md:grid-flow-col md:gap-x-8 md:gap-y-16 md:auto-rows-min">
             {/* Image section */}
