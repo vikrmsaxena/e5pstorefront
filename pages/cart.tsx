@@ -168,14 +168,11 @@ function Cart({ cart }: any) {
                         <div className="flex flex-col justify-between h-full">
                           <div>
                             <div className="flex justify-between flex-col">
-                              <h3 className="sm:py-2 py-0 sm:text-md text-sm font-bold text-gray-900">
-                                {product.brand}
-                              </h3>
-                              <h3 className="sm:text-sm text-xs my-2 sm:my-0">
+                              <h3 className="text-md my-2 sm:my-0">
                                 <Link href={`/${product.slug}`}>
                                   <a
                                     href={product.slug}
-                                    className="font-medium text-gray-700 hover:text-gray-800"
+                                    className="font-medium text-black hover:text-gray-800"
                                   >
                                     {product.name}
                                   </a>
@@ -183,7 +180,7 @@ function Cart({ cart }: any) {
                               </h3>
                             </div>
 
-                            <p className="mt-1 text-sm sm:font-medium font-bold text-gray-900">
+                            <p className="mt-1 text-sm font-bold text-black">
                               {product.price?.formatted?.withTax}
                             </p>
                             {product.children?.map(

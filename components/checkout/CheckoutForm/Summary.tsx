@@ -43,9 +43,6 @@ export default function Summary({
                 <div className="flex">
                   <div className="min-w-0 flex-1">
                     <h4 className="text-sm">
-                      <span className="py-2 text-md font-bold text-gray-900 block">
-                        {product.brand}
-                      </span>
                       <Link href={`/${product.slug}`}>
                         <a className="font-medium text-gray-700 hover:text-gray-800 block">
                           {product.name}
@@ -56,7 +53,7 @@ export default function Summary({
                 </div>
 
                 <div className="flex-1 pt-2 flex items-end justify-between">
-                  <p className="mt-1 text-sm font-medium text-gray-900">
+                  <p className="mt-1 text-sm font-bold text-black">
                     {product.price?.formatted?.withTax}
                   </p>
                 </div>
