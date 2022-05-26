@@ -21,6 +21,7 @@ import {
   GENERAL_EDIT,
   GENERAL_CONFIRM,
   GENERAL_DELIVERY_METHOD,
+  BTN_CONTINUE,
 } from '@components/utils/textVariables'
 
 const DELIVERY_METHODS_TYPE = [
@@ -366,7 +367,7 @@ export default function Delivery({
               <Button
                 buttonType="button"
                 action={submitShippingMethod}
-                title={GENERAL_CONFIRM}
+                title={BTN_CONTINUE}
               />
             </div>
           ) : null}

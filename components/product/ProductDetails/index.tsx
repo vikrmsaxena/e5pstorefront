@@ -42,7 +42,7 @@ export default function ProductDetails({ product, description }: any) {
       title: GENERAL_SHIPPING,
       InnerComponent: (props: any) => (
         <p className="text-gray-900">
-          {props.shippingMessage || 'SHIPPING CONTENT TO BE ADDED'}
+          {props.shippingMessage || <p>We currently ship in the UK and worldwide.<br/><br/>We accept payment via PayPal, Clearpay, and major card payment providers (including Visa, Mastercard, Maestro, and Switch) and more.</p>}
         </p>
       ),
     },
@@ -50,7 +50,7 @@ export default function ProductDetails({ product, description }: any) {
       title: GENERAL_RETURNS,
       InnerComponent: (props: any) => (
         <p className="text-gray-900">
-          {props.returnsMessage || 'RETURNS CONTENT TO BE ADDED'}
+          {props.returnsMessage || <p>Items may be returned for a full refund within 14 days from the date an order was received.</p>}
         </p>
       ),
     },
@@ -79,8 +79,8 @@ export default function ProductDetails({ product, description }: any) {
                  <Disclosure.Button className="group relative w-full sm:py-2 py-2 pr-2 flex justify-between items-center text-left">
                    <span
                      className={classNames(
-                       open ? 'text-black font-bold' : 'text-gray-900',
-                       'text-lg font-medium'
+                       open ? 'text-black' : 'text-gray-900',
+                       'text-lg uppercase font-medium'
                      )}
                    >
                      {desc.title}
@@ -120,8 +120,8 @@ export default function ProductDetails({ product, description }: any) {
                   <Disclosure.Button className="group relative w-full sm:py-2 py-2 pr-2 flex justify-between items-center text-left">
                     <span
                       className={classNames(
-                        open ? 'text-black font-bold' : 'text-gray-900',
-                        'text-lg font-medium'
+                        open ? 'text-black' : 'text-gray-900',
+                        'text-lg uppercase font-medium'
                       )}
                     >
                       {detail.title}

@@ -30,6 +30,7 @@ const ReviewInput = ({ productId }: ReviewInputProps) => {
   const [rating, setRating] = useState(5)
   const [commentBody, setCommentBody] = useState('')
   const [error, setError] = useState('')
+  const [success, setSuccess] = useState('')
   const [commentTitle, setCommentTitle] = useState('')
   const [asyncMessage, setAsyncMessage] = useState('')
 
@@ -63,7 +64,8 @@ const ReviewInput = ({ productId }: ReviewInputProps) => {
         })
         setCommentBody('')
         setCommentTitle('')
-        setRating(1)
+        setRating(5)
+        setError("Review Submit Successfully.");
         setAsyncMessage(response.data.message)
       } catch (error) {
         setAsyncMessage(ERROR_WOOPS_SOMETHING_WENT_WRONG)
@@ -103,7 +105,7 @@ const ReviewInput = ({ productId }: ReviewInputProps) => {
           <span className="text-gray-900 text-sm float-right">
             {MESSAGE_CHARACTERS_LEFT}: {MAX_LENGTH - commentBody.length}
           </span>
-          {!!error && <span className="text-red-900 text-sm">{error}</span>}
+          {!!error && <span className="text-white mt-0 absolute z-99 mt-12 block bg-pink pr-12 pl-3 rounded-md py-2 text-sm">{error}</span>}          
           <div className="flex flex-center mt-5">
             {[1, 2, 3, 4, 5].map((num) => (
               <StarIcon
