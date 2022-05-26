@@ -203,7 +203,7 @@ export default function Delivery({
       ) : (
         <>
           <div className="py-5">
-            <h1 className="text-lg font-semibold text-gray-900">
+            <h1 className="text-lg font-bold text-black uppercase">
               {GENERAL_SELECT_COUNTRY}
             </h1>
 
@@ -256,7 +256,7 @@ export default function Delivery({
             value={selectedDeliveryMethod}
             onChange={handleDeliveryMethodChange}
           >
-            <RadioGroup.Label className="text-lg font-semibold text-gray-900">
+            <RadioGroup.Label className="text-lg font-bold text-black uppercase">
               {GENERAL_DELIVERY_METHOD}
             </RadioGroup.Label>
 
