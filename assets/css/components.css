@@ -84,3 +84,6 @@
     grid-template-columns: repeat(5, minmax(0, 1fr))!important;
   }
 }
+.max-w-md{
+  max-width: 29.2rem!important;
+}
