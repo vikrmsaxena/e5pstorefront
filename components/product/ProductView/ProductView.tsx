@@ -489,9 +489,9 @@ export default function ProductView({
 
             {/* Product info */}
             <div className="sm:mt-10 mt-2 px-4 sm:px-0 sm:mt-16 lg:mt-0 lg:col-span-5">
-              <h3 className="sm:text-md text-sm uppercase font-semibold sm:font-bold tracking-tight text-gray-700 mb-2">
+              {/* <h3 className="sm:text-md text-sm uppercase font-semibold sm:font-bold tracking-tight text-gray-700 mb-2">
                 {selectedAttrData.brand}
-              </h3>
+              </h3> */}
               <h1 className="sm:text-2xl text-lg font-normal tracking-tight text-black">
                 {selectedAttrData.name || selectedAttrData.productName}
               </h1>

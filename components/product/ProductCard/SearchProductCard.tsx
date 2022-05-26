@@ -223,9 +223,7 @@ const SearchProductCard: FC<Props> = ({ product }) => {
           ) : (
             <div className="sm:h-1 sm:w-1 h-1 w-1 sm:mr-2 mr-1 mt-2 inline-block" />
           )}
-          <h3 className="sm:text-sm font-semibold text-gray-900 my-2">
-              {product.brand}
-          </h3>
+          
           <h3 className="sm:text-sm text-xs font-normal text-gray-700 truncate">
             <Link href={`/${currentProductData.link}`}>
               <a href={`/${currentProductData.link}`}>{product.name}</a>
