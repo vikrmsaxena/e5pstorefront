@@ -82,6 +82,23 @@ const FilterItem = ({
             />
           )}
           {generateOptionName()}
+          {sectionKey === FILTER_KEYS.COLOR &&          
+          <div
+            style={{
+              content: '',
+              top:'2px',
+              float: 'left',
+              height: '16px',
+              width: '16px',
+              borderRadius: '10px',
+              background: checkboxBgColor,
+              border: '1px solid #cccccc',
+              position: 'relative',
+              marginRight: '6px',
+            }}
+          />
+        }
+        {sectionKey != FILTER_KEYS.COLOR &&          
           <div
             style={{
               content: '',
@@ -96,6 +113,7 @@ const FilterItem = ({
               marginRight: '6px',
             }}
           />
+        }
         </label>
       </div>
       <span className="px-1 text-xs font-semibold text-black">({option.count})</span>
@@ -106,11 +124,10 @@ const FilterItem = ({
 const SearchInput = ({ placeholder, handleSearch }: any) => {
   return (
     <>
-      <label htmlFor="search-input" className="sr-only">
+      <label className="sr-only">
         {BTN_SEARCH}
       </label>
       <input
-        id="search-input"
         type="text"
         onChange={(e) => handleSearch(e.target.value)}
         autoComplete={BTN_SEARCH}

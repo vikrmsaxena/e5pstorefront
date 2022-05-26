@@ -59,7 +59,7 @@ export default function Filters({
     <div className="bg-transparent">
       {/* Mobile filter dialog */}
       <Transition.Root show={open} as={Fragment}>
-        <Dialog as="div" className="fixed inset-0 flex z-40" onClose={setOpen}>
+        <Dialog as="div" className="fixed inset-0 flex z-999" onClose={setOpen}>
           <Transition.Child
             as={Fragment}
             enter="transition-opacity ease-linear duration-300"
@@ -83,7 +83,7 @@ export default function Filters({
           >
             <div className="ml-auto relative max-w-xs w-full h-full bg-white shadow-xl py-2 sm:py-4 sm:pb-6 pb-2 flex flex-col overflow-y-auto">
               <div className="px-4 flex items-center justify-between">
-                <h2 className="text-lg font-medium text-gray-900">{GENERAL_FILTER_TITLE}</h2>
+                <h2 className="text-lg font-medium uppercase text-gray-900">{GENERAL_FILTER_TITLE}</h2>
                 <button
                   type="button"
                   className="-mr-2 w-10 sm:h-10 h-6 bg-white p-2 rounded-md flex items-center justify-center text-gray-400 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500"
@@ -106,7 +106,7 @@ export default function Filters({
                       <>
                         <h3 className="-mx-2 -my-3 flow-root">
                           <Disclosure.Button className="px-2 py-3 bg-white w-full flex items-center justify-between text-sm text-gray-400">
-                            <span className="font-medium text-gray-900">
+                            <span className="font-medium uppercase text-gray-900">
                               {section.name}
                             </span>
                             <span className="ml-6 flex items-center">
@@ -143,15 +143,15 @@ export default function Filters({
 
       <div className="px-0 text-center sm:px-6 lg:max-w-7xl lg:px-8">
         <section
-          aria-labelledby="filter-heading"
+          aria-labelledby="filter-heading-new"
           className="border-t border-gray-200 py-0"
         >
-          <h2 id="filter-heading" className="sr-only">
+          <h2 id="filter-heading-new" className="sr-only">
             {PRODUCT_FILTER}
           </h2>
 
           <div className="flex items-center justify-between pr-4">
-            <h2 id="filter-heading" className="sr-only">
+            <h2 id="filter-heading-product" className="sr-only">
               {GENERAL_FILTER_TITLE}
             </h2>
             <div className="relative col-start-1 row-start-1 py-3">
@@ -160,6 +160,7 @@ export default function Filters({
                   <button
                     onClick={() => setOpen(true)}
                     className="group text-gray-700 font-medium flex items-center"
+                    aria-label="Filter"
                   >
                     <FilterIcon
                       className="flex-none w-5 h-5 mr-2 text-gray-900 group-hover:text-gray-500"

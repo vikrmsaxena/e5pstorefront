@@ -171,6 +171,7 @@ const SearchProductCard: FC<Props> = ({ product }) => {
           <a href={currentProductData.link}>
             <div className="relative overflow-hidden bg-gray-200 aspect-w-1 aspect-h-1 hover:opacity-75">
                 <Image
+                  priority
                   src={`${currentProductData.image}?h=400&w=300&fm=webp` || IMG_PLACEHOLDER}
                   alt={product.name}
                   onMouseEnter={() => handleHover('enter')}

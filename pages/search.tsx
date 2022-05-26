@@ -315,7 +315,7 @@ function Search({ query, setEntities, recordEvent }: any) {
               routerFilters={state.filters}
             />
           </div>
-          <div className="sm:col-span-10">
+          <div className="sm:col-span-10 sm:px-0 px-4 overflow-hidden">
             {/* {HIDE FILTER TOP BAR IN MOBILE} */}
 
             <div className="flex-1 sm:block hidden">

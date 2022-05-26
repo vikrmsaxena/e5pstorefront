@@ -51,7 +51,7 @@ export default function FiltersRightOpen({
           </h2>
 
           <div className="flex items-center justify-between">
-            <h2 id="filter-heading" className="sr-only">
+            <h2 id="filter-heading-product" className="sr-only">
               {GENERAL_FILTER_TITLE}
             </h2>
             <div className="relative col-start-1 row-start-1 py-2">

@@ -261,7 +261,7 @@ export default function CollectionPage(props: any) {
                 routerFilters={state.filters}
               />
             </div>
-            <div className="sm:col-span-9">
+            <div className="sm:col-span-9 ">
               {/* {HIDE FILTER TOP BAR IN MOBILE} */}
 
               <div className="flex-1 sm:block hidden">
