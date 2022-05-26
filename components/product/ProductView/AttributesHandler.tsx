@@ -8,8 +8,8 @@ import attributesGenerator, {
 } from '@components/utils/attributesGenerator'
 
 const ATTR_COMPONENTS: any = {
-  Dropdown: (props: any) => <Dropdown {...props} />,
   HorizontalList: (props: any) => <InlineList {...props} />,
+  Dropdown: (props: any) => <Dropdown {...props} />,
   undefined: () => null,
 }
 
@@ -86,6 +86,8 @@ export default function AttributesHandler({
   //temporary until DisplayTemplate is implemented
   const isCustomAttr = product.variantAttributes?.length > 2
 
+  //product.variantAttributes=product.variantAttributes?.reverse();
+
   const generateOptions = (option: any) => {
     const isInOrder =
       Object.keys(originalAttributes).findIndex(
@@ -156,9 +158,31 @@ export default function AttributesHandler({
   const DefaultComponent: any = () => null
   const stateAttributes: any = attrCombination
 
+  let a = [];
+
+  const KEY_SIZE = "clothing.size";
+  const KEY_COLOR = "global.colour";
+  
+  const tempVariantAttrs = variantAttributes.map((x: any, index: number) => {
+    return {...x, ...{displayOrder: index + 1}};
+  })
+  const newVariantAttrs = JSON.parse(JSON.stringify(tempVariantAttrs)).map((x: any, index: number) => {
+    if (x.fieldCode === KEY_SIZE || x.fieldCode === KEY_COLOR) {
+      if (x.fieldCode === KEY_SIZE) {
+        x.displayOrder = tempVariantAttrs.find((x: any) => x.fieldCode === KEY_COLOR)?.displayOrder;
+      } else if (x.fieldCode === KEY_COLOR) {
+        x.displayOrder = tempVariantAttrs.find((x: any) => x.fieldCode === KEY_SIZE)?.displayOrder;
+      }
+      return x;
+    }
+    return x;
+  });
+  
   return (
     <>
-      {variantAttributes?.map((option: any, idx: number) => {
+      {newVariantAttrs?.sort((first: any, second: any) => { 
+        return (first.displayOrder - second.displayOrder);
+      })?.map((option: any, idx: number) => {
         const optionsToPass = generateOptions(option)
         const originalAttribute = isCustomAttr
           ? stateAttributes[option.fieldCode]

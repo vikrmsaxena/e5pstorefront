@@ -520,19 +520,20 @@ export default function ProductView({
                 <h3 className="sr-only">{GENERAL_REVIEWS}</h3>
                 <div className="flex items-center xs:flex-col">
                   <div className="flex items-center xs:text-center align-center">
-                    {[0, 1, 2, 3, 4].map((rating) => (
-                      <StarIcon
+                    
+                    {[0, 1, 2, 3, 4].map((rating) => (                     
+                    <StarIcon
                         key={rating}
                         className={classNames(
                           product.rating > rating
-                            ? 'text-indigo-500'
-                            : 'text-gray-200',
-                          'h-5 w-5 flex-shrink-0'
+                            ? 'text-yellow-600 h-5 w-5'
+                            : 'text-white h-1 w-1',
+                          'flex-shrink-0'
                         )}
                         aria-hidden="true"
-                      />
-                    ))}
-                  </div>
+                      />                  
+                    ))}                  
+                  </div>                  
                   <p className="sr-only">
                     {product.rating} {GENERAL_REVIEW_OUT_OF_FIVE}
                   </p>
