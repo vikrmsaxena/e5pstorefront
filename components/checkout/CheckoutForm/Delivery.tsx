@@ -191,7 +191,7 @@ export default function Delivery({
   }
 
   return (
-    <div className="py-10 mt-10 border-t border-gray-200">
+    <div className="py-4 mt-10 border-t border-gray-200">
       {isDeliveryMethodSelected ? (
         <>
           <h3 className="text-lg font-medium text-gray-900">Delivery method</h3>
@@ -215,7 +215,7 @@ export default function Delivery({
                 <div className="flex">
                   <button
                     onClick={() => setIsSelected(false)}
-                    className="btn text-black font-xs"
+                    className="btn text-pink underline font-xs hover:text-black"
                     type="button"
                   >
                     {GENERAL_EDIT}
