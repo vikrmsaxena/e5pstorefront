@@ -405,7 +405,6 @@ export default function ProductView({
     }
   }*/
   
-
   return (
     <div className="bg-white page-container md:w-4/5 mx-auto">
       {/* Mobile menu */}
