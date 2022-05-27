@@ -332,7 +332,7 @@ function CategoryPage({ category, products }: any) {
                     return (
                       <Link href={'/' + subcateg.link} key={idx}>
                         <div className="flex flex-col text-center cursor-pointer">
-                          <h4 className="text-gray-800 font-medium sm:text-sm underline hover:text-pink">
+                          <h4 className="text-gray-800 font-medium sm:text-sm text-xs underline hover:text-pink">
                             {subcateg.name}
                           </h4>
                         </div>
