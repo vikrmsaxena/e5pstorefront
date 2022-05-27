@@ -408,7 +408,7 @@ export default function ProductView({
   return (
     <div className="bg-white page-container md:w-4/5 mx-auto">
       {/* Mobile menu */}
-      <div className="pt-2 sm:pt-6">
+      <div className="pt-2 sm:pt-6 sm:px-0 px-4">
         {breadcrumbs && (
           <BreadCrumbs items={breadcrumbs} currentProduct={product} />
         )}
@@ -570,7 +570,7 @@ export default function ProductView({
                           handleWishList()
                         }
                       }}
-                      className="ml-4 py-3 px-4 rounded-sm bg-white border border-gray-300 flex items-center justify-center text-gray-500 hover:bg-red-50 hover:text-pink px-20 hover:border-pink"
+                      className="ml-4 py-3 px-4 rounded-sm bg-white border border-gray-300 flex items-center justify-center text-gray-500 hover:bg-red-50 hover:text-pink sm:px-20 hover:border-pink"
                     >
                     {isInWishList ? (
                       <span>{ALERT_SUCCESS_WISHLIST_MESSAGE}</span>
