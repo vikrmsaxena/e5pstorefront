@@ -1,13 +1,14 @@
 import fetcher from '../../fetcher'
-import { SEARCH_ADVANCED_ENDPOINT } from '@components/utils/constants'
+import { SEARCH_ADVANCED_ENDPOINT, SEARCH_MINIMAL_ENDPOINT } from '@components/utils/constants'
 
 export default async function getCategoryProducts(
   categoryId: string,
   cookies?: any
 ) {
   try {
+    // Call minimal endpoint
     const response: any = await fetcher({
-      url: SEARCH_ADVANCED_ENDPOINT,
+      url: SEARCH_MINIMAL_ENDPOINT, //SEARCH_ADVANCED_ENDPOINT,
       method: 'post',
       data: { categoryId },
       cookies,

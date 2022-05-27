@@ -81,6 +81,7 @@ export async function getStaticPaths() {
 export const ACTION_TYPES = {
   SORT_BY: 'SORT_BY',
   PAGE: 'PAGE',
+  PAGE_SIZE: "PAGE_SIZE",
   SORT_ORDER: 'SORT_ORDER',
   CLEAR: 'CLEAR',
   HANDLE_FILTERS_UI: 'HANDLE_FILTERS_UI',
@@ -100,14 +101,16 @@ interface stateInterface {
   sortOrder?: string
   filters: any
   categoryId: any
+  pageSize: number
 }
 
 const IS_INFINITE_SCROLL =
-  process.env.NEXT_PUBLIC_ENABLE_INFINITE_SCROLL === 'true'
+  process.env.NEXT_PUBLIC_ENABLE_CATEGORY_INFINITE_SCROLL === 'true'
 
 const {
   SORT_BY,
   PAGE,
+  PAGE_SIZE,
   SORT_ORDER,
   CLEAR,
   HANDLE_FILTERS_UI,
@@ -122,6 +125,7 @@ const DEFAULT_STATE = {
   currentPage: 1,
   filters: [],
   categoryId: '',
+  pageSize: 20,
 }
 
 function reducer(state: stateInterface, { type, payload }: actionInterface) {
@@ -130,6 +134,8 @@ function reducer(state: stateInterface, { type, payload }: actionInterface) {
       return { ...state, sortBy: payload }
     case PAGE:
       return { ...state, currentPage: payload }
+    case PAGE_SIZE:
+      return { ...state, pageSize: payload }
     case SORT_ORDER:
       return { ...state, sortOrder: payload }
     case CLEAR:
@@ -199,45 +205,54 @@ function CategoryPage({ category, products }: any) {
   })
 
   useEffect(() => {
-    if (category.id !== state.categoryId)
+    if (category.id !== state.categoryId) {
       dispatch({ type: SET_CATEGORY_ID, payload: category.id })
+      dispatch({ type: PAGE, payload: 1 })
+    }
   }, [category.id])
 
   useEffect(() => {
-    if (IS_INFINITE_SCROLL) {
-      if (
-        data.products.currentPage !== productListMemory.products.currentPage ||
-        data.products.total !== productListMemory.products.total
-      ) {
-        setProductListMemory((prevData: any) => {
-          let dataClone = { ...data }
-          if (state.currentPage > 1) {
-            dataClone.products.results = [
-              ...prevData.products.results,
-              ...dataClone.products.results,
-            ]
-          }
-          return dataClone
-        })
-      }
+    //if (IS_INFINITE_SCROLL) {
+    if (
+      data.products.currentPage !== productListMemory.products.currentPage ||
+      data.products.total !== productListMemory.products.total
+    ) {
+      setProductListMemory((prevData: any) => {
+        let dataClone = { ...data }
+        if (state.currentPage > 1) {
+          dataClone.products.results = [
+            ...prevData.products.results,
+            ...dataClone.products.results,
+          ]
+        }
+        return dataClone
+      })
     }
+    //}
+
   }, [data.products.results.length])
 
   const handlePageChange = (page: any) => {
-    router.push(
-      {
-        pathname: router.pathname,
-        query: { ...router.query, currentPage: page.selected + 1 },
-      },
-      undefined,
-      { shallow: true }
-    )
-    dispatch({ type: PAGE, payload: page.selected + 1 })
-    window.scroll({
-      top: 0,
-      left: 0,
-      behavior: 'smooth',
-    })
+    if (IS_INFINITE_SCROLL) {
+      router.push(
+        {
+          pathname: router.pathname,
+          query: { ...router.query, currentPage: page.selected + 1 },
+        },
+        undefined,
+        { shallow: true }
+      )
+      dispatch({ type: PAGE, payload: page.selected + 1 })
+      window.scroll({
+        top: 0,
+        left: 0,
+        behavior: 'smooth',
+      })
+    } else {
+      if (state.currentPage + 1 <= data.products.pages) {
+        dispatch({ type: PAGE, payload: state.currentPage + 1 })
+      }
+    }
   }
 
   const handleInfiniteScroll = () => {
@@ -276,20 +291,22 @@ function CategoryPage({ category, products }: any) {
     )
   }
 
-  const productDataToPass =
+  /*const productDataToPass =
     IS_INFINITE_SCROLL && productListMemory.products?.results?.length
       ? productListMemory.products
-      : products
-  
+      : products;*/
+  const productDataToPass = productListMemory.products?.results?.length ? productListMemory.products : [];
+  const isLastPage = (state?.currentPage == productListMemory.products?.pages);
+
   return (
     <div className="bg-white md:w-4/5 mx-auto">
       {/* Mobile menu */}
-      <main className="pb-0">   
+      <main className="pb-0">
         <div className="pt-2 sm:pt-4 sm:px-0 px-3">
           {category.breadCrumbs && (
             <BreadCrumbs items={category.breadCrumbs} currentProduct={category} />
           )}
-        </div>     
+        </div>
         <div className="sm:px-7 flex justify-center items-center w-full">
           {
             category && category.images && category.images.length ? (
@@ -316,83 +333,85 @@ function CategoryPage({ category, products }: any) {
             )
           }
         </div>
-        
+
         <div className="text-left sm:pt-1 sm:pb-2 pb-2 pt-3 px-3 sm:px-0">
           <h1 className="sm:text-xl text-xl font-semibold tracking-tight text-black">
             {category.name} <span className='font-normal text-gray-500 text-sm'>{' -'} {products.total} {' '} {RESULTS}</span>
           </h1>
-          <h2 className='sm:text-md text-gray-500'>{category.description}</h2>          
+          <h2 className='sm:text-md text-gray-500'>{category.description}</h2>
         </div>
-        
+
         {category?.subCategories.length > 0 &&
-            <div className='grid grid-cols-1 sm:grid-cols-12'>
-              <div className='sm:col-span-12'>
-                <div className="grid grid-cols-2 sm:grid-cols-5 text-left border-t border-l border-r mt-2 py-2 bg-gray-50">
-                  {category?.subCategories?.map((subcateg: any, idx: number) => {
-                    return (
-                      <Link href={'/' + subcateg.link} key={idx}>
-                        <div className="flex flex-col text-center cursor-pointer">
-                          <h4 className="text-gray-800 font-medium sm:text-sm underline hover:text-pink">
-                            {subcateg.name}
-                          </h4>
-                        </div>
-                      </Link>
-                    )
-                  })}
-                </div>
+          <div className='grid grid-cols-1 sm:grid-cols-12'>
+            <div className='sm:col-span-12'>
+              <div className="grid grid-cols-2 sm:grid-cols-5 text-left border-t border-l border-r mt-2 py-2 bg-gray-50">
+                {category?.subCategories?.map((subcateg: any, idx: number) => {
+                  return (
+                    <Link href={'/' + subcateg.link} key={idx}>
+                      <div className="flex flex-col text-center cursor-pointer">
+                        <h4 className="text-gray-800 font-medium sm:text-sm underline hover:text-pink">
+                          {subcateg.name}
+                        </h4>
+                      </div>
+                    </Link>
+                  )
+                })}
               </div>
             </div>
+          </div>
         }
-        {products.total>0 &&
-            <div className="grid sm:grid-cols-12 grid-cols-1 gap-1 w-full mx-auto overflow-hidden sm:border-t sm:border-gray-200">
-              {!!products && (
-                <>
-                  {/* {MOBILE FILTER PANEL SHOW ONLY IN MOBILE} */}
+        {products.total > 0 &&
+          <div className="grid sm:grid-cols-12 grid-cols-1 gap-1 w-full mx-auto overflow-hidden sm:border-t sm:border-gray-200">
+            {!!products && (
+              <>
+                {/* {MOBILE FILTER PANEL SHOW ONLY IN MOBILE} */}
 
-                  <div className="sm:col-span-2 sm:hidden flex flex-col">
-                    <ProductMobileFilters
-                      handleFilters={handleFilters}
+                <div className="sm:col-span-2 sm:hidden flex flex-col">
+                  <ProductMobileFilters
+                    handleFilters={handleFilters}
+                    products={products}
+                    routerFilters={state.filters}
+                    handleSortBy={handleSortBy}
+                    clearAll={clearAll}
+                    routerSortOption={state.sortBy}
+                  />
+                </div>
+                <div className="sm:col-span-2 sm:block hidden">
+                  <ProductFilterRight
+                    handleFilters={handleFilters}
+                    products={productDataToPass}
+                    routerFilters={state.filters}
+                  />
+                </div>
+                <div className="sm:col-span-10">
+                  {/* {HIDE FILTER TOP BAR IN MOBILE} */}
+
+                  <div className="flex-1 sm:block hidden">
+                    <ProductFiltersTopBar
                       products={products}
-                      routerFilters={state.filters}
                       handleSortBy={handleSortBy}
+                      routerFilters={state.filters}
                       clearAll={clearAll}
                       routerSortOption={state.sortBy}
                     />
                   </div>
-                  <div className="sm:col-span-2 sm:block hidden">
-                    <ProductFilterRight
-                      handleFilters={handleFilters}
-                      products={productDataToPass}
-                      routerFilters={state.filters}
-                    />
-                  </div>
-                  <div className="sm:col-span-10">
-                    {/* {HIDE FILTER TOP BAR IN MOBILE} */}
-
-                    <div className="flex-1 sm:block hidden">
-                      <ProductFiltersTopBar
-                        products={products}
-                        handleSortBy={handleSortBy}
-                        routerFilters={state.filters}
-                        clearAll={clearAll}
-                        routerSortOption={state.sortBy}
-                      />
-                    </div>
-                    <ProductGridWithFacet
-                      products={productDataToPass}
-                      currentPage={products.currentPage}
-                      handlePageChange={handlePageChange}
-                      handleInfiniteScroll={handleInfiniteScroll}
-                    />
-                  </div>
-                </>
-              )}
-            </div>
+                  <ProductGridWithFacet
+                    products={productDataToPass}
+                    currentPage={products.currentPage}
+                    handlePageChange={handlePageChange}
+                    handleInfiniteScroll={handleInfiniteScroll}
+                    isInfiniteScrollEnabled={IS_INFINITE_SCROLL}
+                    isLastPage={isLastPage}
+                  />
+                </div>
+              </>
+            )}
+          </div>
         }
         {products.total == 0 &&
-            <div className='max-w-7xl mx-auto p-32 text-center'>
-                <h4 className='text-3xl font-bold text-gray-300'>No Products availabe in {category.name}</h4>
-            </div>
+          <div className='max-w-7xl mx-auto p-32 text-center'>
+            <h4 className='text-3xl font-bold text-gray-300'>No Products availabe in {category.name}</h4>
+          </div>
         }
       </main>
       <NextSeo
