@@ -168,7 +168,7 @@ function Cart({ cart }: any) {
                         <div className="flex flex-col justify-between h-full">
                           <div>
                             <div className="flex justify-between flex-col">
-                              <h3 className="text-md sm:text-sm my-2 sm:my-0">
+                              <h3 className="text-md sm:text-sm my-0 sm:my-0">
                                 <Link href={`/${product.slug}`}>
                                   <a
                                     href={product.slug}
