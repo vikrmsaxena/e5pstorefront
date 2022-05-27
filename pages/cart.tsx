@@ -148,14 +148,14 @@ function Cart({ cart }: any) {
               >
                 {userCart.lineItems?.map((product: any, productIdx: number) => (
                   <li key={productIdx} className="flex py-4 sm:py-10">
-                    <div className="flex-shrink-0">
+                    <div className="flex-shrink-0 mobile-image-cart">
                       <Image
                         layout="fixed"
                         width={160}
                         height={160}
                         src={`${product.image}?fm=webp&h=200&w=200` || IMG_PLACEHOLDER}
                         alt={product.name}
-                        className="w-16 h-16 rounded-md object-center object-cover sm:w-48 sm:h-48 image mobile-image-cart"
+                        className="w-16 h-16 rounded-md object-center object-cover sm:w-48 sm:h-48 image"
                       ></Image>
                       {/* <img
                         src={product.image}

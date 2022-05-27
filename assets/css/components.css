@@ -88,7 +88,8 @@
 }
 
 @media screen and (max-width:767px) {
-  .mobile-image-cart{
+  .mobile-image-cart > span,
+  .mobile-image-cart img{
     width: 80px!important;
     height: 80px!important;
     object-fit: cover!important;
