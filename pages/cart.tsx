@@ -155,7 +155,7 @@ function Cart({ cart }: any) {
                         height={160}
                         src={`${product.image}?fm=webp&h=200&w=200` || IMG_PLACEHOLDER}
                         alt={product.name}
-                        className="w-16 h-16 rounded-md object-center object-cover sm:w-48 sm:h-48 image"
+                        className="w-16 h-16 rounded-md object-center object-cover sm:w-48 sm:h-48 image mobile-image-cart"
                       ></Image>
                       {/* <img
                         src={product.image}
@@ -168,11 +168,11 @@ function Cart({ cart }: any) {
                         <div className="flex flex-col justify-between h-full">
                           <div>
                             <div className="flex justify-between flex-col">
-                              <h3 className="text-md my-2 sm:my-0">
+                              <h3 className="text-md sm:text-sm my-2 sm:my-0">
                                 <Link href={`/${product.slug}`}>
                                   <a
                                     href={product.slug}
-                                    className="font-medium text-black hover:text-gray-800"
+                                    className="font-medium text-black text-md sm:text-sm hover:text-gray-800"
                                   >
                                     {product.name}
                                   </a>

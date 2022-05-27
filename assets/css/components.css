@@ -86,3 +86,12 @@
 .max-w-md{
   max-width: 29.2rem!important;
 }
+
+@media screen and (max-width:767px) {
+  .mobile-image-cart{
+    width: 80px!important;
+    height: 80px!important;
+    object-fit: cover!important;
+    object-position: top!important;
+  }
+}
