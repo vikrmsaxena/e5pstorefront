@@ -133,16 +133,7 @@ const ProductSlider: FC<Props> = ({ config }) => {
               </div>
             </Swiper>
           </div>
-        </div>
-
-        <div className="mt-12 px-4 sm:hidden">
-          <a
-            href="#"
-            className="text-sm font-semibold text-indigo-600 hover:text-indigo-500"
-          >
-            {BTN_SEE_EVERYTHING}<span aria-hidden="true"> &rarr;</span>
-          </a>
-        </div>
+        </div>        
       </div>
     </section>
   )
