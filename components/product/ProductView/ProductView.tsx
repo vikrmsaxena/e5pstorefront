@@ -1,6 +1,6 @@
 import { useEffect, useCallback, useState } from 'react'
-import InnerImageZoom from 'react-inner-image-zoom';
-import 'react-inner-image-zoom/lib/InnerImageZoom/styles.min.css';
+import { Controlled as ControlledZoom } from 'react-medium-image-zoom'
+import 'react-medium-image-zoom/dist/styles.css'
 import { Tab } from '@headlessui/react'
 import { HeartIcon } from '@heroicons/react/outline'
 import { StarIcon, PlayIcon } from '@heroicons/react/solid'
@@ -84,7 +84,25 @@ export default function ProductView({
     user,
     openCart,
   } = useUI()
-  
+  const [isZoomed, setIsZoomed] = useState(false)
+
+  const handleImgLoad = useCallback(() => {
+    setIsZoomed(true)
+  }, [])
+
+  const handleZoomChange = useCallback(shouldZoom => {
+    setIsZoomed(shouldZoom)
+  }, [])
+
+  const [isZoomedT, setIsZoomedT] = useState(false)
+
+  const handleImgLoadT = useCallback(() => {
+    setIsZoomedT(true)
+  }, [])
+
+  const handleZoomChangeT = useCallback(shouldZoomT => {
+    setIsZoomedT(shouldZoomT)
+  }, [])
   const [updatedProduct, setUpdatedProduct] = useState(null)
   const [isPriceMatchModalShown, showPriceMatchModal] = useState(false)
   const [isEngravingOpen, showEngravingModal] = useState(false)
@@ -415,7 +433,14 @@ export default function ProductView({
                               <span className="relative">
                                 {image.image ? (
                                   <div className='image-container'>
-                                    <InnerImageZoom fadeDuration={300} fullscreenOnMobile={true} hideHint={true} zoomType="hover" src={`${image.image}?h=1000&w=600&fm=webp` || IMG_PLACEHOLDER}  zoomSrc={`${image.image}?h=2000&w=1200&fm=webp` || IMG_PLACEHOLDER}  />
+                                    <ControlledZoom isZoomed={isZoomedT} onZoomChange={handleZoomChangeT}>
+                                      <img
+                                        src={`${image.image}?h=1000&w=600&fm=webp` || IMG_PLACEHOLDER}                             
+                                        alt={image.name}
+                                        onClick={handleImgLoadT}
+                                        width="500"
+                                      />
+                                    </ControlledZoom>
                                   </div>
                                 ) : (
                                   <PlayIcon className="h-full w-full object-center object-cover" />
@@ -434,7 +459,14 @@ export default function ProductView({
                       <Tab.Panel key={image.name + 'tab-panel'}>
                         {image.image ? (
                           <div className='image-container'>
-                           <InnerImageZoom fadeDuration={300} fullscreenOnMobile={true} hideHint={true} zoomType="hover" src={`${image.image}?h=1000&w=600&fm=webp` || IMG_PLACEHOLDER}  zoomSrc={`${image.image}?h=2000&w=1200&fm=webp` || IMG_PLACEHOLDER}  />
+                           <ControlledZoom isZoomed={isZoomed} onZoomChange={handleZoomChange}>
+                                <img
+                                  src={`${image.image}?h=1000&w=600&fm=webp` || IMG_PLACEHOLDER}                             
+                                  alt={image.name}
+                                  onClick={handleImgLoad}
+                                  width="500"
+                                />
+                              </ControlledZoom>
                           </div>
                         ) : (
                           <iframe
