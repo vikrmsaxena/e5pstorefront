@@ -433,14 +433,14 @@ export default function ProductView({
                               <span className="relative">
                                 {image.image ? (
                                   <div className='image-container'>
-                                    <ControlledZoom isZoomed={isZoomedT} onZoomChange={handleZoomChangeT}>
-                                      <img
-                                        src={`${image.image}?h=1000&w=600&fm=webp` || IMG_PLACEHOLDER}                             
-                                        alt={image.name}
-                                        onClick={handleImgLoadT}
-                                        width="500"
-                                      />
-                                    </ControlledZoom>
+                                    <Image
+                                      priority
+                                      src={`${image.image}?h=1000&w=600&fm=webp` || IMG_PLACEHOLDER}                             
+                                      alt={image.name}
+                                      onClick={handleImgLoad}
+                                      className="w-full h-full object-center object-cover image"
+                                      layout='fill'
+                                    />
                                   </div>
                                 ) : (
                                   <PlayIcon className="h-full w-full object-center object-cover" />
@@ -459,14 +459,14 @@ export default function ProductView({
                       <Tab.Panel key={image.name + 'tab-panel'}>
                         {image.image ? (
                           <div className='image-container'>
-                           <ControlledZoom isZoomed={isZoomed} onZoomChange={handleZoomChange}>
-                                <img
-                                  src={`${image.image}?h=1000&w=600&fm=webp` || IMG_PLACEHOLDER}                             
-                                  alt={image.name}
-                                  onClick={handleImgLoad}
-                                  width="500"
-                                />
-                              </ControlledZoom>
+                          <Image
+                                priority
+                                src={`${image.image}?h=1000&w=600&fm=webp` || IMG_PLACEHOLDER}                             
+                                alt={image.name}
+                                onClick={handleImgLoad}
+                                className="w-full h-full object-center object-cover image"
+                                layout='fill'
+                              />
                           </div>
                         ) : (
                           <iframe
