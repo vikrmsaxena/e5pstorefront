@@ -96,3 +96,7 @@
     object-position: top!important;
   }
 }
+
+.image-container span{
+  padding: 0!important;
+}

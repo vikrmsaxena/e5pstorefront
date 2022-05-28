@@ -439,7 +439,10 @@ export default function ProductView({
                                       alt={image.name}
                                       onClick={handleImgLoad}
                                       className="w-full h-full object-center object-cover image"
-                                      layout='fill'
+                                      layout='responsive'
+                                      sizes='320 600 1000'
+                                      width={600} height={1000}
+                                      blurDataURL={`${image.image}?h=600&w=400&fm=webp` || IMG_PLACEHOLDER}   
                                     />
                                   </div>
                                 ) : (
@@ -465,7 +468,10 @@ export default function ProductView({
                                 alt={image.name}
                                 onClick={handleImgLoad}
                                 className="w-full h-full object-center object-cover image"
-                                layout='fill'
+                                layout='responsive'
+                                sizes='320 600 1000'
+                                width={600} height={1000}
+                                blurDataURL={`${image.image}?h=600&w=400&fm=webp` || IMG_PLACEHOLDER} 
                               />
                           </div>
                         ) : (
