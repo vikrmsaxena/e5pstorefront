@@ -135,7 +135,7 @@ export default function ContactPreferences() {
         </div>
       </div>
       <div className="max-w-4xl mx-auto flex flex-col mt-10">
-        <div className="w-1/2 flex justify-between align-center">
+        <div className="sm:w-1/2 w-full flex justify-between align-center">
           {items.map((btn: any, idx: number) => {
             return (
               <div className="flex" key={`${idx}-radio-btn`}>
@@ -162,7 +162,7 @@ export default function ContactPreferences() {
         <div className="flex flex-row">
           {activeItem.items.map((box: any, idx: number) => {
             return (
-              <div className="w-1/2 py-5 flex items-center" key={idx}>
+              <div className="sm:w-1/2 w-full py-5 flex items-center" key={idx}>
                 <input
                   name={`${idx}-input[]`}
                   defaultValue={box.key}

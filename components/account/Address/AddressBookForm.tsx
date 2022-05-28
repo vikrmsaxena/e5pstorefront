@@ -74,7 +74,7 @@ export default function AddressForm({
                 )
               })}
             </Form>
-            <div className="mt-10 flex sm:flex-col1 w-1/2">
+            <div className="mt-10 flex sm:flex-col1 sm:w-1/2 w-full">
               <button
                 type="submit"
                 onClick={handleSubmit}

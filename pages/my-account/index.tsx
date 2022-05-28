@@ -52,7 +52,7 @@ function MyAccount({ defaultView, isLoggedIn }: any) {
       <div className="max-w-7xl mx-auto sm:px-6 lg:px-8">
         <div className="justify-between flex flex-col md:flex-row">
           <Tab.Group vertical defaultIndex={defaultView}>
-            <Tab.List className="sticky top-0 flex flex-col w-full md:w-1/4 bg-gray-50 h-full rounded-lg">
+            <Tab.List className="sm:sticky sm:top-0 flex flex-col w-full md:w-1/4 bg-gray-50 h-full rounded-lg">
               {config.map((item: any, idx: number) => {
                 return (
                   <Tab
@@ -83,7 +83,7 @@ function MyAccount({ defaultView, isLoggedIn }: any) {
                 )
               })}
             </Tab.List>
-            <Tab.Panels className="w-3/4">
+            <Tab.Panels className="sm:w-3/4 w-full px-4 sm:px-0">
               {config.map((item: any, idx: any) => {
                 let Component = COMPONENTS_MAP[item.props] || null
                 return (
