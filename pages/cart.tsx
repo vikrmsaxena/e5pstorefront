@@ -12,8 +12,7 @@ import { PlusSmIcon, MinusSmIcon } from '@heroicons/react/outline'
 import PromotionInput from '../components/cart/PromotionInput'
 import { useEffect } from 'react'
 import Image from 'next/image'
-import axios from 'axios'
-import { NEXT_SHIPPING_PLANS } from '@components/utils/constants'
+import { getShippingPlans } from '@framework/shipping'
 import {
   BTN_CHECKOUT_NOW,
   GENERAL_CATALOG,
@@ -36,9 +35,9 @@ function Cart({ cart }: any) {
     const itemsClone = [...items]
     return plans.reduce((acc: any, obj: any) => {
       acc?.forEach((cartItem?: any) => {
-        const foundShippingPlan = obj.items.find((item: any) => {
+        const foundShippingPlan = obj.Items.find((item: any) => {
           return (
-            item.productId.toLowerCase() === cartItem.productId.toLowerCase()
+            item.ProductId.toLowerCase() === cartItem.productId.toLowerCase()
           )
         })
         if (foundShippingPlan) {
@@ -83,10 +82,11 @@ function Cart({ cart }: any) {
       OrderNo: null,
       DeliveryCenter: null,
     }
-    const response = await axios.post(NEXT_SHIPPING_PLANS, { model })
+    //const response = await axios.post(NEXT_SHIPPING_PLANS, { model })
+    const shippingPlans = await getShippingPlans()({ model: model });
     setCartItems({
       ...cart,
-      lineItems: mapShippingPlansToItems(response.data, cart.lineItems),
+      lineItems: mapShippingPlansToItems(shippingPlans, cart.lineItems),
     })
   }
 
