@@ -52,6 +52,7 @@ import {
   SLUG_TYPE_MANUFACTURER,
 } from '@components/utils/textVariables'
 import { ELEM_ATTR, PDP_ELEM_SELECTORS } from '@framework/content/use-content-snippet'
+import { generateUri } from '@commerce/utils/uri-util'
 
 const PLACEMENTS_MAP: any = {
   Head: {
@@ -435,7 +436,7 @@ export default function ProductView({
                                   <div className='image-container'>
                                     <Image
                                       priority
-                                      src={`${image.image}?h=1000&w=600&fm=webp` || IMG_PLACEHOLDER}                             
+                                      src={generateUri(image.image, "h=1000&w=600&fm=webp") || IMG_PLACEHOLDER}                             
                                       alt={image.name}
                                       onClick={handleImgLoad}
                                       className="w-full h-full object-center object-cover image"
@@ -464,7 +465,7 @@ export default function ProductView({
                           <div className='image-container'>
                           <Image
                                 priority
-                                src={`${image.image}?h=1000&w=600&fm=webp` || IMG_PLACEHOLDER}                             
+                                src={generateUri(image.image, "h=1000&w=600&fm=webp") || IMG_PLACEHOLDER}                             
                                 alt={image.name}
                                 onClick={handleImgLoad}
                                 className="w-full h-full object-center object-cover image"
