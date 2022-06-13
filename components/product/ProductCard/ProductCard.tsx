@@ -17,6 +17,7 @@ import {
   GENERAL_ADD_TO_BASKET,
   IMG_PLACEHOLDER
 } from '@components/utils/textVariables'
+import { generateUri } from '@commerce/utils/uri-util'
 
 interface Props {
   product: any
@@ -172,7 +173,7 @@ const ProductCard: FC<Props> = ({ product }) => {
             <div className="relative overflow-hidden bg-gray-200 aspect-w-1 aspect-h-1 hover:opacity-75">
                 <Image
                   priority
-                  src={`${currentProductData.image}?h=400&w=300&fm=webp` || IMG_PLACEHOLDER}
+                  src={generateUri(currentProductData.image, "h=400&fm=webp") || IMG_PLACEHOLDER} 
                   alt={product.name}
                   onMouseEnter={() => handleHover('enter')}
                   onMouseLeave={() => handleHover('leave')}

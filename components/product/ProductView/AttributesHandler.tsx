@@ -163,15 +163,15 @@ export default function AttributesHandler({
   const KEY_SIZE = "clothing.size";
   const KEY_COLOR = "global.colour";
   
-  const tempVariantAttrs = variantAttributes.map((x: any, index: number) => {
+  const tempVariantAttrs = variantAttributes?.map((x: any, index: number) => {
     return {...x, ...{displayOrder: index + 1}};
   })
-  const newVariantAttrs = JSON.parse(JSON.stringify(tempVariantAttrs)).map((x: any, index: number) => {
+  const newVariantAttrs = JSON?.parse(JSON?.stringify(tempVariantAttrs))?.map((x: any, index: number) => {
     if (x.fieldCode === KEY_SIZE || x.fieldCode === KEY_COLOR) {
       if (x.fieldCode === KEY_SIZE) {
-        x.displayOrder = tempVariantAttrs.find((x: any) => x.fieldCode === KEY_COLOR)?.displayOrder;
+        x.displayOrder = tempVariantAttrs?.find((x: any) => x.fieldCode === KEY_COLOR)?.displayOrder;
       } else if (x.fieldCode === KEY_COLOR) {
-        x.displayOrder = tempVariantAttrs.find((x: any) => x.fieldCode === KEY_SIZE)?.displayOrder;
+        x.displayOrder = tempVariantAttrs?.find((x: any) => x.fieldCode === KEY_SIZE)?.displayOrder;
       }
       return x;
     }

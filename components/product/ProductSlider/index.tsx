@@ -7,6 +7,7 @@ import 'swiper/css/navigation'
 
 import SwiperCore, { Navigation } from 'swiper'
 import { BTN_SEE_EVERYTHING, IMG_PLACEHOLDER } from '@components/utils/textVariables'
+import { generateUri } from '@commerce/utils/uri-util'
 
 SwiperCore.use([Navigation])
 
@@ -106,7 +107,7 @@ const ProductSlider: FC<Props> = ({ config }) => {
                         <div className="group relative">
                           <div className="w-full bg-gray-200 rounded-md overflow-hidden aspect-w-1 aspect-h-1">
                             <Image priority
-                              src={product?.image || IMG_PLACEHOLDER}
+                              src={generateUri(product?.image, "h=400&fm=webp") || IMG_PLACEHOLDER}   
                               alt={product?.name}
                               layout="responsive"
                               width={257}

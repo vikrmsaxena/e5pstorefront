@@ -436,7 +436,7 @@ export default function ProductView({
                                   <div className='image-container'>
                                     <Image
                                       priority
-                                      src={generateUri(image.image, "h=1000&w=600&fm=webp") || IMG_PLACEHOLDER}                             
+                                      src={generateUri(image.image, "h=1000&fm=webp") || IMG_PLACEHOLDER}                             
                                       alt={image.name}
                                       onClick={handleImgLoad}
                                       className="w-full h-full object-center object-cover image"
@@ -465,7 +465,7 @@ export default function ProductView({
                           <div className='image-container'>
                           <Image
                                 priority
-                                src={generateUri(image.image, "h=1000&w=600&fm=webp") || IMG_PLACEHOLDER}                             
+                                src={generateUri(image.image, "h=1000&fm=webp") || IMG_PLACEHOLDER}                             
                                 alt={image.name}
                                 onClick={handleImgLoad}
                                 className="w-full h-full object-center object-cover image"
