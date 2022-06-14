@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import { useState, useEffect, useLayoutEffect } from 'react'
 import { SearchIcon } from '@heroicons/react/outline'
 import axios from 'axios'
@@ -9,7 +10,8 @@ import { useRouter } from 'next/router'
 import eventDispatcher from '@components/services/analytics/eventDispatcher'
 import { EVENTS_MAP } from '@components/services/analytics/constants'
 import { useUI } from '@components/ui/context'
-import { BTN_SEARCH } from '@components/utils/textVariables'
+import { BTN_SEARCH, IMG_PLACEHOLDER } from '@components/utils/textVariables'
+import { generateUri } from '@commerce/utils/uri-util'
 
 export default function Search({ closeWrapper = () => {}, keywords }: any) {
   const Router = useRouter()
@@ -79,7 +81,7 @@ export default function Search({ closeWrapper = () => {}, keywords }: any) {
       >
         <XIcon />
       </div>
-      <div className="w-full mt-10 justify-center items-center flex flex-col px-10 py-5">
+      <div className="w-full mt-10 justify-center items-center flex flex-col sm:px-10 px-4 py-5">
         <div className="mb-4 sm:w-3/5 w-full mx-auto">
           <div className="flex flex-row  rounded-sm px-1">
             <label className="hidden" htmlFor={'search-bar'}>
@@ -119,11 +121,15 @@ export default function Search({ closeWrapper = () => {}, keywords }: any) {
                   <Link passHref href={`/${product.slug}`}>
                     <a href={`/${product.slug}`}>
                       <div className="relative overflow-hidden bg-gray-200 aspect-w-1 aspect-h-1 group-hover:opacity-75">
-                        <img
-                          src={product.image}
-                          alt={product.name}
-                          className="w-full h-full object-center object-cover"
-                        />
+                      <div className='image-container'>
+                            <Image 
+                              src={generateUri(product.image, "h=400&fm=webp") || IMG_PLACEHOLDER} 
+                              alt={product.name}
+                              layout='fill' 
+                              sizes='50vw'
+                              className='w-full sm:h-72 h-48 object-center object-cover image'>
+                            </Image> 
+                        </div>                        
                       </div>
                     </a>
                   </Link>
