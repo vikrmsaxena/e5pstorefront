@@ -121,7 +121,7 @@ export default function Search({ closeWrapper = () => {}, keywords }: any) {
                   <Link passHref href={`/${product.slug}`}>
                     <a href={`/${product.slug}`}>
                       <div className="relative overflow-hidden bg-gray-200 aspect-w-1 aspect-h-1 group-hover:opacity-75">
-                      <div className='image-container'>
+                          <div className='image-container'>
                             <Image 
                               src={generateUri(product.image, "h=400&fm=webp") || IMG_PLACEHOLDER} 
                               alt={product.name}
